@@ -68,66 +68,102 @@
   <!-- Docsify Core -->
   <script src="https://cdn.jsdelivr.net/npm/docsify@4.13.1/lib/docsify.min.js"></script>
 
+  <!-- html2pdf for direct .pdf file download -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.2/html2pdf.bundle.min.js"></script>
+
   <!-- PDF Download Plugin -->
   <script>
     function downloadPDF() {
-      // Open a new clean window with just the content, styled for print
       var content = document.querySelector('.markdown-section');
-      if (!content) return;
+      if (!content) { alert('No se encontro contenido para descargar.'); return; }
 
+      // Get filename from h1
       var h1 = content.querySelector('h1');
-      var title = h1 ? h1.textContent.trim() : 'NEOMAAA Documento';
+      var title = h1 ? h1.textContent.trim() : 'NEOMAAA-documento';
+      var filename = 'NEOMAAA-' + title.replace(/[^a-zA-Z0-9\s-]/g, '').replace(/\s+/g, '-').substring(0, 50);
 
-      var printWindow = window.open('', '_blank');
-      printWindow.document.write('<!DOCTYPE html><html><head>');
-      printWindow.document.write('<title>' + title + '</title>');
-      printWindow.document.write('<style>');
-      printWindow.document.write('* { box-sizing: border-box; margin: 0; padding: 0; }');
-      printWindow.document.write('body { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #1a1a1a; background: #fff; padding: 40px 50px; line-height: 1.7; font-size: 14px; }');
-      printWindow.document.write('h1 { font-size: 1.8em; font-weight: 800; color: #000; border-bottom: 2px solid #00D4AA; padding-bottom: 10px; margin-bottom: 20px; }');
-      printWindow.document.write('h2 { font-size: 1.4em; font-weight: 700; color: #006B55; margin-top: 28px; margin-bottom: 12px; padding-bottom: 6px; border-bottom: 1px solid #ddd; }');
-      printWindow.document.write('h3 { font-size: 1.15em; font-weight: 600; color: #000; margin-top: 20px; margin-bottom: 8px; }');
-      printWindow.document.write('h4 { font-size: 0.95em; font-weight: 600; color: #444; margin-top: 16px; margin-bottom: 6px; }');
-      printWindow.document.write('p { margin: 8px 0; color: #333; }');
-      printWindow.document.write('strong { color: #000; }');
-      printWindow.document.write('a { color: #006B55; text-decoration: none; }');
-      printWindow.document.write('ul, ol { margin: 8px 0 8px 24px; color: #333; }');
-      printWindow.document.write('li { margin: 4px 0; }');
-      printWindow.document.write('table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 13px; }');
-      printWindow.document.write('th { background: #f0f0f0; color: #000; font-weight: 600; text-align: left; padding: 10px 12px; border: 1px solid #ddd; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; }');
-      printWindow.document.write('td { padding: 8px 12px; border: 1px solid #eee; color: #333; }');
-      printWindow.document.write('tr:nth-child(even) { background: #fafafa; }');
-      printWindow.document.write('blockquote { border-left: 3px solid #00D4AA; background: #f0fdf4; padding: 10px 16px; margin: 16px 0; border-radius: 0 6px 6px 0; }');
-      printWindow.document.write('blockquote p { color: #333; }');
-      printWindow.document.write('code { background: #f4f4f5; color: #333; padding: 1px 5px; border-radius: 3px; font-size: 0.9em; }');
-      printWindow.document.write('pre { background: #f8f8f8; border: 1px solid #ddd; border-radius: 6px; padding: 14px; overflow-x: auto; margin: 12px 0; }');
-      printWindow.document.write('pre code { background: none; padding: 0; }');
-      printWindow.document.write('hr { border: none; border-top: 1px solid #ddd; margin: 24px 0; }');
-      printWindow.document.write('.pdf-banner { display: none; }');
-      printWindow.document.write('.badge { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 10px; font-weight: 600; border: 1px solid currentColor; }');
-      printWindow.document.write('.footer-print { margin-top: 40px; padding-top: 16px; border-top: 1px solid #ddd; font-size: 11px; color: #999; text-align: center; }');
-      printWindow.document.write('@media print { body { padding: 20px 30px; } @page { margin: 15mm; size: A4; } }');
-      printWindow.document.write('</style>');
-      printWindow.document.write('</head><body>');
+      // Show loading state on all buttons
+      var allBtns = document.querySelectorAll('.pdf-download-btn, .pdf-banner-btn');
+      allBtns.forEach(function(b) { b.textContent = 'Generando...'; b.disabled = true; });
 
-      // Clone content without banners
+      // Create a wrapper div with white background and proper styling
+      var wrapper = document.createElement('div');
+      wrapper.style.cssText = 'background:#fff; color:#1a1a1a; padding:30px 40px; font-family:Inter,-apple-system,sans-serif; font-size:13px; line-height:1.6; max-width:800px;';
+
+      // Clone and clean content
       var clone = content.cloneNode(true);
-      clone.querySelectorAll('.pdf-banner').forEach(function(el) { el.remove(); });
-      printWindow.document.write(clone.innerHTML);
+      // Remove banners
+      var banners = clone.querySelectorAll('.pdf-banner');
+      for (var i = 0; i < banners.length; i++) banners[i].parentNode.removeChild(banners[i]);
 
-      // Footer
-      printWindow.document.write('<div class="footer-print">NEOMAAA Markets — Documento Interno — ' + new Date().toLocaleDateString('es-ES') + '</div>');
-      printWindow.document.write('</body></html>');
-      printWindow.document.close();
+      // Apply inline styles for PDF rendering
+      var styles = {
+        'h1': 'color:#000;font-size:22px;font-weight:800;border-bottom:2px solid #00D4AA;padding-bottom:8px;margin:0 0 16px 0;',
+        'h2': 'color:#006B55;font-size:18px;font-weight:700;margin:24px 0 10px 0;padding-bottom:6px;border-bottom:1px solid #ddd;',
+        'h3': 'color:#000;font-size:15px;font-weight:600;margin:18px 0 8px 0;',
+        'h4': 'color:#444;font-size:13px;font-weight:600;margin:14px 0 6px 0;',
+        'p': 'color:#333;margin:6px 0;',
+        'li': 'color:#333;margin:3px 0;',
+        'strong': 'color:#000;',
+        'a': 'color:#006B55;',
+        'blockquote': 'border-left:3px solid #00D4AA;background:#f0fdf4;padding:8px 14px;margin:12px 0;',
+        'code': 'background:#f4f4f5;color:#333;padding:1px 4px;border-radius:3px;font-size:0.85em;',
+        'pre': 'background:#f8f8f8;border:1px solid #ddd;border-radius:4px;padding:12px;margin:10px 0;overflow:hidden;',
+        'table': 'width:100%;border-collapse:collapse;margin:12px 0;font-size:12px;',
+        'th': 'background:#f0f0f0;color:#000;font-weight:600;text-align:left;padding:8px 10px;border:1px solid #ddd;font-size:10px;',
+        'td': 'padding:6px 10px;border:1px solid #eee;color:#333;',
+        'hr': 'border:none;border-top:1px solid #ddd;margin:20px 0;'
+      };
 
-      // Wait for content to render, then trigger print (Save as PDF)
-      setTimeout(function() {
-        printWindow.print();
-      }, 500);
+      Object.keys(styles).forEach(function(tag) {
+        var els = clone.querySelectorAll(tag);
+        for (var j = 0; j < els.length; j++) {
+          els[j].style.cssText = styles[tag];
+        }
+      });
+
+      // Pre code no background
+      var preCodes = clone.querySelectorAll('pre code');
+      for (var k = 0; k < preCodes.length; k++) {
+        preCodes[k].style.cssText = 'background:none;padding:0;color:#333;font-size:12px;';
+      }
+
+      wrapper.appendChild(clone);
+
+      // Add footer
+      var footer = document.createElement('div');
+      footer.style.cssText = 'margin-top:30px;padding-top:12px;border-top:1px solid #ddd;font-size:10px;color:#999;text-align:center;';
+      footer.textContent = 'NEOMAAA Markets — Documento Interno — ' + new Date().toLocaleDateString('es-ES');
+      wrapper.appendChild(footer);
+
+      // Generate PDF
+      var opt = {
+        margin: 10,
+        filename: filename + '.pdf',
+        image: { type: 'jpeg', quality: 0.92 },
+        html2canvas: { scale: 2, useCORS: true, backgroundColor: '#ffffff', logging: false },
+        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+        pagebreak: { mode: ['css', 'legacy'] }
+      };
+
+      html2pdf().set(opt).from(wrapper).save()
+        .then(function() {
+          allBtns.forEach(function(b) {
+            b.textContent = 'Descargar PDF';
+            b.disabled = false;
+          });
+        })
+        .catch(function(err) {
+          console.error('PDF error:', err);
+          allBtns.forEach(function(b) {
+            b.textContent = 'Descargar PDF';
+            b.disabled = false;
+          });
+          alert('Error al generar PDF. Intenta de nuevo.');
+        });
     }
 
     window.$docsify.plugins = (window.$docsify.plugins || []).concat(function(hook) {
-      // Floating button
       hook.ready(function() {
         var btn = document.createElement('button');
         btn.className = 'pdf-download-btn';
@@ -135,7 +171,6 @@
         btn.addEventListener('click', downloadPDF);
         document.body.appendChild(btn);
       });
-      // Inline banner (not on homepage)
       hook.afterEach(function(html, next) {
         var isHome = window.location.hash === '#/' || window.location.hash === '' || window.location.hash === '#';
         if (!isHome) {
