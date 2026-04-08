@@ -71,6 +71,7 @@
   <!-- PDF Download Button Plugin -->
   <script>
     window.$docsify.plugins = (window.$docsify.plugins || []).concat(function(hook) {
+      // Floating button (bottom-right)
       hook.ready(function() {
         var btn = document.createElement('button');
         btn.className = 'pdf-download-btn';
@@ -79,6 +80,18 @@
           window.print();
         });
         document.body.appendChild(btn);
+      });
+      // Inline banner at the top of every page (except homepage)
+      hook.afterEach(function(html, next) {
+        var isHome = window.location.hash === '#/' || window.location.hash === '' || window.location.hash === '#';
+        if (!isHome) {
+          var banner = '<div class="pdf-banner">' +
+            '<span class="pdf-banner-text">Este documento esta disponible para descarga</span>' +
+            '<button class="pdf-banner-btn" onclick="window.print()">Descargar PDF</button>' +
+            '</div>';
+          html = banner + html;
+        }
+        next(html);
       });
     });
   </script>

@@ -1253,7 +1253,68 @@ input:focus:not(:focus-visible) {
 
 
 /* ===========================================
-   24. PDF DOWNLOAD BUTTON
+   24. PDF DOWNLOAD BANNER (inline, top of each page)
+   =========================================== */
+.pdf-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--neo-dark-2);
+  border: 1px solid var(--neo-dark-3);
+  border-left: 3px solid var(--neo-primary);
+  border-radius: 8px;
+  padding: 14px 20px;
+  margin-bottom: 24px;
+}
+
+.pdf-banner-text {
+  color: var(--neo-text-secondary);
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.pdf-banner-btn {
+  background: var(--neo-primary);
+  color: var(--neo-dark);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 18px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  margin-left: 16px;
+}
+
+.pdf-banner-btn:hover {
+  background: var(--neo-primary-dark);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 767px) {
+  .pdf-banner {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .pdf-banner-btn {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+
+@media print {
+  .pdf-banner {
+    display: none !important;
+  }
+}
+
+
+/* ===========================================
+   25. PDF FLOATING BUTTON (bottom-right)
    =========================================== */
 .pdf-download-btn {
   position: fixed;
