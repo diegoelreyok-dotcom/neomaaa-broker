@@ -1,0 +1,651 @@
+/* ============================================
+   NEOMAAA BROKER — Custom Portal Theme
+   ============================================ */
+
+:root {
+  /* Brand Colors */
+  --neo-primary: #00D4AA;
+  --neo-primary-dark: #00B894;
+  --neo-primary-light: #00F5C4;
+  --neo-accent: #6C5CE7;
+  --neo-accent-light: #A29BFE;
+  --neo-dark: #0A0E1A;
+  --neo-dark-2: #111827;
+  --neo-dark-3: #1F2937;
+  --neo-dark-4: #374151;
+  --neo-text: #F9FAFB;
+  --neo-text-secondary: #9CA3AF;
+  --neo-text-muted: #6B7280;
+  --neo-success: #10B981;
+  --neo-warning: #F59E0B;
+  --neo-danger: #EF4444;
+  --neo-info: #3B82F6;
+
+  /* Docsify overrides */
+  --theme-color: var(--neo-primary);
+  --base-background-color: var(--neo-dark);
+  --sidebar-background: var(--neo-dark-2);
+  --sidebar-border-color: var(--neo-dark-3);
+  --base-font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --base-font-size: 15px;
+  --base-line-height: 1.7;
+}
+
+/* ---- BODY ---- */
+body {
+  background: var(--neo-dark) !important;
+  color: var(--neo-text) !important;
+  font-family: var(--base-font-family) !important;
+}
+
+/* ---- SIDEBAR ---- */
+.sidebar {
+  background: var(--neo-dark-2) !important;
+  border-right: 1px solid var(--neo-dark-3) !important;
+  padding-top: 0 !important;
+  overflow-y: auto !important;
+}
+
+.sidebar-nav {
+  padding: 8px 0 20px !important;
+}
+
+/* ---- LOGO ---- */
+.sidebar .app-name-logo {
+  font-weight: 800;
+  font-size: 1.3em;
+  color: var(--neo-text);
+  letter-spacing: 1px;
+}
+
+.sidebar .app-name-accent {
+  font-weight: 800;
+  font-size: 1.3em;
+  color: var(--neo-primary);
+  letter-spacing: 1px;
+}
+
+.sidebar .app-name-sub {
+  font-weight: 300;
+  font-size: 0.7em;
+  color: var(--neo-text-secondary);
+  margin-left: 6px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
+.app-name-link {
+  text-decoration: none !important;
+  padding: 20px 18px 16px !important;
+  display: block !important;
+  border-bottom: 1px solid var(--neo-dark-3) !important;
+  margin-bottom: 4px !important;
+}
+
+/* ---- TOP-LEVEL ITEMS (Inicio, Master Checklist) ---- */
+.sidebar-nav > ul > li > a {
+  color: var(--neo-text) !important;
+  font-weight: 500 !important;
+  font-size: 14px !important;
+  padding: 9px 16px !important;
+  border-radius: 8px !important;
+  margin: 2px 10px !important;
+  display: block !important;
+  transition: all 0.2s ease !important;
+  border-left: 3px solid transparent !important;
+}
+
+.sidebar-nav > ul > li > a:hover {
+  color: var(--neo-primary-light) !important;
+  background: rgba(0, 212, 170, 0.07) !important;
+}
+
+.sidebar-nav > ul > li.active > a {
+  color: var(--neo-primary) !important;
+  font-weight: 600 !important;
+  background: rgba(0, 212, 170, 0.1) !important;
+  border-left: 3px solid var(--neo-primary) !important;
+}
+
+/* ---- SECTION HEADERS (Ventas, Compliance, etc.) ---- */
+.sidebar-nav > ul > li > p,
+.sidebar-nav > ul > li > strong {
+  color: var(--neo-text) !important;
+  font-size: 12.5px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.5px !important;
+  padding: 18px 16px 6px !important;
+  margin: 0 10px !important;
+  display: block !important;
+  border-top: 1px solid var(--neo-dark-3) !important;
+  cursor: pointer !important;
+  user-select: none !important;
+}
+
+/* First section header no top border */
+.sidebar-nav > ul > li:first-child > p,
+.sidebar-nav > ul > li:first-child > strong {
+  border-top: none !important;
+}
+
+/* ---- NESTED ITEMS (sub-links inside sections) ---- */
+.sidebar-nav > ul > li > ul {
+  padding-left: 0 !important;
+  margin: 2px 0 4px !important;
+}
+
+.sidebar-nav > ul > li > ul > li > a {
+  color: var(--neo-text-secondary) !important;
+  font-weight: 400 !important;
+  font-size: 13.5px !important;
+  padding: 7px 16px 7px 22px !important;
+  border-radius: 6px !important;
+  margin: 1px 10px !important;
+  display: block !important;
+  transition: all 0.18s ease !important;
+  border-left: 2px solid transparent !important;
+  line-height: 1.4 !important;
+}
+
+.sidebar-nav > ul > li > ul > li > a:hover {
+  color: var(--neo-primary-light) !important;
+  background: rgba(0, 212, 170, 0.06) !important;
+  border-left: 2px solid rgba(0, 212, 170, 0.3) !important;
+}
+
+.sidebar-nav > ul > li > ul > li.active > a {
+  color: var(--neo-primary) !important;
+  font-weight: 600 !important;
+  background: rgba(0, 212, 170, 0.1) !important;
+  border-left: 2px solid var(--neo-primary) !important;
+}
+
+/* ---- COLLAPSE ARROWS ---- */
+.sidebar-nav .sidebar-nav-collapse-arrow,
+.sidebar-nav .app-sub-sidebar-collapse-arrow {
+  display: none !important;
+}
+
+/* ---- SEARCH ---- */
+.sidebar .search {
+  margin: 0 !important;
+  padding: 12px 14px !important;
+  border-bottom: 1px solid var(--neo-dark-3) !important;
+}
+
+.sidebar .search input {
+  background: var(--neo-dark-3) !important;
+  border: 1px solid var(--neo-dark-4) !important;
+  color: var(--neo-text) !important;
+  border-radius: 10px !important;
+  padding: 10px 14px !important;
+  font-size: 13px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  transition: all 0.2s ease !important;
+}
+
+.sidebar .search input::placeholder {
+  color: var(--neo-text-muted) !important;
+}
+
+.sidebar .search input:focus {
+  border-color: var(--neo-primary) !important;
+  box-shadow: 0 0 0 3px rgba(0, 212, 170, 0.12) !important;
+  outline: none !important;
+  background: var(--neo-dark-2) !important;
+}
+
+.sidebar .search .results-panel {
+  background: var(--neo-dark-2) !important;
+  border: 1px solid var(--neo-dark-3) !important;
+  border-radius: 10px !important;
+  margin-top: 6px !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3) !important;
+}
+
+.sidebar .search .matching-post {
+  border-bottom: 1px solid var(--neo-dark-3) !important;
+  padding: 10px 14px !important;
+}
+
+.sidebar .search .matching-post:hover {
+  background: rgba(0, 212, 170, 0.05) !important;
+}
+
+.sidebar .search .matching-post p {
+  color: var(--neo-text-secondary) !important;
+  font-size: 12px !important;
+}
+
+.sidebar .search .matching-post h2 {
+  color: var(--neo-text) !important;
+  font-size: 14px !important;
+  border: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* ---- MAIN CONTENT ---- */
+.markdown-section {
+  max-width: 900px !important;
+  padding: 30px 45px !important;
+}
+
+.markdown-section h1 {
+  color: var(--neo-text) !important;
+  font-weight: 800 !important;
+  font-size: 2em !important;
+  border-bottom: 2px solid var(--neo-primary) !important;
+  padding-bottom: 12px !important;
+  margin-top: 0 !important;
+}
+
+.markdown-section h2 {
+  color: var(--neo-primary) !important;
+  font-weight: 700 !important;
+  font-size: 1.5em !important;
+  margin-top: 2em !important;
+  padding-bottom: 8px !important;
+  border-bottom: 1px solid var(--neo-dark-3) !important;
+}
+
+.markdown-section h3 {
+  color: var(--neo-text) !important;
+  font-weight: 600 !important;
+  font-size: 1.2em !important;
+  margin-top: 1.5em !important;
+}
+
+.markdown-section h4 {
+  color: var(--neo-text-secondary) !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  font-size: 0.85em !important;
+  letter-spacing: 1px !important;
+}
+
+/* Paragraphs */
+.markdown-section p {
+  color: var(--neo-text-secondary) !important;
+  line-height: 1.8 !important;
+}
+
+/* Strong text */
+.markdown-section strong {
+  color: var(--neo-text) !important;
+  font-weight: 600 !important;
+}
+
+/* Links */
+.markdown-section a {
+  color: var(--neo-primary) !important;
+  text-decoration: none !important;
+  border-bottom: 1px solid transparent !important;
+  transition: border-color 0.2s !important;
+}
+
+.markdown-section a:hover {
+  border-bottom-color: var(--neo-primary) !important;
+}
+
+/* ---- TABLES ---- */
+.markdown-section table {
+  border-collapse: collapse !important;
+  width: 100% !important;
+  margin: 1.5em 0 !important;
+  border-radius: 8px !important;
+  overflow: hidden !important;
+}
+
+.markdown-section table thead {
+  background: var(--neo-dark-3) !important;
+}
+
+.markdown-section table th {
+  color: var(--neo-primary) !important;
+  font-weight: 600 !important;
+  font-size: 12px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.8px !important;
+  padding: 12px 16px !important;
+  text-align: left !important;
+  border: none !important;
+}
+
+.markdown-section table td {
+  color: var(--neo-text-secondary) !important;
+  padding: 10px 16px !important;
+  border-bottom: 1px solid var(--neo-dark-3) !important;
+  border-left: none !important;
+  border-right: none !important;
+  font-size: 14px !important;
+}
+
+.markdown-section table tr:hover td {
+  background: rgba(0, 212, 170, 0.04) !important;
+}
+
+/* ---- CODE BLOCKS ---- */
+.markdown-section code {
+  background: var(--neo-dark-3) !important;
+  color: var(--neo-primary-light) !important;
+  padding: 2px 6px !important;
+  border-radius: 4px !important;
+  font-size: 0.9em !important;
+}
+
+.markdown-section pre {
+  background: var(--neo-dark-2) !important;
+  border: 1px solid var(--neo-dark-3) !important;
+  border-radius: 8px !important;
+  padding: 16px !important;
+}
+
+.markdown-section pre code {
+  background: transparent !important;
+  color: var(--neo-text-secondary) !important;
+  padding: 0 !important;
+}
+
+/* ---- LISTS ---- */
+.markdown-section ul,
+.markdown-section ol {
+  color: var(--neo-text-secondary) !important;
+}
+
+.markdown-section li {
+  margin: 4px 0 !important;
+}
+
+/* Checkboxes */
+.markdown-section input[type="checkbox"] {
+  accent-color: var(--neo-primary) !important;
+  margin-right: 8px !important;
+  transform: scale(1.1) !important;
+}
+
+/* ---- BLOCKQUOTES (for callouts) ---- */
+.markdown-section blockquote {
+  border-left: 4px solid var(--neo-primary) !important;
+  background: rgba(0, 212, 170, 0.06) !important;
+  padding: 12px 20px !important;
+  border-radius: 0 8px 8px 0 !important;
+  margin: 1.5em 0 !important;
+}
+
+.markdown-section blockquote p {
+  color: var(--neo-text) !important;
+}
+
+/* ---- HORIZONTAL RULE ---- */
+.markdown-section hr {
+  border: none !important;
+  border-top: 1px solid var(--neo-dark-3) !important;
+  margin: 2em 0 !important;
+}
+
+/* ---- CUSTOM CARDS ---- */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+  margin: 20px 0;
+}
+
+.card {
+  background: var(--neo-dark-2);
+  border: 1px solid var(--neo-dark-3);
+  border-radius: 12px;
+  padding: 20px;
+  transition: all 0.2s ease;
+}
+
+.card:hover {
+  border-color: var(--neo-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 212, 170, 0.1);
+}
+
+.card h4 {
+  margin-top: 0 !important;
+  color: var(--neo-text) !important;
+  text-transform: none !important;
+  font-size: 1em !important;
+  letter-spacing: 0 !important;
+}
+
+.card p {
+  font-size: 13px !important;
+  margin-bottom: 0 !important;
+}
+
+/* ---- STATUS BADGES ---- */
+.badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge-ready { background: rgba(16, 185, 129, 0.15); color: var(--neo-success); }
+.badge-progress { background: rgba(245, 158, 11, 0.15); color: var(--neo-warning); }
+.badge-pending { background: rgba(107, 114, 128, 0.15); color: var(--neo-text-muted); }
+.badge-critical { background: rgba(239, 68, 68, 0.15); color: var(--neo-danger); }
+
+/* ---- KPI BOXES ---- */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.kpi-box {
+  background: var(--neo-dark-2);
+  border: 1px solid var(--neo-dark-3);
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+}
+
+.kpi-box .kpi-value {
+  font-size: 2em;
+  font-weight: 800;
+  color: var(--neo-primary);
+  line-height: 1.2;
+}
+
+.kpi-box .kpi-label {
+  font-size: 11px;
+  color: var(--neo-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 4px;
+}
+
+/* ---- TEAM SECTION ---- */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.team-card {
+  background: var(--neo-dark-2);
+  border: 1px solid var(--neo-dark-3);
+  border-radius: 10px;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.team-card .avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--neo-dark-4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.team-card .avatar-initial {
+  background: linear-gradient(135deg, var(--neo-primary-dark), var(--neo-primary));
+  color: var(--neo-dark);
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0;
+}
+
+.team-card .info .name {
+  color: var(--neo-text);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.team-card .info .role {
+  color: var(--neo-text-muted);
+  font-size: 12px;
+}
+
+/* ---- TIMELINE ---- */
+.timeline {
+  border-left: 2px solid var(--neo-dark-3);
+  padding-left: 20px;
+  margin: 20px 0 20px 10px;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -26px;
+  top: 4px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--neo-dark-4);
+  border: 2px solid var(--neo-dark-3);
+}
+
+.timeline-item.active::before {
+  background: var(--neo-primary);
+  border-color: var(--neo-primary);
+  box-shadow: 0 0 8px rgba(0, 212, 170, 0.4);
+}
+
+.timeline-item.done::before {
+  background: var(--neo-success);
+  border-color: var(--neo-success);
+}
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 768px) {
+  .markdown-section {
+    padding: 20px !important;
+  }
+
+  .card-grid,
+  .kpi-grid,
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---- PAGINATION ---- */
+.docsify-pagination-container {
+  border-top: 1px solid var(--neo-dark-3) !important;
+  margin-top: 3em !important;
+  padding-top: 1.5em !important;
+}
+
+.pagination-item-label {
+  color: var(--neo-text-muted) !important;
+}
+
+.pagination-item-title {
+  color: var(--neo-primary) !important;
+}
+
+/* ---- SCROLLBAR ---- */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--neo-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--neo-dark-4);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--neo-text-muted);
+}
+
+/* ---- PROGRESS BAR ---- */
+.progress {
+  background: var(--neo-dark-3);
+  border-radius: 10px;
+  height: 8px;
+  overflow: hidden;
+  margin: 8px 0;
+}
+
+.progress-bar {
+  height: 100%;
+  border-radius: 10px;
+  transition: width 0.3s ease;
+}
+
+.progress-bar.green { background: linear-gradient(90deg, var(--neo-success), var(--neo-primary)); }
+.progress-bar.yellow { background: linear-gradient(90deg, var(--neo-warning), #FBBF24); }
+.progress-bar.red { background: linear-gradient(90deg, var(--neo-danger), #F87171); }
+
+/* ---- ALERT BOXES ---- */
+.alert {
+  padding: 14px 18px;
+  border-radius: 8px;
+  margin: 16px 0;
+  font-size: 14px;
+}
+
+.alert-info {
+  background: rgba(59, 130, 246, 0.1);
+  border-left: 4px solid var(--neo-info);
+  color: var(--neo-info);
+}
+
+.alert-warning {
+  background: rgba(245, 158, 11, 0.1);
+  border-left: 4px solid var(--neo-warning);
+  color: var(--neo-warning);
+}
+
+.alert-success {
+  background: rgba(16, 185, 129, 0.1);
+  border-left: 4px solid var(--neo-success);
+  color: var(--neo-success);
+}
+
+.alert-danger {
+  background: rgba(239, 68, 68, 0.1);
+  border-left: 4px solid var(--neo-danger);
+  color: var(--neo-danger);
+}
