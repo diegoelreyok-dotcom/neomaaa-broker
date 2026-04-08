@@ -68,26 +68,86 @@
   <!-- Docsify Core -->
   <script src="https://cdn.jsdelivr.net/npm/docsify@4.13.1/lib/docsify.min.js"></script>
 
-  <!-- PDF Download Button Plugin -->
+  <!-- html2pdf.js for direct PDF download -->
+  <script src="https://cdn.jsdelivr.net/npm/html2pdf.js@0.10.1/dist/html2pdf.bundle.min.js"></script>
+
+  <!-- PDF Download Plugin -->
   <script>
+    function downloadPDF() {
+      var content = document.querySelector('.markdown-section');
+      if (!content) return;
+
+      // Get page title for filename
+      var h1 = content.querySelector('h1');
+      var title = h1 ? h1.textContent.trim() : 'NEOMAAA-documento';
+      var filename = title.replace(/[^a-zA-Z0-9\s-]/g, '').replace(/\s+/g, '-').substring(0, 60);
+
+      // Hide the banner before capturing
+      var banners = content.querySelectorAll('.pdf-banner');
+      banners.forEach(function(b) { b.style.display = 'none'; });
+
+      var opt = {
+        margin: [15, 15, 15, 15],
+        filename: filename + '.pdf',
+        image: { type: 'jpeg', quality: 0.95 },
+        html2canvas: {
+          scale: 2,
+          useCORS: true,
+          backgroundColor: '#ffffff'
+        },
+        jsPDF: {
+          unit: 'mm',
+          format: 'a4',
+          orientation: 'portrait'
+        },
+        pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
+      };
+
+      // Clone content and apply print-friendly styles
+      var clone = content.cloneNode(true);
+      clone.style.color = '#1a1a1a';
+      clone.style.background = '#ffffff';
+      clone.style.padding = '0';
+      clone.style.maxWidth = '100%';
+
+      // Style all elements for PDF
+      clone.querySelectorAll('h1').forEach(function(el) { el.style.color = '#000'; el.style.borderBottomColor = '#00D4AA'; });
+      clone.querySelectorAll('h2').forEach(function(el) { el.style.color = '#006B55'; });
+      clone.querySelectorAll('h3').forEach(function(el) { el.style.color = '#000'; });
+      clone.querySelectorAll('p, li, td').forEach(function(el) { el.style.color = '#333'; });
+      clone.querySelectorAll('th').forEach(function(el) { el.style.color = '#000'; el.style.background = '#f0f0f0'; });
+      clone.querySelectorAll('strong').forEach(function(el) { el.style.color = '#000'; });
+      clone.querySelectorAll('a').forEach(function(el) { el.style.color = '#006B55'; });
+      clone.querySelectorAll('code').forEach(function(el) { el.style.background = '#f4f4f5'; el.style.color = '#333'; });
+      clone.querySelectorAll('pre').forEach(function(el) { el.style.background = '#f8f8f8'; el.style.border = '1px solid #ddd'; });
+      clone.querySelectorAll('blockquote').forEach(function(el) { el.style.borderLeftColor = '#00D4AA'; el.style.background = '#f0fdf4'; });
+      clone.querySelectorAll('table').forEach(function(el) { el.style.border = '1px solid #ddd'; });
+      clone.querySelectorAll('td').forEach(function(el) { el.style.borderBottom = '1px solid #eee'; });
+      clone.querySelectorAll('.pdf-banner').forEach(function(el) { el.remove(); });
+      clone.querySelectorAll('.badge').forEach(function(el) { el.style.border = '1px solid currentColor'; el.style.background = 'transparent'; });
+
+      html2pdf().set(opt).from(clone).save().then(function() {
+        // Restore banners
+        banners.forEach(function(b) { b.style.display = ''; });
+      });
+    }
+
     window.$docsify.plugins = (window.$docsify.plugins || []).concat(function(hook) {
-      // Floating button (bottom-right)
+      // Floating button
       hook.ready(function() {
         var btn = document.createElement('button');
         btn.className = 'pdf-download-btn';
         btn.textContent = 'Descargar PDF';
-        btn.addEventListener('click', function() {
-          window.print();
-        });
+        btn.addEventListener('click', downloadPDF);
         document.body.appendChild(btn);
       });
-      // Inline banner at the top of every page (except homepage)
+      // Inline banner (not on homepage)
       hook.afterEach(function(html, next) {
         var isHome = window.location.hash === '#/' || window.location.hash === '' || window.location.hash === '#';
         if (!isHome) {
           var banner = '<div class="pdf-banner">' +
             '<span class="pdf-banner-text">Este documento esta disponible para descarga</span>' +
-            '<button class="pdf-banner-btn" onclick="window.print()">Descargar PDF</button>' +
+            '<button class="pdf-banner-btn" onclick="downloadPDF()">Descargar PDF</button>' +
             '</div>';
           html = banner + html;
         }
