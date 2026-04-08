@@ -25,6 +25,42 @@
   </div>
 </div>
 
+### Estructura Organizacional — Stage 1
+
+<div class="org-pyramid">
+  <div class="org-level org-level-1">
+    <div class="org-node org-principal">Diego</div>
+    <div class="org-node org-principal">Yulia</div>
+    <div class="org-node org-principal">Stanislav</div>
+    <div class="org-level-label">PRINCIPALS</div>
+  </div>
+  <div class="org-connector"></div>
+  <div class="org-level org-level-2">
+    <div class="org-node org-head">Pepe<span>Dealing</span></div>
+    <div class="org-node org-head">Susana<span>Compliance</span></div>
+    <div class="org-node org-head">Edward<span>Sales Lead</span></div>
+    <div class="org-level-label">HEADS</div>
+  </div>
+  <div class="org-connector"></div>
+  <div class="org-level org-level-3">
+    <div class="org-node org-ops">Franco<span>Sales</span></div>
+    <div class="org-node org-ops">Luis<span>Sales</span></div>
+    <div class="org-node org-ops">Alex A<span>Dev</span></div>
+    <div class="org-node org-ops">Alex B<span>Dev</span></div>
+    <div class="org-node org-ops">Gleb<span>Design</span></div>
+    <div class="org-node org-ops">Dimitri<span>Sr. Design</span></div>
+    <div class="org-level-label">OPERACIONES</div>
+  </div>
+  <div class="org-connector"></div>
+  <div class="org-level org-level-4">
+    <div class="org-node org-vacant">Finance Mgr<span>Vacante</span></div>
+    <div class="org-node org-vacant">Support ES<span>Vacante</span></div>
+    <div class="org-node org-vacant">Support EN<span>Vacante</span></div>
+    <div class="org-node org-vacant">Mkt Manager<span>Vacante</span></div>
+    <div class="org-level-label">POR CONTRATAR</div>
+  </div>
+</div>
+
 ---
 
 ## Prioridades Etapa 1
@@ -85,7 +121,7 @@
     <div class="avatar avatar-initial">D</div>
     <div class="info">
       <div class="name">Diego</div>
-      <div class="role">CEO / Principal</div>
+      <div class="role">Principal</div>
     </div>
   </div>
   <div class="team-card">

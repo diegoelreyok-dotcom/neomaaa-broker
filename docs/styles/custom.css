@@ -1,25 +1,41 @@
 /* ============================================
-   NEOMAAA BROKER — Custom Portal Theme
+   NEOMAAA BROKER — Premium Fintech Portal Theme
+   Complete overhaul: typography, layout, sidebar,
+   cards, responsive, animations, accessibility.
    ============================================ */
 
+/* ---------- DESIGN TOKENS ---------- */
 :root {
-  /* Brand Colors */
+  /* Brand */
   --neo-primary: #00D4AA;
   --neo-primary-dark: #00B894;
   --neo-primary-light: #00F5C4;
+  --neo-primary-glow: rgba(0, 212, 170, 0.15);
   --neo-accent: #6C5CE7;
   --neo-accent-light: #A29BFE;
+
+  /* Surfaces */
   --neo-dark: #0A0E1A;
   --neo-dark-2: #111827;
   --neo-dark-3: #1F2937;
   --neo-dark-4: #374151;
+  --neo-dark-5: #4B5563;
+
+  /* Text — WCAG AA compliant on dark backgrounds */
   --neo-text: #F9FAFB;
+  --neo-text-body: #D1D5DB;
   --neo-text-secondary: #9CA3AF;
   --neo-text-muted: #6B7280;
+
+  /* Semantic */
   --neo-success: #10B981;
   --neo-warning: #F59E0B;
   --neo-danger: #EF4444;
   --neo-info: #3B82F6;
+
+  /* Sidebar */
+  --sidebar-width: 280px;
+  --sidebar-width-tablet: 240px;
 
   /* Docsify overrides */
   --theme-color: var(--neo-primary);
@@ -31,26 +47,97 @@
   --base-line-height: 1.7;
 }
 
-/* ---- BODY ---- */
-body {
-  background: var(--neo-dark) !important;
-  color: var(--neo-text) !important;
-  font-family: var(--base-font-family) !important;
+
+/* ===========================================
+   1. GLOBAL
+   =========================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-/* ---- SIDEBAR ---- */
+body {
+  background: var(--neo-dark) !important;
+  color: var(--neo-text-body) !important;
+  font-family: var(--base-font-family) !important;
+  line-height: 1.7 !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* ===========================================
+   2. SCROLLBAR (thin, subtle)
+   =========================================== */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--neo-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--neo-dark-4);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--neo-dark-5);
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--neo-dark-4) var(--neo-dark);
+}
+
+
+/* ===========================================
+   3. SIDEBAR
+   =========================================== */
 .sidebar {
   background: var(--neo-dark-2) !important;
   border-right: 1px solid var(--neo-dark-3) !important;
   padding-top: 0 !important;
   overflow-y: auto !important;
+  overflow-x: hidden !important;
+  width: var(--sidebar-width) !important;
+  z-index: 100 !important;
+  /* Desktop: always visible */
+  transform: translateX(0) !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  bottom: 0 !important;
+}
+
+/* Content always pushed right on desktop */
+body .content,
+.content {
+  margin-left: var(--sidebar-width) !important;
+}
+
+/* Independent sidebar scrolling */
+.sidebar::-webkit-scrollbar {
+  width: 3px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: var(--neo-dark-4);
+  border-radius: 3px;
 }
 
 .sidebar-nav {
-  padding: 8px 0 20px !important;
+  padding: 8px 0 24px !important;
 }
 
-/* ---- LOGO ---- */
+/* --- Logo area --- */
 .sidebar .app-name-logo {
   font-weight: 800;
   font-size: 1.3em;
@@ -77,13 +164,13 @@ body {
 
 .app-name-link {
   text-decoration: none !important;
-  padding: 20px 18px 16px !important;
+  padding: 22px 20px 18px !important;
   display: block !important;
   border-bottom: 1px solid var(--neo-dark-3) !important;
   margin-bottom: 4px !important;
 }
 
-/* ---- TOP-LEVEL ITEMS (Inicio, Master Checklist) ---- */
+/* --- Top-level nav items (Inicio, Master Checklist) --- */
 .sidebar-nav > ul > li > a {
   color: var(--neo-text) !important;
   font-weight: 500 !important;
@@ -94,6 +181,7 @@ body {
   display: block !important;
   transition: all 0.2s ease !important;
   border-left: 3px solid transparent !important;
+  text-decoration: none !important;
 }
 
 .sidebar-nav > ul > li > a:hover {
@@ -108,50 +196,90 @@ body {
   border-left: 3px solid var(--neo-primary) !important;
 }
 
-/* ---- SECTION HEADERS (Ventas, Compliance, etc.) ---- */
+/* --- Section headers (VENTAS, COMPLIANCE, etc.) --- */
 .sidebar-nav > ul > li > p,
 .sidebar-nav > ul > li > strong {
   color: var(--neo-text) !important;
-  font-size: 12.5px !important;
+  font-size: 11px !important;
   font-weight: 700 !important;
-  letter-spacing: 0.5px !important;
-  padding: 18px 16px 6px !important;
+  letter-spacing: 1.2px !important;
+  text-transform: uppercase !important;
+  padding: 20px 16px 8px !important;
   margin: 0 10px !important;
-  display: block !important;
+  display: flex !important;
+  align-items: center !important;
   border-top: 1px solid var(--neo-dark-3) !important;
   cursor: pointer !important;
   user-select: none !important;
+  transition: color 0.2s ease !important;
+  position: relative !important;
 }
 
-/* First section header no top border */
+.sidebar-nav > ul > li > p:hover,
+.sidebar-nav > ul > li > strong:hover {
+  color: var(--neo-primary) !important;
+}
+
+/* CSS triangle arrow indicator for collapsible sections */
+.sidebar-nav > ul > li > p::after,
+.sidebar-nav > ul > li > strong::after {
+  content: '' !important;
+  display: inline-block !important;
+  width: 0 !important;
+  height: 0 !important;
+  border-left: 4px solid transparent !important;
+  border-right: 4px solid transparent !important;
+  border-top: 5px solid var(--neo-text-muted) !important;
+  margin-left: auto !important;
+  transition: transform 0.25s ease !important;
+  flex-shrink: 0 !important;
+}
+
+/* Arrow rotated when section is collapsed (docsify-sidebar-collapse) */
+.sidebar-nav > ul > li.collapse > p::after,
+.sidebar-nav > ul > li.collapse > strong::after {
+  transform: rotate(-90deg) !important;
+}
+
+/* First section: no top border */
 .sidebar-nav > ul > li:first-child > p,
 .sidebar-nav > ul > li:first-child > strong {
   border-top: none !important;
 }
 
-/* ---- NESTED ITEMS (sub-links inside sections) ---- */
+/* --- Nested navigation links --- */
 .sidebar-nav > ul > li > ul {
   padding-left: 0 !important;
-  margin: 2px 0 4px !important;
+  margin: 2px 0 6px !important;
+  overflow: hidden !important;
+  transition: max-height 0.3s ease, opacity 0.25s ease !important;
+}
+
+/* Collapsed sub-list (docsify-sidebar-collapse) */
+.sidebar-nav > ul > li.collapse > ul {
+  max-height: 0 !important;
+  opacity: 0 !important;
+  margin: 0 !important;
 }
 
 .sidebar-nav > ul > li > ul > li > a {
   color: var(--neo-text-secondary) !important;
   font-weight: 400 !important;
   font-size: 13.5px !important;
-  padding: 7px 16px 7px 22px !important;
+  padding: 7px 16px 7px 24px !important;
   border-radius: 6px !important;
   margin: 1px 10px !important;
   display: block !important;
-  transition: all 0.18s ease !important;
+  transition: all 0.2s ease !important;
   border-left: 2px solid transparent !important;
   line-height: 1.4 !important;
+  text-decoration: none !important;
 }
 
 .sidebar-nav > ul > li > ul > li > a:hover {
   color: var(--neo-primary-light) !important;
   background: rgba(0, 212, 170, 0.06) !important;
-  border-left: 2px solid rgba(0, 212, 170, 0.3) !important;
+  border-left: 2px solid rgba(0, 212, 170, 0.35) !important;
 }
 
 .sidebar-nav > ul > li > ul > li.active > a {
@@ -161,13 +289,22 @@ body {
   border-left: 2px solid var(--neo-primary) !important;
 }
 
-/* ---- COLLAPSE ARROWS ---- */
+/* Hide default docsify-sidebar-collapse arrows if plugin provides them */
 .sidebar-nav .sidebar-nav-collapse-arrow,
 .sidebar-nav .app-sub-sidebar-collapse-arrow {
   display: none !important;
 }
 
-/* ---- SEARCH ---- */
+/* Hide the auto-generated sub-sidebar (page headings bleeding into sidebar) */
+.app-sub-sidebar,
+.sidebar-nav .app-sub-sidebar {
+  display: none !important;
+}
+
+
+/* ===========================================
+   4. SEARCH
+   =========================================== */
 .sidebar .search {
   margin: 0 !important;
   padding: 12px 14px !important;
@@ -202,16 +339,19 @@ body {
   border: 1px solid var(--neo-dark-3) !important;
   border-radius: 10px !important;
   margin-top: 6px !important;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4) !important;
+  max-height: 60vh !important;
+  overflow-y: auto !important;
 }
 
 .sidebar .search .matching-post {
   border-bottom: 1px solid var(--neo-dark-3) !important;
   padding: 10px 14px !important;
+  transition: background 0.15s ease !important;
 }
 
 .sidebar .search .matching-post:hover {
-  background: rgba(0, 212, 170, 0.05) !important;
+  background: rgba(0, 212, 170, 0.06) !important;
 }
 
 .sidebar .search .matching-post p {
@@ -227,26 +367,56 @@ body {
   padding: 0 !important;
 }
 
-/* ---- MAIN CONTENT ---- */
-.markdown-section {
-  max-width: 900px !important;
-  padding: 30px 45px !important;
+
+/* ===========================================
+   5. MAIN CONTENT
+   =========================================== */
+
+/* Content area */
+.content {
+  position: relative !important;
 }
+
+/* Fade-in animation for page content */
+@keyframes fadeInContent {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.markdown-section {
+  max-width: 920px !important;
+  padding: 36px 48px !important;
+  animation: fadeInContent 0.35s ease-out !important;
+}
+
+
+/* ===========================================
+   6. TYPOGRAPHY
+   =========================================== */
 
 .markdown-section h1 {
   color: var(--neo-text) !important;
   font-weight: 800 !important;
-  font-size: 2em !important;
+  font-size: 2.2em !important;
+  line-height: 1.3 !important;
   border-bottom: 2px solid var(--neo-primary) !important;
-  padding-bottom: 12px !important;
+  padding-bottom: 14px !important;
   margin-top: 0 !important;
+  margin-bottom: 1em !important;
 }
 
 .markdown-section h2 {
   color: var(--neo-primary) !important;
-  font-weight: 700 !important;
+  font-weight: 600 !important;
   font-size: 1.5em !important;
-  margin-top: 2em !important;
+  line-height: 1.3 !important;
+  margin-top: 2.2em !important;
   padding-bottom: 8px !important;
   border-bottom: 1px solid var(--neo-dark-3) !important;
 }
@@ -255,7 +425,8 @@ body {
   color: var(--neo-text) !important;
   font-weight: 600 !important;
   font-size: 1.2em !important;
-  margin-top: 1.5em !important;
+  line-height: 1.3 !important;
+  margin-top: 1.6em !important;
 }
 
 .markdown-section h4 {
@@ -264,18 +435,30 @@ body {
   text-transform: uppercase !important;
   font-size: 0.85em !important;
   letter-spacing: 1px !important;
+  line-height: 1.3 !important;
 }
 
-/* Paragraphs */
-.markdown-section p {
+.markdown-section h5,
+.markdown-section h6 {
   color: var(--neo-text-secondary) !important;
-  line-height: 1.8 !important;
+  font-weight: 600 !important;
+  line-height: 1.3 !important;
 }
 
-/* Strong text */
+/* Body text — WCAG AA compliant */
+.markdown-section p {
+  color: var(--neo-text-body) !important;
+  line-height: 1.7 !important;
+  margin: 0.8em 0 !important;
+}
+
 .markdown-section strong {
   color: var(--neo-text) !important;
   font-weight: 600 !important;
+}
+
+.markdown-section em {
+  color: var(--neo-text-body) !important;
 }
 
 /* Links */
@@ -283,20 +466,33 @@ body {
   color: var(--neo-primary) !important;
   text-decoration: none !important;
   border-bottom: 1px solid transparent !important;
-  transition: border-color 0.2s !important;
+  transition: border-color 0.2s ease, color 0.2s ease !important;
 }
 
 .markdown-section a:hover {
+  color: var(--neo-primary-light) !important;
   border-bottom-color: var(--neo-primary) !important;
 }
 
-/* ---- TABLES ---- */
+.markdown-section a:focus-visible {
+  outline: 2px solid var(--neo-primary) !important;
+  outline-offset: 2px !important;
+  border-radius: 2px !important;
+}
+
+
+/* ===========================================
+   7. TABLES
+   =========================================== */
+
+/* Wrapper for mobile overflow */
 .markdown-section table {
   border-collapse: collapse !important;
   width: 100% !important;
   margin: 1.5em 0 !important;
-  border-radius: 8px !important;
+  border-radius: 10px !important;
   overflow: hidden !important;
+  display: table !important;
 }
 
 .markdown-section table thead {
@@ -309,69 +505,97 @@ body {
   font-size: 12px !important;
   text-transform: uppercase !important;
   letter-spacing: 0.8px !important;
-  padding: 12px 16px !important;
+  padding: 13px 16px !important;
   text-align: left !important;
   border: none !important;
+  white-space: nowrap !important;
 }
 
 .markdown-section table td {
-  color: var(--neo-text-secondary) !important;
-  padding: 10px 16px !important;
+  color: var(--neo-text-body) !important;
+  padding: 11px 16px !important;
   border-bottom: 1px solid var(--neo-dark-3) !important;
   border-left: none !important;
   border-right: none !important;
   font-size: 14px !important;
 }
 
+/* Alternating row stripes */
+.markdown-section table tbody tr:nth-child(odd) {
+  background: var(--neo-dark-2) !important;
+}
+
+.markdown-section table tbody tr:nth-child(even) {
+  background: rgba(31, 41, 55, 0.5) !important;
+}
+
 .markdown-section table tr:hover td {
   background: rgba(0, 212, 170, 0.04) !important;
 }
 
-/* ---- CODE BLOCKS ---- */
+
+/* ===========================================
+   8. CODE BLOCKS
+   =========================================== */
 .markdown-section code {
   background: var(--neo-dark-3) !important;
   color: var(--neo-primary-light) !important;
-  padding: 2px 6px !important;
-  border-radius: 4px !important;
-  font-size: 0.9em !important;
+  padding: 2px 7px !important;
+  border-radius: 5px !important;
+  font-size: 0.88em !important;
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', Consolas, monospace !important;
 }
 
 .markdown-section pre {
   background: var(--neo-dark-2) !important;
   border: 1px solid var(--neo-dark-3) !important;
-  border-radius: 8px !important;
-  padding: 16px !important;
+  border-radius: 10px !important;
+  padding: 18px !important;
+  overflow-x: auto !important;
 }
 
 .markdown-section pre code {
   background: transparent !important;
-  color: var(--neo-text-secondary) !important;
+  color: var(--neo-text-body) !important;
   padding: 0 !important;
+  border-radius: 0 !important;
 }
 
-/* ---- LISTS ---- */
+
+/* ===========================================
+   9. LISTS
+   =========================================== */
 .markdown-section ul,
 .markdown-section ol {
-  color: var(--neo-text-secondary) !important;
+  color: var(--neo-text-body) !important;
 }
 
 .markdown-section li {
-  margin: 4px 0 !important;
+  margin: 5px 0 !important;
+  line-height: 1.7 !important;
+}
+
+.markdown-section li::marker {
+  color: var(--neo-primary) !important;
 }
 
 /* Checkboxes */
 .markdown-section input[type="checkbox"] {
   accent-color: var(--neo-primary) !important;
   margin-right: 8px !important;
-  transform: scale(1.1) !important;
+  transform: scale(1.15) !important;
+  cursor: pointer !important;
 }
 
-/* ---- BLOCKQUOTES (for callouts) ---- */
+
+/* ===========================================
+   10. BLOCKQUOTES (callouts)
+   =========================================== */
 .markdown-section blockquote {
   border-left: 4px solid var(--neo-primary) !important;
   background: rgba(0, 212, 170, 0.06) !important;
-  padding: 12px 20px !important;
-  border-radius: 0 8px 8px 0 !important;
+  padding: 14px 22px !important;
+  border-radius: 0 10px 10px 0 !important;
   margin: 1.5em 0 !important;
 }
 
@@ -379,33 +603,41 @@ body {
   color: var(--neo-text) !important;
 }
 
-/* ---- HORIZONTAL RULE ---- */
+
+/* ===========================================
+   11. HORIZONTAL RULE
+   =========================================== */
 .markdown-section hr {
   border: none !important;
   border-top: 1px solid var(--neo-dark-3) !important;
-  margin: 2em 0 !important;
+  margin: 2.5em 0 !important;
 }
 
-/* ---- CUSTOM CARDS ---- */
+
+/* ===========================================
+   12. CARDS
+   =========================================== */
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 16px;
-  margin: 20px 0;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin: 24px 0;
 }
 
 .card {
   background: var(--neo-dark-2);
   border: 1px solid var(--neo-dark-3);
   border-radius: 12px;
-  padding: 20px;
-  transition: all 0.2s ease;
+  padding: 22px;
+  transition: transform 0.2s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  will-change: transform;
 }
 
 .card:hover {
   border-color: var(--neo-primary);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 212, 170, 0.1);
+  transform: translateY(-3px);
+  box-shadow: 0 0 20px rgba(0, 212, 170, 0.15),
+              0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
 .card h4 {
@@ -419,42 +651,70 @@ body {
 .card p {
   font-size: 13px !important;
   margin-bottom: 0 !important;
+  color: var(--neo-text-body) !important;
 }
 
-/* ---- STATUS BADGES ---- */
+
+/* ===========================================
+   13. STATUS BADGES
+   =========================================== */
 .badge {
   display: inline-block;
-  padding: 3px 10px;
-  border-radius: 20px;
+  padding: 4px 12px;
+  border-radius: 50px;
   font-size: 11px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  line-height: 1.4;
+  white-space: nowrap;
 }
 
-.badge-ready { background: rgba(16, 185, 129, 0.15); color: var(--neo-success); }
-.badge-progress { background: rgba(245, 158, 11, 0.15); color: var(--neo-warning); }
-.badge-pending { background: rgba(107, 114, 128, 0.15); color: var(--neo-text-muted); }
-.badge-critical { background: rgba(239, 68, 68, 0.15); color: var(--neo-danger); }
+.badge-ready {
+  background: rgba(16, 185, 129, 0.15);
+  color: var(--neo-success);
+}
+.badge-progress {
+  background: rgba(245, 158, 11, 0.15);
+  color: var(--neo-warning);
+}
+.badge-pending {
+  background: rgba(107, 114, 128, 0.15);
+  color: var(--neo-text-muted);
+}
+.badge-critical {
+  background: rgba(239, 68, 68, 0.15);
+  color: var(--neo-danger);
+}
 
-/* ---- KPI BOXES ---- */
+
+/* ===========================================
+   14. KPI BOXES
+   =========================================== */
 .kpi-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 12px;
-  margin: 20px 0;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin: 24px 0;
 }
 
 .kpi-box {
   background: var(--neo-dark-2);
   border: 1px solid var(--neo-dark-3);
+  border-top: 3px solid var(--neo-primary) !important;
   border-radius: 10px;
-  padding: 16px;
+  padding: 24px;
   text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.kpi-box:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 }
 
 .kpi-box .kpi-value {
-  font-size: 2em;
+  font-size: 2.4em;
   font-weight: 800;
   color: var(--neo-primary);
   line-height: 1.2;
@@ -465,45 +725,60 @@ body {
   color: var(--neo-text-muted);
   text-transform: uppercase;
   letter-spacing: 1px;
-  margin-top: 4px;
+  margin-top: 6px;
 }
 
-/* ---- TEAM SECTION ---- */
+
+/* ===========================================
+   15. TEAM SECTION
+   =========================================== */
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 12px;
-  margin: 16px 0;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin: 20px 0;
 }
 
 .team-card {
   background: var(--neo-dark-2);
   border: 1px solid var(--neo-dark-3);
   border-radius: 10px;
-  padding: 14px 16px;
+  padding: 16px 18px;
   display: flex;
   align-items: center;
   gap: 12px;
+  transition: border-color 0.2s ease, box-shadow 0.3s ease;
+}
+
+.team-card:hover {
+  border-color: rgba(0, 212, 170, 0.3);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
 }
 
 .team-card .avatar {
-  width: 40px;
-  height: 40px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
   background: var(--neo-dark-4);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 18px;
+  font-size: 16px;
   flex-shrink: 0;
 }
 
 .team-card .avatar-initial {
-  background: linear-gradient(135deg, var(--neo-primary-dark), var(--neo-primary));
+  background: linear-gradient(135deg, var(--neo-primary-dark), var(--neo-primary-light));
   color: var(--neo-dark);
   font-weight: 700;
-  font-size: 16px;
+  font-size: 15px;
   letter-spacing: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .team-card .info .name {
@@ -517,34 +792,186 @@ body {
   font-size: 12px;
 }
 
-/* ---- TIMELINE ---- */
+
+/* ===========================================
+   16. ORG PYRAMID
+   =========================================== */
+.org-pyramid {
+  margin: 28px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.org-level {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  position: relative;
+  padding: 16px 20px;
+  width: 100%;
+}
+
+.org-level-label {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--neo-text-muted);
+  text-transform: uppercase;
+  writing-mode: horizontal-tb;
+  opacity: 0.6;
+}
+
+.org-connector {
+  width: 2px;
+  height: 12px;
+  background: var(--neo-dark-4);
+}
+
+.org-node {
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--neo-text);
+  text-align: center;
+  border: 1px solid var(--neo-dark-3);
+  background: var(--neo-dark-2);
+  transition: all 0.2s ease;
+  min-width: 100px;
+}
+
+.org-node span {
+  display: block;
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--neo-text-muted);
+  margin-top: 2px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.org-node:hover {
+  border-color: rgba(0, 212, 170, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Level 1 — Principals */
+.org-level-1 {
+  background: rgba(0, 212, 170, 0.06);
+  border-radius: 12px;
+  max-width: 420px;
+}
+
+.org-principal {
+  border-color: var(--neo-primary);
+  background: rgba(0, 212, 170, 0.08);
+}
+
+.org-principal span {
+  color: var(--neo-primary);
+}
+
+/* Level 2 — Heads */
+.org-level-2 {
+  background: rgba(59, 130, 246, 0.04);
+  border-radius: 12px;
+  max-width: 520px;
+}
+
+.org-head {
+  border-color: var(--neo-info);
+  background: rgba(59, 130, 246, 0.06);
+}
+
+.org-head span {
+  color: var(--neo-info);
+}
+
+/* Level 3 — Operations */
+.org-level-3 {
+  max-width: 700px;
+}
+
+.org-ops {
+  border-color: var(--neo-dark-4);
+}
+
+/* Level 4 — Vacancies */
+.org-level-4 {
+  max-width: 700px;
+}
+
+.org-vacant {
+  border: 1px dashed var(--neo-dark-4);
+  background: transparent;
+  color: var(--neo-text-muted);
+  opacity: 0.7;
+}
+
+.org-vacant span {
+  color: var(--neo-warning);
+}
+
+/* Responsive */
+@media (max-width: 767px) {
+  .org-level {
+    padding: 12px 10px;
+  }
+
+  .org-node {
+    min-width: 80px;
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+
+  .org-level-label {
+    position: static;
+    transform: none;
+    text-align: center;
+    width: 100%;
+    margin-top: 6px;
+  }
+}
+
+
+/* ===========================================
+   17. TIMELINE
+   =========================================== */
 .timeline {
   border-left: 2px solid var(--neo-dark-3);
-  padding-left: 20px;
-  margin: 20px 0 20px 10px;
+  padding-left: 22px;
+  margin: 24px 0 24px 12px;
 }
 
 .timeline-item {
   position: relative;
-  margin-bottom: 20px;
+  margin-bottom: 22px;
 }
 
 .timeline-item::before {
   content: '';
   position: absolute;
-  left: -26px;
+  left: -28px;
   top: 4px;
   width: 12px;
   height: 12px;
   border-radius: 50%;
   background: var(--neo-dark-4);
   border: 2px solid var(--neo-dark-3);
+  transition: all 0.2s ease;
 }
 
 .timeline-item.active::before {
   background: var(--neo-primary);
   border-color: var(--neo-primary);
-  box-shadow: 0 0 8px rgba(0, 212, 170, 0.4);
+  box-shadow: 0 0 10px rgba(0, 212, 170, 0.45);
 }
 
 .timeline-item.done::before {
@@ -552,20 +979,74 @@ body {
   border-color: var(--neo-success);
 }
 
-/* ---- RESPONSIVE ---- */
-@media (max-width: 768px) {
-  .markdown-section {
-    padding: 20px !important;
-  }
 
-  .card-grid,
-  .kpi-grid,
-  .team-grid {
-    grid-template-columns: 1fr;
-  }
+/* ===========================================
+   17. PROGRESS BAR
+   =========================================== */
+.progress {
+  background: var(--neo-dark-3);
+  border-radius: 10px;
+  height: 8px;
+  overflow: hidden;
+  margin: 8px 0;
 }
 
-/* ---- PAGINATION ---- */
+.progress-bar {
+  height: 100%;
+  border-radius: 10px;
+  transition: width 0.4s ease;
+}
+
+.progress-bar.green {
+  background: linear-gradient(90deg, var(--neo-success), var(--neo-primary));
+}
+.progress-bar.yellow {
+  background: linear-gradient(90deg, var(--neo-warning), #FBBF24);
+}
+.progress-bar.red {
+  background: linear-gradient(90deg, var(--neo-danger), #F87171);
+}
+
+
+/* ===========================================
+   18. ALERT BOXES
+   =========================================== */
+.alert {
+  padding: 14px 20px;
+  border-radius: 10px;
+  margin: 16px 0;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.alert-info {
+  background: rgba(59, 130, 246, 0.1);
+  border-left: 4px solid var(--neo-info);
+  color: #93C5FD;
+}
+
+.alert-warning {
+  background: rgba(245, 158, 11, 0.1);
+  border-left: 4px solid var(--neo-warning);
+  color: #FCD34D;
+}
+
+.alert-success {
+  background: rgba(16, 185, 129, 0.1);
+  border-left: 4px solid var(--neo-success);
+  color: #6EE7B7;
+}
+
+.alert-danger {
+  background: rgba(239, 68, 68, 0.1);
+  border-left: 4px solid var(--neo-danger);
+  color: #FCA5A5;
+}
+
+
+/* ===========================================
+   19. PAGINATION
+   =========================================== */
 .docsify-pagination-container {
   border-top: 1px solid var(--neo-dark-3) !important;
   margin-top: 3em !important;
@@ -578,74 +1059,315 @@ body {
 
 .pagination-item-title {
   color: var(--neo-primary) !important;
+  transition: color 0.2s ease !important;
 }
 
-/* ---- SCROLLBAR ---- */
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+.pagination-item:hover .pagination-item-title {
+  color: var(--neo-primary-light) !important;
 }
 
-::-webkit-scrollbar-track {
-  background: var(--neo-dark);
+
+/* ===========================================
+   20. ACCESSIBILITY — Focus styles
+   =========================================== */
+
+/* Visible focus ring on all interactive elements */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--neo-primary) !important;
+  outline-offset: 2px !important;
 }
 
-::-webkit-scrollbar-thumb {
-  background: var(--neo-dark-4);
-  border-radius: 3px;
+/* Remove outline for mouse clicks */
+a:focus:not(:focus-visible),
+button:focus:not(:focus-visible),
+input:focus:not(:focus-visible) {
+  outline: none !important;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: var(--neo-text-muted);
+
+/* ===========================================
+   21. RESPONSIVE — Tablet (768px to 1199px)
+   =========================================== */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .sidebar {
+    width: var(--sidebar-width-tablet) !important;
+  }
+
+  .content {
+    margin-left: var(--sidebar-width-tablet) !important;
+  }
+
+  .markdown-section {
+    padding: 28px 32px !important;
+  }
+
+  .kpi-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-/* ---- PROGRESS BAR ---- */
-.progress {
-  background: var(--neo-dark-3);
-  border-radius: 10px;
-  height: 8px;
-  overflow: hidden;
-  margin: 8px 0;
+
+/* ===========================================
+   22. RESPONSIVE — Mobile (under 768px)
+   =========================================== */
+@media (max-width: 767px) {
+  /* Sidebar slides off-screen */
+  .sidebar {
+    width: var(--sidebar-width) !important;
+    transform: translateX(-100%) !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    bottom: 0 !important;
+    z-index: 200 !important;
+    box-shadow: none !important;
+  }
+
+  /* Sidebar visible when body has class (docsify toggle) */
+  body.close .sidebar {
+    transform: translateX(0) !important;
+    box-shadow: 4px 0 24px rgba(0, 0, 0, 0.5) !important;
+  }
+
+  /* Content full width on mobile */
+  .content {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+  }
+
+  .markdown-section {
+    padding: 20px 16px !important;
+    max-width: 100% !important;
+  }
+
+  /* Single column grids */
+  .kpi-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .card-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .team-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  /* Table horizontal scroll */
+  .markdown-section table {
+    display: block !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    white-space: nowrap !important;
+  }
+
+  /* Smaller headings on mobile */
+  .markdown-section h1 {
+    font-size: 1.7em !important;
+  }
+
+  .markdown-section h2 {
+    font-size: 1.3em !important;
+  }
+
+  /* KPI boxes tighter on mobile */
+  .kpi-box {
+    padding: 18px;
+  }
+
+  .kpi-box .kpi-value {
+    font-size: 2em;
+  }
 }
 
-.progress-bar {
-  height: 100%;
-  border-radius: 10px;
-  transition: width 0.3s ease;
+/* --- Hamburger toggle --- */
+.sidebar-toggle {
+  background: var(--neo-dark-2) !important;
+  border: 1px solid var(--neo-dark-3) !important;
+  border-radius: 8px !important;
+  padding: 8px 10px !important;
+  cursor: pointer !important;
+  z-index: 300 !important;
+  position: fixed !important;
+  top: 12px !important;
+  left: 12px !important;
 }
 
-.progress-bar.green { background: linear-gradient(90deg, var(--neo-success), var(--neo-primary)); }
-.progress-bar.yellow { background: linear-gradient(90deg, var(--neo-warning), #FBBF24); }
-.progress-bar.red { background: linear-gradient(90deg, var(--neo-danger), #F87171); }
+.sidebar-toggle span {
+  background-color: var(--neo-text) !important;
+}
 
-/* ---- ALERT BOXES ---- */
-.alert {
-  padding: 14px 18px;
+/* Hide hamburger on desktop — sidebar is always visible */
+@media (min-width: 768px) {
+  .sidebar-toggle {
+    display: none !important;
+  }
+}
+
+
+/* ===========================================
+   23. DESKTOP — Sidebar always visible (768px+)
+   =========================================== */
+@media (min-width: 768px) {
+  /* Force sidebar visible regardless of Docsify body class */
+  .sidebar {
+    transform: translateX(0) !important;
+    position: fixed !important;
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  body.close .sidebar,
+  body:not(.close) .sidebar {
+    transform: translateX(0) !important;
+    display: block !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  .sidebar {
+    width: var(--sidebar-width) !important;
+  }
+
+  .content {
+    margin-left: var(--sidebar-width) !important;
+  }
+}
+
+
+/* ===========================================
+   24. PDF DOWNLOAD BUTTON
+   =========================================== */
+.pdf-download-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: var(--neo-primary);
+  color: var(--neo-dark);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 10px 20px;
+  border: none;
   border-radius: 8px;
-  margin: 16px 0;
-  font-size: 14px;
+  cursor: pointer;
+  z-index: 50;
+  box-shadow: 0 4px 12px rgba(0, 212, 170, 0.3), 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
 }
 
-.alert-info {
-  background: rgba(59, 130, 246, 0.1);
-  border-left: 4px solid var(--neo-info);
-  color: var(--neo-info);
+.pdf-download-btn:hover {
+  background: var(--neo-primary-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(0, 212, 170, 0.35), 0 3px 6px rgba(0, 0, 0, 0.25);
 }
 
-.alert-warning {
-  background: rgba(245, 158, 11, 0.1);
-  border-left: 4px solid var(--neo-warning);
-  color: var(--neo-warning);
+@media (max-width: 768px) {
+  .pdf-download-btn {
+    bottom: 16px;
+    right: 16px;
+    font-size: 12px;
+  }
 }
 
-.alert-success {
-  background: rgba(16, 185, 129, 0.1);
-  border-left: 4px solid var(--neo-success);
-  color: var(--neo-success);
-}
 
-.alert-danger {
-  background: rgba(239, 68, 68, 0.1);
-  border-left: 4px solid var(--neo-danger);
-  color: var(--neo-danger);
+/* ===========================================
+   25. PRINT STYLES
+   =========================================== */
+@media print {
+  .sidebar,
+  .sidebar-toggle,
+  .docsify-pagination-container,
+  .progress,
+  .pdf-download-btn {
+    display: none !important;
+  }
+
+  body {
+    background: #fff !important;
+    color: #1a1a1a !important;
+  }
+
+  .content {
+    margin-left: 0 !important;
+  }
+
+  .markdown-section {
+    max-width: 100% !important;
+    padding: 0 !important;
+    color: #1a1a1a !important;
+  }
+
+  .markdown-section h1 {
+    color: #000 !important;
+    border-bottom-color: #333 !important;
+  }
+
+  .markdown-section h2 {
+    color: #006B55 !important;
+    border-bottom-color: #ccc !important;
+  }
+
+  .markdown-section h3 {
+    color: #000 !important;
+  }
+
+  .markdown-section p,
+  .markdown-section li,
+  .markdown-section td {
+    color: #333 !important;
+  }
+
+  .markdown-section a {
+    color: #006B55 !important;
+    text-decoration: underline !important;
+  }
+
+  .markdown-section table {
+    border: 1px solid #ccc !important;
+  }
+
+  .markdown-section table th {
+    color: #000 !important;
+    background: #f0f0f0 !important;
+  }
+
+  .markdown-section table td {
+    border-bottom-color: #ddd !important;
+    color: #333 !important;
+  }
+
+  .card,
+  .kpi-box,
+  .team-card {
+    border: 1px solid #ccc !important;
+    background: #fff !important;
+    box-shadow: none !important;
+  }
+
+  .kpi-box .kpi-value {
+    color: #006B55 !important;
+  }
+
+  .badge {
+    border: 1px solid currentColor !important;
+    background: transparent !important;
+  }
 }

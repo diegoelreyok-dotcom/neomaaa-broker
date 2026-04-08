@@ -1,5 +1,0 @@
-- [Dashboard](/)
-- [Ventas](sales/plan-contacto.md)
-- [Compliance](compliance/workflow.md)
-- [Soporte](support/playbook.md)
-- [Enciclopedia](encyclopedia/abc.md)
