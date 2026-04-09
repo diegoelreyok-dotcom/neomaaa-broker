@@ -1306,13 +1306,6 @@ input:focus:not(:focus-visible) {
   }
 }
 
-@media print {
-  .pdf-banner {
-    display: none !important;
-  }
-}
-
-
 /* ===========================================
    25. PDF FLOATING BUTTON (bottom-right)
    =========================================== */
@@ -1357,7 +1350,8 @@ input:focus:not(:focus-visible) {
   .sidebar-toggle,
   .docsify-pagination-container,
   .progress,
-  .pdf-download-btn {
+  .pdf-download-btn,
+  .pdf-banner {
     display: none !important;
   }
 
