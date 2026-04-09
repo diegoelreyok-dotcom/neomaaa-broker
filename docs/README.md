@@ -43,8 +43,10 @@
   </div>
   <div class="org-connector"></div>
   <div class="org-level org-level-3">
-    <div class="org-node org-ops">Franco<span>Sales</span></div>
-    <div class="org-node org-ops">Luis<span>Sales</span></div>
+    <div class="org-node org-ops">Franco<span>Sales + Affiliates</span></div>
+    <div class="org-node org-ops">Luis<span>Sales + Affiliates</span></div>
+    <div class="org-node org-ops">Rocio<span>Account Manager</span></div>
+    <div class="org-node org-ops">Marilyn<span>Account Manager</span></div>
     <div class="org-node org-ops">Alex A<span>Dev</span></div>
     <div class="org-node org-ops">Alex B<span>Dev</span></div>
     <div class="org-node org-ops">Gleb<span>Design</span></div>
@@ -54,8 +56,6 @@
   <div class="org-connector"></div>
   <div class="org-level org-level-4">
     <div class="org-node org-vacant">Finance Mgr<span>Vacante</span></div>
-    <div class="org-node org-vacant">Support ES<span>Vacante</span></div>
-    <div class="org-node org-vacant">Support EN<span>Vacante</span></div>
     <div class="org-node org-vacant">Mkt Manager<span>Vacante</span></div>
     <div class="org-level-label">POR CONTRATAR</div>
   </div>
@@ -163,14 +163,28 @@
     <div class="avatar avatar-initial">F</div>
     <div class="info">
       <div class="name">Franco</div>
-      <div class="role">Sales Agent</div>
+      <div class="role">Sales + Affiliates</div>
     </div>
   </div>
   <div class="team-card">
     <div class="avatar avatar-initial">L</div>
     <div class="info">
       <div class="name">Luis</div>
-      <div class="role">Sales Agent</div>
+      <div class="role">Sales + Affiliates</div>
+    </div>
+  </div>
+  <div class="team-card">
+    <div class="avatar avatar-initial">R</div>
+    <div class="info">
+      <div class="name">Rocio</div>
+      <div class="role">Account Manager</div>
+    </div>
+  </div>
+  <div class="team-card">
+    <div class="avatar avatar-initial">M</div>
+    <div class="info">
+      <div class="name">Marilyn</div>
+      <div class="role">Account Manager</div>
     </div>
   </div>
   <div class="team-card">
@@ -203,7 +217,7 @@
   </div>
 </div>
 
-**Vacantes activas:** Finance Manager, 2 Support Agents (ES + EN), Marketing Manager
+**Vacantes activas:** Finance Manager, Marketing Manager
 
 ---
 

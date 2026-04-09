@@ -17,6 +17,7 @@
 
 - **SOPORTE**
   - [Support Playbook](support/playbook.md)
+  - [Enciclopedia de Soporte](support/enciclopedia-soporte.md)
 
 - **OPERACIONES**
   - [Depositos y Retiros](operations/deposits.md)
