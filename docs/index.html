@@ -39,9 +39,12 @@
       nativeEmoji: true,
       sidebarDisplayLevel: 1,
       notFoundPage: '404.md',
+      alias: {
+        '/ru/.*/_sidebar.md': '/ru/_sidebar.md'
+      },
       search: {
-        placeholder: 'Buscar en el portal...',
-        noData: 'Sin resultados',
+        placeholder: 'Buscar / Поиск...',
+        noData: 'Sin resultados / Нет результатов',
         depth: 3,
         hideOtherSidebarContent: false,
       },
@@ -155,23 +158,62 @@
       return !!pdfMap[hash];
     }
 
+    // Language switcher
+    function isRussian() {
+      return window.location.hash.indexOf('#/ru/') === 0;
+    }
+
+    function switchLanguage() {
+      var hash = window.location.hash;
+      if (isRussian()) {
+        // Switch to Spanish: remove /ru/ prefix
+        window.location.hash = hash.replace('#/ru/', '#/');
+      } else {
+        // Switch to Russian: add /ru/ prefix
+        var path = hash.replace('#/', '');
+        if (!path || path === '/') {
+          window.location.hash = '#/ru/README';
+        } else {
+          window.location.hash = '#/ru/' + path;
+        }
+      }
+    }
+
     window.$docsify.plugins = (window.$docsify.plugins || []).concat(function(hook) {
+      // Create language toggle + PDF button
       hook.ready(function() {
+        // Language switcher button
+        var langBtn = document.createElement('button');
+        langBtn.className = 'lang-switch-btn';
+        langBtn.addEventListener('click', switchLanguage);
+        document.body.appendChild(langBtn);
+
+        // PDF download button
         var btn = document.createElement('button');
         btn.className = 'pdf-download-btn';
         btn.textContent = 'Descargar PDF';
         btn.addEventListener('click', downloadPDF);
         document.body.appendChild(btn);
       });
+
       hook.doneEach(function() {
-        var btn = document.querySelector('.pdf-download-btn');
-        if (btn) btn.style.display = hasPDF() ? 'block' : 'none';
+        // Update language button text
+        var langBtn = document.querySelector('.lang-switch-btn');
+        if (langBtn) {
+          langBtn.textContent = isRussian() ? 'ES Espanol' : 'RU Русский';
+        }
+        // Show/hide PDF button
+        var pdfBtn = document.querySelector('.pdf-download-btn');
+        if (pdfBtn) pdfBtn.style.display = hasPDF() ? 'block' : 'none';
       });
+
       hook.afterEach(function(html, next) {
         if (hasPDF()) {
+          var bannerText = isRussian() ? 'Этот документ доступен для скачивания' : 'Este documento esta disponible para descarga';
+          var btnText = isRussian() ? 'Скачать PDF' : 'Descargar PDF';
           var banner = '<div class="pdf-banner">' +
-            '<span class="pdf-banner-text">Este documento esta disponible para descarga</span>' +
-            '<button class="pdf-banner-btn" onclick="downloadPDF()">Descargar PDF</button>' +
+            '<span class="pdf-banner-text">' + bannerText + '</span>' +
+            '<button class="pdf-banner-btn" onclick="downloadPDF()">' + btnText + '</button>' +
             '</div>';
           html = banner + html;
         }
