@@ -182,11 +182,23 @@
     window.$docsify.plugins = (window.$docsify.plugins || []).concat(function(hook) {
       // Create language toggle + PDF button
       hook.ready(function() {
-        // Language switcher button
+        // Language switcher — insert into sidebar, below search
         var langBtn = document.createElement('button');
         langBtn.className = 'lang-switch-btn';
         langBtn.addEventListener('click', switchLanguage);
-        document.body.appendChild(langBtn);
+        // Try to insert into sidebar after search
+        var insertLang = function() {
+          var sidebar = document.querySelector('.sidebar');
+          var search = document.querySelector('.sidebar .search');
+          if (sidebar && search) {
+            search.parentNode.insertBefore(langBtn, search.nextSibling);
+          } else if (sidebar) {
+            sidebar.insertBefore(langBtn, sidebar.querySelector('.sidebar-nav'));
+          } else {
+            document.body.appendChild(langBtn);
+          }
+        };
+        setTimeout(insertLang, 300);
 
         // PDF download button
         var btn = document.createElement('button');
@@ -197,10 +209,14 @@
       });
 
       hook.doneEach(function() {
-        // Update language button text
+        // Update language button with flag
         var langBtn = document.querySelector('.lang-switch-btn');
         if (langBtn) {
-          langBtn.textContent = isRussian() ? 'ES Espanol' : 'RU Русский';
+          if (isRussian()) {
+            langBtn.innerHTML = '<svg class="flag" width="20" height="14" viewBox="0 0 20 14"><rect width="20" height="14" rx="2" fill="#AA151B"/><rect y="0" width="20" height="4.67" fill="#AA151B"/><rect y="4.67" width="20" height="4.67" fill="#F1BF00"/><rect y="9.33" width="20" height="4.67" fill="#AA151B"/></svg><span class="lang-label">Cambiar a Espanol</span>';
+          } else {
+            langBtn.innerHTML = '<svg class="flag" width="20" height="14" viewBox="0 0 20 14"><rect width="20" height="14" rx="2" fill="#CE2028"/><rect y="0" width="20" height="4.67" fill="#fff"/><rect y="4.67" width="20" height="4.67" fill="#0039A6"/><rect y="9.33" width="20" height="4.67" fill="#CE2028"/></svg><span class="lang-label">Переключить на Русский</span>';
+          }
         }
         // Show/hide PDF button
         var pdfBtn = document.querySelector('.pdf-download-btn');
