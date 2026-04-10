@@ -114,6 +114,113 @@
 
 ---
 
+## Команда — Этап 1
+
+<div class="team-grid">
+  <div class="team-card">
+    <div class="avatar avatar-initial">D</div>
+    <div class="info">
+      <div class="name">Diego</div>
+      <div class="role">Principal</div>
+    </div>
+  </div>
+  <div class="team-card">
+    <div class="avatar avatar-initial">Y</div>
+    <div class="info">
+      <div class="name">Yulia</div>
+      <div class="role">Principal</div>
+    </div>
+  </div>
+  <div class="team-card">
+    <div class="avatar avatar-initial">S</div>
+    <div class="info">
+      <div class="name">Stanislav</div>
+      <div class="role">Principal</div>
+    </div>
+  </div>
+  <div class="team-card">
+    <div class="avatar avatar-initial">P</div>
+    <div class="info">
+      <div class="name">Pepe</div>
+      <div class="role">Руководитель Dealing (20 лет опыта)</div>
+    </div>
+  </div>
+  <div class="team-card">
+    <div class="avatar avatar-initial">S</div>
+    <div class="info">
+      <div class="name">Susana</div>
+      <div class="role">Комплаенс-офицер</div>
+    </div>
+  </div>
+  <div class="team-card">
+    <div class="avatar avatar-initial">E</div>
+    <div class="info">
+      <div class="name">Edward</div>
+      <div class="role">Руководитель продаж</div>
+    </div>
+  </div>
+  <div class="team-card">
+    <div class="avatar avatar-initial">F</div>
+    <div class="info">
+      <div class="name">Franco</div>
+      <div class="role">Продажи + Аффилиаты</div>
+    </div>
+  </div>
+  <div class="team-card">
+    <div class="avatar avatar-initial">L</div>
+    <div class="info">
+      <div class="name">Luis</div>
+      <div class="role">Продажи + Аффилиаты</div>
+    </div>
+  </div>
+  <div class="team-card">
+    <div class="avatar avatar-initial">R</div>
+    <div class="info">
+      <div class="name">Rocio</div>
+      <div class="role">Аккаунт-менеджер</div>
+    </div>
+  </div>
+  <div class="team-card">
+    <div class="avatar avatar-initial">M</div>
+    <div class="info">
+      <div class="name">Marilyn</div>
+      <div class="role">Аккаунт-менеджер</div>
+    </div>
+  </div>
+  <div class="team-card">
+    <div class="avatar avatar-initial">A</div>
+    <div class="info">
+      <div class="name">Alex A</div>
+      <div class="role">Разработчик</div>
+    </div>
+  </div>
+  <div class="team-card">
+    <div class="avatar avatar-initial">A</div>
+    <div class="info">
+      <div class="name">Alex B</div>
+      <div class="role">Разработчик</div>
+    </div>
+  </div>
+  <div class="team-card">
+    <div class="avatar avatar-initial">G</div>
+    <div class="info">
+      <div class="name">Gleb</div>
+      <div class="role">Дизайнер</div>
+    </div>
+  </div>
+  <div class="team-card">
+    <div class="avatar avatar-initial">D</div>
+    <div class="info">
+      <div class="name">Dimitri</div>
+      <div class="role">Старший дизайнер</div>
+    </div>
+  </div>
+</div>
+
+**Открытые вакансии:** Финансовый менеджер, Менеджер по маркетингу
+
+---
+
 ## Данные брокера
 
 | Параметр | Значение |
