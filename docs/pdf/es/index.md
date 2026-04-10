@@ -79,32 +79,8 @@ Todos los documentos internos del portal en formato PDF. Click en cualquier link
 
 ---
 
-## Versiones en Ruso (RU)
-
-### Compliance
-| Documento | Descarga |
-|-----------|----------|
-| AB Book Policy (RU) | [PDF](ru-compliance-ab-book-policy.pdf) |
-
-### Hiring
-| Documento | Descarga |
-|-----------|----------|
-| Finance Manager (RU) | [PDF](ru-hiring-finance-manager.pdf) |
-| Marketing Manager (RU) | [PDF](ru-hiring-marketing-manager.pdf) |
-| Support Agent EN (RU) | [PDF](ru-hiring-support-en.pdf) |
-| Support Agent ES (RU) | [PDF](ru-hiring-support-es.pdf) |
-
-### Operations
-| Documento | Descarga |
-|-----------|----------|
-| Go-Live Runbook (RU) | [PDF](ru-operations-go-live-runbook.pdf) |
-
-### Sales
-| Documento | Descarga |
-|-----------|----------|
-| Plan de Contacto (RU) | [PDF](ru-sales-plan-contacto.pdf) |
-| Training Sales (RU) | [PDF](ru-sales-training.pdf) |
+**Documentos en ruso:** [Ver todos los PDFs en ruso](pdf/ru/index.md)
 
 ---
 
-*Generado automaticamente. Ultima actualizacion: Abril 2026.*
+*Ultima actualizacion: Abril 2026*

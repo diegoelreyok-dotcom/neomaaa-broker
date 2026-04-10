@@ -103,7 +103,7 @@
   <div class="card">
     <h4>Marketing</h4>
     <p>Estrategia de retencion, funnel, copy, analisis competitivo, audit.</p>
-    <a href="#/marketing/retention-strategy">Ver Estrategia</a>
+    <a href="#/marketing/retencion-broker">Ver Estrategia</a>
   </div>
   <div class="card">
     <h4>Enciclopedia</h4>
