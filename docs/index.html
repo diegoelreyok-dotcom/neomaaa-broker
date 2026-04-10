@@ -65,20 +65,57 @@
 
   <!-- PDF Download Plugin — links to pre-generated PDF files -->
   <script>
+    // Map of page paths to their PDF filenames
+    var pdfMap = {
+      'sales/plan-contacto': 'sales-plan-contacto',
+      'sales/training': 'sales-training',
+      'sales/commissions': 'sales-commissions',
+      'sales/objections-broker': 'sales-objections-broker',
+      'sales/faq-ventas': 'sales-faq-ventas',
+      'compliance/workflow': 'compliance-workflow',
+      'compliance/onboarding': 'compliance-onboarding',
+      'compliance/ab-book-policy': 'compliance-ab-book-policy',
+      'compliance/manual-susana': 'compliance-manual-susana',
+      'compliance/workflow-sales-compliance': 'compliance-workflow-sales-compliance',
+      'support/playbook': 'support-playbook',
+      'support/enciclopedia-soporte': 'support-enciclopedia-soporte',
+      'operations/deposits': 'operations-deposits',
+      'operations/go-live-runbook': 'operations-go-live-runbook',
+      'operations/faq-interno': 'operations-faq-interno',
+      'marketing/retencion-broker': 'marketing-retencion-broker',
+      'marketing/funnel-broker': 'marketing-funnel-broker',
+      'marketing/copy-broker': 'marketing-copy-broker',
+      'marketing/competidores-broker': 'marketing-competidores-broker',
+      'hiring/finance-manager': 'hiring-finance-manager',
+      'hiring/support-es': 'hiring-support-es',
+      'hiring/support-en': 'hiring-support-en',
+      'hiring/marketing-manager': 'hiring-marketing-manager',
+      'partners/programa-completo': 'partners-programa-completo',
+      'partners/modelo-financiero': 'partners-modelo-financiero',
+      'partners/guia-operativa': 'partners-guia-operativa',
+      'encyclopedia/abc': 'encyclopedia-abc',
+      'launch/checklist': 'launch-checklist'
+    };
+
     function downloadPDF() {
-      // Map current page hash to PDF filename
       var hash = window.location.hash.replace('#/', '').replace('.md', '');
-      if (!hash || hash === '/') { window.location.hash = '#/pdf/es/index'; return; }
-      var pdfName = hash.replace(/\//g, '-');
-      var pdfUrl = 'pdf/es/' + pdfName + '.pdf';
-      // Try to download the pre-generated PDF
+      var pdfName = pdfMap[hash];
+      if (!pdfName) {
+        // No PDF for this page — go to PDF index
+        window.location.hash = '#/pdf/es/index';
+        return;
+      }
       var a = document.createElement('a');
-      a.href = pdfUrl;
+      a.href = 'pdf/es/' + pdfName + '.pdf';
       a.download = 'NEOMAAA-' + pdfName + '.pdf';
-      a.target = '_blank';
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
+    }
+
+    function hasPDF() {
+      var hash = window.location.hash.replace('#/', '').replace('.md', '');
+      return !!pdfMap[hash];
     }
 
     window.$docsify.plugins = (window.$docsify.plugins || []).concat(function(hook) {
@@ -89,9 +126,13 @@
         btn.addEventListener('click', downloadPDF);
         document.body.appendChild(btn);
       });
+      hook.doneEach(function() {
+        // Show/hide floating button based on whether page has a PDF
+        var btn = document.querySelector('.pdf-download-btn');
+        if (btn) btn.style.display = hasPDF() ? 'block' : 'none';
+      });
       hook.afterEach(function(html, next) {
-        var isHome = window.location.hash === '#/' || window.location.hash === '' || window.location.hash === '#';
-        if (!isHome) {
+        if (hasPDF()) {
           var banner = '<div class="pdf-banner">' +
             '<span class="pdf-banner-text">Este documento esta disponible para descarga</span>' +
             '<button class="pdf-banner-btn" onclick="downloadPDF()">Descargar PDF</button>' +

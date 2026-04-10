@@ -1,6 +1,6 @@
-# NEOMAAA Broker — Documentos PDF
+# NEOMAAA Markets — Documentos PDF (Espanol)
 
-Todos los documentos internos del portal NEOMAAA Broker en formato PDF, listos para descarga e impresion.
+Todos los documentos internos del portal en formato PDF. Click en cualquier link para descargar.
 
 ---
 
