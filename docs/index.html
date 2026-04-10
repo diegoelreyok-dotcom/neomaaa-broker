@@ -63,101 +63,22 @@
   <!-- Docsify Core -->
   <script src="https://cdn.jsdelivr.net/npm/docsify@4.13.1/lib/docsify.min.js"></script>
 
-  <!-- html2pdf for direct .pdf file download -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.2/html2pdf.bundle.min.js"></script>
-
-  <!-- PDF Download Plugin -->
+  <!-- PDF Download Plugin — links to pre-generated PDF files -->
   <script>
     function downloadPDF() {
-      var content = document.querySelector('.markdown-section');
-      if (!content) return;
-
-      var h1 = content.querySelector('h1');
-      var title = h1 ? h1.textContent.trim() : 'NEOMAAA-documento';
-      var filename = 'NEOMAAA-' + title.replace(/[^a-zA-Z0-9\s-]/g, '').replace(/\s+/g, '-').substring(0, 50);
-
-      // Loading state
-      var allBtns = document.querySelectorAll('.pdf-download-btn, .pdf-banner-btn');
-      allBtns.forEach(function(b) { b.textContent = 'Generando...'; b.disabled = true; });
-
-      // Create off-screen container attached to DOM (required for html2canvas)
-      var wrapper = document.createElement('div');
-      wrapper.id = 'pdf-render-area';
-      wrapper.style.cssText = 'position:fixed;left:-9999px;top:0;width:800px;background:#fff;color:#1a1a1a;padding:30px 40px;font-family:Inter,-apple-system,sans-serif;font-size:13px;line-height:1.6;z-index:-1;';
-
-      var clone = content.cloneNode(true);
-
-      // Remove banners
-      var banners = clone.querySelectorAll('.pdf-banner');
-      for (var i = 0; i < banners.length; i++) banners[i].parentNode.removeChild(banners[i]);
-
-      // Inline styles for every element
-      var s = {
-        'h1': 'color:#000;font-size:22px;font-weight:800;border-bottom:2px solid #00D4AA;padding-bottom:8px;margin:0 0 16px 0;',
-        'h2': 'color:#006B55;font-size:18px;font-weight:700;margin:24px 0 10px 0;padding-bottom:6px;border-bottom:1px solid #ddd;',
-        'h3': 'color:#000;font-size:15px;font-weight:600;margin:18px 0 8px 0;',
-        'h4': 'color:#444;font-size:13px;font-weight:600;margin:14px 0 6px 0;',
-        'p': 'color:#333;margin:6px 0;',
-        'li': 'color:#333;margin:3px 0;',
-        'strong': 'color:#000;',
-        'a': 'color:#006B55;',
-        'blockquote': 'border-left:3px solid #00D4AA;background:#f0fdf4;padding:8px 14px;margin:12px 0;',
-        'code': 'background:#f4f4f5;color:#333;padding:1px 4px;border-radius:3px;font-size:12px;',
-        'pre': 'background:#f8f8f8;border:1px solid #ddd;border-radius:4px;padding:12px;margin:10px 0;overflow:hidden;white-space:pre-wrap;word-break:break-word;',
-        'table': 'width:100%;border-collapse:collapse;margin:12px 0;font-size:12px;',
-        'th': 'background:#f0f0f0;color:#000;font-weight:600;text-align:left;padding:8px 10px;border:1px solid #ddd;font-size:10px;',
-        'td': 'padding:6px 10px;border:1px solid #eee;color:#333;',
-        'hr': 'border:none;border-top:1px solid #ddd;margin:20px 0;'
-      };
-      Object.keys(s).forEach(function(tag) {
-        var els = clone.querySelectorAll(tag);
-        for (var j = 0; j < els.length; j++) els[j].style.cssText = s[tag];
-      });
-      var preCodes = clone.querySelectorAll('pre code');
-      for (var k = 0; k < preCodes.length; k++) preCodes[k].style.cssText = 'background:none;padding:0;color:#333;font-size:12px;';
-
-      wrapper.appendChild(clone);
-
-      var footer = document.createElement('div');
-      footer.style.cssText = 'margin-top:30px;padding-top:12px;border-top:1px solid #ddd;font-size:10px;color:#999;text-align:center;';
-      footer.textContent = 'NEOMAAA Markets — Documento Interno — ' + new Date().toLocaleDateString('es-ES');
-      wrapper.appendChild(footer);
-
-      // ATTACH to DOM (html2canvas requires this)
-      document.body.appendChild(wrapper);
-
-      // Small delay to let browser render
-      setTimeout(function() {
-        html2pdf().set({
-          margin: 10,
-          filename: filename + '.pdf',
-          image: { type: 'jpeg', quality: 0.90 },
-          html2canvas: { scale: 1.5, useCORS: true, backgroundColor: '#ffffff', logging: false, windowWidth: 800 },
-          jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
-          pagebreak: { mode: ['css', 'legacy'] }
-        }).from(wrapper).toPdf().get('pdf').then(function(pdf) {
-          // Use blob URL approach for Safari compatibility
-          var blob = pdf.output('blob');
-          var url = URL.createObjectURL(blob);
-          var a = document.createElement('a');
-          a.href = url;
-          a.download = filename + '.pdf';
-          document.body.appendChild(a);
-          a.click();
-          document.body.removeChild(a);
-          URL.revokeObjectURL(url);
-
-          // Cleanup
-          document.body.removeChild(wrapper);
-          allBtns.forEach(function(b) { b.textContent = 'Descargar PDF'; b.disabled = false; });
-        }).catch(function(err) {
-          console.error('PDF error:', err);
-          if (document.getElementById('pdf-render-area')) document.body.removeChild(wrapper);
-          allBtns.forEach(function(b) { b.textContent = 'Descargar PDF'; b.disabled = false; });
-          // Fallback to print
-          window.print();
-        });
-      }, 300);
+      // Map current page hash to PDF filename
+      var hash = window.location.hash.replace('#/', '').replace('.md', '');
+      if (!hash || hash === '/') { window.location.hash = '#/pdf/es/index'; return; }
+      var pdfName = hash.replace(/\//g, '-');
+      var pdfUrl = 'pdf/es/' + pdfName + '.pdf';
+      // Try to download the pre-generated PDF
+      var a = document.createElement('a');
+      a.href = pdfUrl;
+      a.download = 'NEOMAAA-' + pdfName + '.pdf';
+      a.target = '_blank';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
     }
 
     window.$docsify.plugins = (window.$docsify.plugins || []).concat(function(hook) {

@@ -43,3 +43,7 @@
 
 - **ENCICLOPEDIA**
   - [ABC del Broker](encyclopedia/abc.md)
+
+- **DESCARGAR PDF**
+  - [PDFs Espanol](pdf/es/index.md)
+  - [PDFs Ruso](pdf/ru/index.md)
