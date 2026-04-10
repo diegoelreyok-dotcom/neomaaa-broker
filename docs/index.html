@@ -179,26 +179,46 @@
       }
     }
 
+    var ruFlag = 'https://flagcdn.com/w40/ru.png';
+    var esFlag = 'https://flagcdn.com/w40/es.png';
+
+    function updateLangBtn() {
+      var langBtn = document.querySelector('.lang-switch-btn');
+      if (!langBtn) return;
+      if (isRussian()) {
+        langBtn.innerHTML = '<img src="' + esFlag + '" class="flag" alt="ES" width="24" height="16"><span class="lang-label">Espanol</span>';
+      } else {
+        langBtn.innerHTML = '<img src="' + ruFlag + '" class="flag" alt="RU" width="24" height="16"><span class="lang-label">Русский</span>';
+      }
+    }
+
     window.$docsify.plugins = (window.$docsify.plugins || []).concat(function(hook) {
-      // Create language toggle + PDF button
       hook.ready(function() {
-        // Language switcher — insert into sidebar, below search
+        // Language switcher — insert into sidebar
         var langBtn = document.createElement('button');
         langBtn.className = 'lang-switch-btn';
         langBtn.addEventListener('click', switchLanguage);
-        // Try to insert into sidebar after search
-        var insertLang = function() {
-          var sidebar = document.querySelector('.sidebar');
+        // Set initial content
+        if (isRussian()) {
+          langBtn.innerHTML = '<img src="' + esFlag + '" class="flag" alt="ES" width="24" height="16"><span class="lang-label">Espanol</span>';
+        } else {
+          langBtn.innerHTML = '<img src="' + ruFlag + '" class="flag" alt="RU" width="24" height="16"><span class="lang-label">Русский</span>';
+        }
+
+        var tryInsert = function(attempts) {
           var search = document.querySelector('.sidebar .search');
-          if (sidebar && search) {
+          var sidebar = document.querySelector('.sidebar');
+          if (search) {
             search.parentNode.insertBefore(langBtn, search.nextSibling);
           } else if (sidebar) {
-            sidebar.insertBefore(langBtn, sidebar.querySelector('.sidebar-nav'));
-          } else {
-            document.body.appendChild(langBtn);
+            var nav = sidebar.querySelector('.sidebar-nav');
+            if (nav) sidebar.insertBefore(langBtn, nav);
+            else sidebar.appendChild(langBtn);
+          } else if (attempts < 10) {
+            setTimeout(function() { tryInsert(attempts + 1); }, 200);
           }
         };
-        setTimeout(insertLang, 300);
+        tryInsert(0);
 
         // PDF download button
         var btn = document.createElement('button');
@@ -209,16 +229,7 @@
       });
 
       hook.doneEach(function() {
-        // Update language button with flag
-        var langBtn = document.querySelector('.lang-switch-btn');
-        if (langBtn) {
-          if (isRussian()) {
-            langBtn.innerHTML = '<svg class="flag" width="20" height="14" viewBox="0 0 20 14"><rect width="20" height="14" rx="2" fill="#AA151B"/><rect y="0" width="20" height="4.67" fill="#AA151B"/><rect y="4.67" width="20" height="4.67" fill="#F1BF00"/><rect y="9.33" width="20" height="4.67" fill="#AA151B"/></svg><span class="lang-label">Cambiar a Espanol</span>';
-          } else {
-            langBtn.innerHTML = '<svg class="flag" width="20" height="14" viewBox="0 0 20 14"><rect width="20" height="14" rx="2" fill="#CE2028"/><rect y="0" width="20" height="4.67" fill="#fff"/><rect y="4.67" width="20" height="4.67" fill="#0039A6"/><rect y="9.33" width="20" height="4.67" fill="#CE2028"/></svg><span class="lang-label">Переключить на Русский</span>';
-          }
-        }
-        // Show/hide PDF button
+        updateLangBtn();
         var pdfBtn = document.querySelector('.pdf-download-btn');
         if (pdfBtn) pdfBtn.style.display = hasPDF() ? 'block' : 'none';
       });

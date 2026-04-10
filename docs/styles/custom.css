@@ -1336,8 +1336,10 @@ input:focus:not(:focus-visible) {
 }
 
 .lang-switch-btn .flag {
-  font-size: 18px;
-  line-height: 1;
+  display: block;
+  border-radius: 2px;
+  object-fit: cover;
+  flex-shrink: 0;
 }
 
 .lang-switch-btn .lang-label {
