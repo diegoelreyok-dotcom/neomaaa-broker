@@ -97,20 +97,57 @@
       'launch/checklist': 'launch-checklist'
     };
 
-    function downloadPDF() {
+    function downloadPDFLang(lang) {
       var hash = window.location.hash.replace('#/', '').replace('.md', '');
       var pdfName = pdfMap[hash];
-      if (!pdfName) {
-        // No PDF for this page — go to PDF index
-        window.location.hash = '#/pdf/es/index';
-        return;
-      }
+      if (!pdfName) return;
+      var prefix = lang === 'ru' ? 'pdf/ru/ru-' : 'pdf/es/';
+      var file = prefix + pdfName + '.pdf';
       var a = document.createElement('a');
-      a.href = 'pdf/es/' + pdfName + '.pdf';
-      a.download = 'NEOMAAA-' + pdfName + '.pdf';
+      a.href = file;
+      a.download = 'NEOMAAA-' + pdfName + (lang === 'ru' ? '-RU' : '-ES') + '.pdf';
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
+      closeLangModal();
+    }
+
+    function showLangModal() {
+      var existing = document.getElementById('pdf-lang-modal');
+      if (existing) { existing.style.display = 'flex'; return; }
+
+      var overlay = document.createElement('div');
+      overlay.id = 'pdf-lang-modal';
+      overlay.style.cssText = 'position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.6);display:flex;align-items:center;justify-content:center;z-index:1000;backdrop-filter:blur(4px);';
+      overlay.addEventListener('click', function(e) { if (e.target === overlay) closeLangModal(); });
+
+      var modal = document.createElement('div');
+      modal.style.cssText = 'background:#111827;border:1px solid #1F2937;border-radius:16px;padding:32px;max-width:380px;width:90%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.5);';
+
+      modal.innerHTML = '<div style="font-size:18px;font-weight:700;color:#F9FAFB;margin-bottom:6px;">Descargar PDF</div>' +
+        '<div style="font-size:13px;color:#9CA3AF;margin-bottom:24px;">Selecciona el idioma del documento</div>' +
+        '<div style="display:flex;gap:12px;justify-content:center;">' +
+          '<button onclick="downloadPDFLang(\'es\')" style="flex:1;padding:14px 20px;background:#00D4AA;color:#0A0E1A;border:none;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;font-family:Inter,sans-serif;transition:all 0.2s;">Espanol</button>' +
+          '<button onclick="downloadPDFLang(\'ru\')" style="flex:1;padding:14px 20px;background:#1F2937;color:#F9FAFB;border:1px solid #374151;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;font-family:Inter,sans-serif;transition:all 0.2s;">Ruso</button>' +
+        '</div>' +
+        '<div style="margin-top:16px;"><button onclick="closeLangModal()" style="background:none;border:none;color:#6B7280;font-size:12px;cursor:pointer;font-family:Inter,sans-serif;">Cancelar</button></div>';
+
+      overlay.appendChild(modal);
+      document.body.appendChild(overlay);
+    }
+
+    function closeLangModal() {
+      var modal = document.getElementById('pdf-lang-modal');
+      if (modal) modal.style.display = 'none';
+    }
+
+    function downloadPDF() {
+      var hash = window.location.hash.replace('#/', '').replace('.md', '');
+      if (!pdfMap[hash]) {
+        window.location.hash = '#/pdf/es/index';
+        return;
+      }
+      showLangModal();
     }
 
     function hasPDF() {
@@ -127,7 +164,6 @@
         document.body.appendChild(btn);
       });
       hook.doneEach(function() {
-        // Show/hide floating button based on whether page has a PDF
         var btn = document.querySelector('.pdf-download-btn');
         if (btn) btn.style.display = hasPDF() ? 'block' : 'none';
       });
