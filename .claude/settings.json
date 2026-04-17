@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx tsc:*)",
+      "Bash(gh repo:*)",
+      "Bash(uuidgen)",
+      "Bash(echo \"---exit: $?\")",
+      "Bash(lsof -ti:3000)",
+      "Bash(curl -s -o /dev/null -w \"Login: %{http_code}\\\\n\" http://localhost:3000/login)",
+      "Bash(echo \"exit: $?\")",
+      "Bash(echo \"---exit:$?---\")",
+      "Bash(echo \"EXIT=$?\")",
+      "Bash(echo \"EXIT: $?\")",
+      "Bash(echo \"exit:$?\")",
+      "Bash(echo \"---exit:$?\")",
+      "Bash(curl -sS -o /Users/gsiglobalteamevent/neomaaa-hub/public/flags/es.svg https://flagcdn.com/es.svg)",
+      "Bash(curl -sS -o /Users/gsiglobalteamevent/neomaaa-hub/public/flags/ru.svg https://flagcdn.com/ru.svg)",
+      "mcp__obsidian__read-note",
+      "Bash(grep -E \"sadd|scard|expire\" /Users/gsiglobalteamevent/neomaaa-hub/node_modules/@vercel/kv/dist/*.d.ts)"
+    ]
+  }
+}

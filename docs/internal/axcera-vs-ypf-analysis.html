@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEOMAAA — Analisis Migracion YPF → Axcera</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #FAFBFC;
+            --bg-white: #FFFFFF;
+            --bg-subtle: #F3F4F6;
+            --border: #E5E7EB;
+            --border-strong: #D1D5DB;
+            --text: #111827;
+            --text-secondary: #4B5563;
+            --text-muted: #6B7280;
+            --text-light: #9CA3AF;
+            --accent: #0F172A;
+            --brand: #059669;
+            --brand-light: #D1FAE5;
+            --brand-dark: #047857;
+            --red: #DC2626;
+            --red-light: #FEE2E2;
+            --red-bg: #FEF2F2;
+            --amber: #D97706;
+            --amber-light: #FEF3C7;
+            --amber-bg: #FFFBEB;
+            --green: #059669;
+            --green-light: #D1FAE5;
+            --green-bg: #ECFDF5;
+            --blue: #2563EB;
+            --blue-light: #DBEAFE;
+            --blue-bg: #EFF6FF;
+            --purple: #7C3AED;
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+            --shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
+            --radius: 8px;
+            --radius-lg: 12px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── HEADER ── */
+        .header {
+            background: var(--accent);
+            padding: 48px 0;
+            position: relative;
+        }
+
+        .header-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 48px;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        .confidential {
+            background: rgba(220,38,38,0.15);
+            border: 1px solid rgba(220,38,38,0.4);
+            color: #FCA5A5;
+            padding: 5px 14px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .header h1 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .header .subtitle {
+            color: #94A3B8;
+            font-size: 16px;
+            font-weight: 400;
+            max-width: 600px;
+        }
+
+        .header-meta {
+            display: flex;
+            gap: 32px;
+            margin-top: 28px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .header-meta span {
+            font-size: 13px;
+            color: #64748B;
+        }
+
+        .header-meta strong {
+            color: #CBD5E1;
+        }
+
+        /* ── CONTAINER ── */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 48px;
+        }
+
+        /* ── TOC ── */
+        .toc {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            margin-bottom: 48px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .toc h2 {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            border: none;
+            padding: 0;
+        }
+
+        .toc-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px 48px;
+        }
+
+        .toc a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 14px;
+            padding: 8px 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-radius: 6px;
+            transition: all 0.15s;
+        }
+
+        .toc a:hover {
+            background: var(--bg-subtle);
+            color: var(--brand);
+        }
+
+        .toc .num {
+            color: var(--text-light);
+            font-weight: 600;
+            font-size: 12px;
+            min-width: 24px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* ── SECTIONS ── */
+        section {
+            margin-bottom: 0;
+            padding: 48px 0 56px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        section:last-of-type { border-bottom: none; }
+
+        h2 {
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 32px;
+            padding-bottom: 16px;
+            border-bottom: 3px solid var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            letter-spacing: -0.5px;
+        }
+
+        h2 .section-num {
+            background: var(--accent);
+            color: #fff;
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+            font-weight: 700;
+            flex-shrink: 0;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        h3 {
+            font-size: 15px;
+            color: var(--text-muted);
+            margin: 36px 0 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            padding-left: 14px;
+            border-left: 3px solid var(--brand);
+        }
+
+        h3:first-of-type { margin-top: 8px; }
+
+        h4 {
+            font-size: 15px;
+            color: var(--text);
+            margin: 20px 0 10px;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 14px;
+            color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        /* ── TABLES ── */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0 36px;
+            font-size: 13px;
+            background: var(--bg-white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border);
+        }
+
+        thead th {
+            background: var(--bg-subtle);
+            color: var(--text-muted);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: 0.8px;
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        tbody td {
+            padding: 11px 16px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-secondary);
+        }
+
+        tbody tr:last-child td { border-bottom: none; }
+        tbody tr:hover { background: var(--bg-subtle); }
+
+        .text-right { text-align: right; }
+        .text-center { text-align: center; }
+
+        .amount {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 600;
+            font-size: 12.5px;
+        }
+
+        .amount-green { color: var(--green); }
+        .amount-red { color: var(--red); }
+        .amount-yellow { color: var(--amber); }
+        .amount-blue { color: var(--blue); }
+
+        .total-row {
+            background: var(--bg-subtle) !important;
+        }
+
+        .total-row td {
+            font-weight: 700;
+            color: var(--text);
+            font-size: 13px;
+            border-top: 2px solid var(--border-strong);
+        }
+
+        .highlight-row td {
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        /* ── METRIC CARDS ── */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 18px;
+            margin: 20px 0 36px;
+        }
+
+        .metric-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .metric-card .label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .metric-card .value {
+            font-size: 32px;
+            font-weight: 700;
+            font-family: 'JetBrains Mono', monospace;
+            letter-spacing: -1px;
+        }
+
+        .metric-card .sub {
+            font-size: 12px;
+            color: var(--text-light);
+            margin-top: 4px;
+        }
+
+        .metric-card.green { border-left: 4px solid var(--green); }
+        .metric-card.green .value { color: var(--green); }
+
+        .metric-card.red { border-left: 4px solid var(--red); }
+        .metric-card.red .value { color: var(--red); }
+
+        .metric-card.yellow { border-left: 4px solid var(--amber); }
+        .metric-card.yellow .value { color: var(--amber); }
+
+        .metric-card.blue { border-left: 4px solid var(--blue); }
+        .metric-card.blue .value { color: var(--blue); }
+
+        .metric-card.primary { border-left: 4px solid var(--accent); }
+        .metric-card.primary .value { color: var(--accent); }
+
+        /* ── ALERTS ── */
+        .alert-box {
+            border-radius: var(--radius);
+            padding: 20px 24px;
+            margin: 24px 0 32px;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .alert-red {
+            background: var(--red-bg);
+            border: 1px solid #FECACA;
+            color: #991B1B;
+        }
+
+        .alert-yellow {
+            background: var(--amber-bg);
+            border: 1px solid #FDE68A;
+            color: #92400E;
+        }
+
+        .alert-green {
+            background: var(--green-bg);
+            border: 1px solid #A7F3D0;
+            color: #065F46;
+        }
+
+        .alert-blue {
+            background: var(--blue-bg);
+            border: 1px solid #BFDBFE;
+            color: #1E40AF;
+        }
+
+        .alert-box strong { color: inherit; }
+
+        /* ── CLAUSE CARDS ── */
+        .clause-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 26px 28px;
+            margin: 18px 0;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .clause-card .clause-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 6px;
+        }
+
+        .clause-card .clause-title {
+            font-weight: 700;
+            color: var(--text);
+            font-size: 15px;
+        }
+
+        .clause-card .clause-ref {
+            font-size: 11px;
+            color: var(--text-light);
+            font-family: 'JetBrains Mono', monospace;
+            margin-bottom: 12px;
+        }
+
+        .clause-card .clause-body {
+            font-size: 13.5px;
+            color: var(--text-secondary);
+            line-height: 1.75;
+        }
+
+        .clause-card .clause-body em {
+            color: var(--red);
+            font-style: normal;
+            font-weight: 600;
+            background: var(--red-bg);
+            padding: 1px 5px;
+            border-radius: 3px;
+        }
+
+        /* ── BADGES ── */
+        .risk-badge {
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .risk-critical { background: #FEE2E2; color: #991B1B; }
+        .risk-high { background: #FFEDD5; color: #9A3412; }
+        .risk-medium { background: #FEF3C7; color: #92400E; }
+        .risk-low { background: #D1FAE5; color: #065F46; }
+
+        /* ── SCENARIO BOXES ── */
+        .scenario-box {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 30px;
+            margin: 20px 0;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .scenario-box.recommended {
+            border: 2px solid var(--green);
+            position: relative;
+        }
+
+        .scenario-box.recommended::after {
+            content: 'RECOMENDADO';
+            position: absolute;
+            top: -11px;
+            right: 24px;
+            background: var(--green);
+            color: #fff;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            padding: 3px 14px;
+            border-radius: 4px;
+        }
+
+        .scenario-box h4 {
+            font-size: 17px;
+            color: var(--text);
+            margin-bottom: 6px;
+            font-weight: 700;
+        }
+
+        .scenario-box p { font-size: 13px; }
+
+        /* ── VISUAL BARS ── */
+        .vs-bar {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            gap: 12px;
+        }
+
+        .vs-bar .bar {
+            height: 36px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            padding: 0 14px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #fff;
+            min-width: 80px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .vs-bar .bar.ypf { background: var(--green); }
+        .vs-bar .bar.axcera { background: var(--red); }
+        .vs-bar .label {
+            font-size: 13px;
+            color: var(--text-muted);
+            min-width: 100px;
+            font-weight: 500;
+        }
+
+        /* ── LISTS ── */
+        ul {
+            margin: 8px 0 16px 20px;
+            font-size: 14px;
+        }
+
+        ul li {
+            margin-bottom: 6px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        ul li strong { color: var(--text); }
+
+        /* ── FOOTER ── */
+        .footer {
+            border-top: 1px solid var(--border);
+            padding: 32px 48px;
+            text-align: center;
+            color: var(--text-light);
+            font-size: 12px;
+            line-height: 1.8;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .footer strong { color: var(--text-muted); }
+
+        /* ── PRINT ── */
+        @media print {
+            .header { padding: 32px 0; }
+            .container { padding: 24px; }
+            .metric-card { break-inside: avoid; }
+            .clause-card { break-inside: avoid; }
+            .scenario-box { break-inside: avoid; }
+            section { break-inside: avoid; }
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 768px) {
+            .header-inner { padding: 0 24px; }
+            .container { padding: 24px; }
+            .toc-grid { grid-template-columns: 1fr; }
+            .card-grid { grid-template-columns: 1fr; }
+            h2 { font-size: 19px; }
+            .header h1 { font-size: 26px; }
+            .header-meta { flex-direction: column; gap: 8px; }
+            table { font-size: 12px; }
+            thead th, tbody td { padding: 8px 10px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+    <div class="header-inner">
+        <div class="header-top">
+            <div class="logo">NEOMAAA</div>
+            <div class="confidential">Confidencial &mdash; Uso Interno</div>
+        </div>
+        <h1>Analisis de Migracion: YPF &rarr; Axcera</h1>
+        <p class="subtitle">Evaluacion de costos, riesgos contractuales y escenarios para la expansion a Futuros</p>
+        <div class="header-meta">
+            <span>Fecha: <strong>Abril 2026</strong></span>
+            <span>Preparado para: <strong>Equipo Directivo NEOMAAA</strong></span>
+            <span>Version: <strong>1.0</strong></span>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+
+    <!-- TOC -->
+    <div class="toc">
+        <h2>Contenido</h2>
+        <div class="toc-grid">
+            <a href="#s1"><span class="num">01</span> Resumen Ejecutivo</a>
+            <a href="#s7"><span class="num">07</span> Terminacion y Pagos</a>
+            <a href="#s2"><span class="num">02</span> Situacion Actual — YPF</a>
+            <a href="#s8"><span class="num">08</span> Puntos de Negociacion</a>
+            <a href="#s3"><span class="num">03</span> Propuesta Axcera — Costos</a>
+            <a href="#s9"><span class="num">09</span> Contrapropuesta NEOMAAA</a>
+            <a href="#s4"><span class="num">04</span> Comparacion Directa</a>
+            <a href="#s10"><span class="num">10</span> Escenarios de Decision</a>
+            <a href="#s5"><span class="num">05</span> Proyecciones a 24 Meses</a>
+            <a href="#s11"><span class="num">11</span> Recomendacion Final</a>
+            <a href="#s6"><span class="num">06</span> Clausulas Criticas del Contrato</a>
+        </div>
+    </div>
+
+    <!-- SECTION 1 -->
+    <section id="s1">
+        <h2><span class="section-num">1</span> Resumen Ejecutivo</h2>
+        <div class="card-grid">
+            <div class="metric-card green">
+                <div class="label">YPF &mdash; Costo Mensual Actual</div>
+                <div class="value">$10,260</div>
+                <div class="sub">~EUR 9,500 / Promedio Q1 2026</div>
+            </div>
+            <div class="metric-card red">
+                <div class="label">Axcera &mdash; CFD + 1 Futures</div>
+                <div class="value">$30,000</div>
+                <div class="sub">$32,500 con competiciones</div>
+            </div>
+            <div class="metric-card yellow">
+                <div class="label">Incremento Mensual</div>
+                <div class="value">+217%</div>
+                <div class="sub">+$22,240 por mes</div>
+            </div>
+            <div class="metric-card blue">
+                <div class="label">Costo Extra Year 1</div>
+                <div class="value">$292K</div>
+                <div class="sub">Setup $25K + diferencial mensual</div>
+            </div>
+        </div>
+        <div class="alert-red alert-box">
+            <strong>Conclusion principal:</strong> A volumen actual (~3,400 cuentas/mes, revenue $250K), migrar a Axcera cuesta 3x mas que YPF. La unica justificacion es abrir NEOMAAA Futures como nueva linea de negocio. Para que sea rentable, Futures debe generar minimo $15,000/mes de revenue neto.
+        </div>
+    </section>
+
+    <!-- SECTION 2 -->
+    <section id="s2">
+        <h2><span class="section-num">2</span> Situacion Actual &mdash; YourPropFirm (YPF)</h2>
+        <h3>Historial de Facturacion Q1 2026</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Concepto</th>
+                    <th class="text-right">Enero</th>
+                    <th class="text-right">Febrero</th>
+                    <th class="text-right">Marzo</th>
+                    <th class="text-right">Promedio</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Dashboard + 3 Plataformas (fijo)</td>
+                    <td class="text-right amount">EUR 3,991</td>
+                    <td class="text-right amount">EUR 3,991</td>
+                    <td class="text-right amount">EUR 3,991</td>
+                    <td class="text-right amount">EUR 3,991</td>
+                </tr>
+                <tr>
+                    <td>Cuentas Creadas</td>
+                    <td class="text-right">3,148</td>
+                    <td class="text-right">3,558</td>
+                    <td class="text-right">3,425</td>
+                    <td class="text-right"><strong>3,377</strong></td>
+                </tr>
+                <tr>
+                    <td>Fee por Cuentas (EUR 1.27/cuenta)</td>
+                    <td class="text-right amount">EUR 3,998</td>
+                    <td class="text-right amount">EUR 4,519</td>
+                    <td class="text-right amount">EUR 4,350</td>
+                    <td class="text-right amount">EUR 4,289</td>
+                </tr>
+                <tr>
+                    <td>KYC / AML (todos los servicios)</td>
+                    <td class="text-right amount">EUR 1,749 *</td>
+                    <td class="text-right amount">EUR 1,032</td>
+                    <td class="text-right amount">EUR 1,111</td>
+                    <td class="text-right amount">EUR 1,071 **</td>
+                </tr>
+                <tr>
+                    <td>Risk Management & Fraud Detection</td>
+                    <td class="text-right amount amount-yellow">EUR 1,804</td>
+                    <td class="text-right amount-red">&mdash;</td>
+                    <td class="text-right amount-red">&mdash;</td>
+                    <td class="text-right amount-red">&mdash;</td>
+                </tr>
+                <tr>
+                    <td>Leaderboard & Competitions</td>
+                    <td class="text-right amount amount-yellow">EUR 1,352</td>
+                    <td class="text-right amount-red">&mdash;</td>
+                    <td class="text-right amount-red">&mdash;</td>
+                    <td class="text-right amount-red">&mdash;</td>
+                </tr>
+                <tr class="total-row">
+                    <td>Total Facturado</td>
+                    <td class="text-right amount">EUR 12,894</td>
+                    <td class="text-right amount">EUR 9,541</td>
+                    <td class="text-right amount">EUR 9,451</td>
+                    <td class="text-right amount">EUR 10,629</td>
+                </tr>
+                <tr class="highlight-row">
+                    <td>Total en USD (~1.08)</td>
+                    <td class="text-right amount amount-green">$13,925</td>
+                    <td class="text-right amount amount-green">$10,305</td>
+                    <td class="text-right amount amount-green">$10,207</td>
+                    <td class="text-right amount amount-green">$11,479</td>
+                </tr>
+            </tbody>
+        </table>
+        <p style="font-size: 12px; color: var(--text-light);">
+            * Enero KYC incluye facturacion de Diciembre 2025 (doble).<br>
+            ** Promedio KYC calculado solo sobre Feb + Mar (meses normales).<br>
+            Risk Management (EUR 1,997/mo) y Competitions (EUR 1,497/mo) solo activos en Enero (prorrateados).
+        </p>
+
+        <h3>Gasto Total Q1 2026</h3>
+        <div class="card-grid">
+            <div class="metric-card green">
+                <div class="label">Q1 2026 Total Pagado</div>
+                <div class="value">EUR 31,886</div>
+                <div class="sub">~$34,437 USD</div>
+            </div>
+            <div class="metric-card primary">
+                <div class="label">Promedio Mensual (Base)</div>
+                <div class="value">$10,260</div>
+                <div class="sub">Sin addons Risk/Competitions</div>
+            </div>
+            <div class="metric-card yellow">
+                <div class="label">Promedio con Addons</div>
+                <div class="value">$14,040</div>
+                <div class="sub">Si Risk + Competitions activos</div>
+            </div>
+            <div class="metric-card blue">
+                <div class="label">Cuentas Creadas / Mes</div>
+                <div class="value">3,377</div>
+                <div class="sub">Tendencia estable Q1</div>
+            </div>
+        </div>
+
+        <h3>Desglose de Costos KYC por Servicio</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Servicio KYC</th>
+                    <th class="text-right">Tarifa</th>
+                    <th class="text-right">Qty Prom./Mes</th>
+                    <th class="text-right">Costo Mensual</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Verification Essentials</td><td class="text-right amount">EUR 1.70</td><td class="text-right">346</td><td class="text-right amount">EUR 588</td></tr>
+                <tr><td>Known Face Search</td><td class="text-right amount">EUR 0.11</td><td class="text-right">342</td><td class="text-right amount">EUR 38</td></tr>
+                <tr><td>Proof of Address Verification</td><td class="text-right amount">EUR 1.24</td><td class="text-right">341</td><td class="text-right amount">EUR 423</td></tr>
+                <tr><td>Ongoing AML Monitoring</td><td class="text-right amount">EUR 0.06</td><td class="text-right">295</td><td class="text-right amount">EUR 18</td></tr>
+                <tr><td>Ongoing ID Document Monitoring</td><td class="text-right amount">EUR 0.02</td><td class="text-right">287</td><td class="text-right amount">EUR 6</td></tr>
+                <tr class="total-row"><td>Total KYC Mensual</td><td></td><td></td><td class="text-right amount">EUR 1,073</td></tr>
+            </tbody>
+        </table>
+
+        <div class="alert-green alert-box">
+            <strong>Modelo YPF:</strong> Variable &mdash; solo pagan por lo que usan. A bajo volumen, costo bajo. A alto volumen, sube proporcionalmente. Fee fijo base: solo EUR 3,991/mes (~$4,310). Sin revenue triggers, sin penalidades ocultas.
+        </div>
+    </section>
+
+    <!-- SECTION 3 -->
+    <section id="s3">
+        <h2><span class="section-num">3</span> Propuesta Axcera &mdash; Estructura de Costos</h2>
+        <h3>Fees One-Time</h3>
+        <table>
+            <thead><tr><th>Concepto</th><th class="text-right">Monto</th><th>Notas</th></tr></thead>
+            <tbody>
+                <tr><td><strong>Installation Fee</strong></td><td class="text-right amount amount-red">$25,000</td><td>Previo a entrega. No reembolsable.</td></tr>
+            </tbody>
+        </table>
+
+        <h3>Fees Mensuales Recurrentes (MTSF)</h3>
+        <table>
+            <thead><tr><th>Concepto</th><th class="text-right">Monto</th><th>Condicion</th></tr></thead>
+            <tbody>
+                <tr><td>MTSF Base &mdash; Multi-asset (hasta 3 CFD)</td><td class="text-right amount">$15,000/mes</td><td>Fijo. Incluye hasta 3 plataformas CFD.</td></tr>
+                <tr><td>Plataforma Futures (cada una)</td><td class="text-right amount">$5,000/mes</td><td>Por cada plataforma futures agregada</td></tr>
+                <tr><td>Revenue Trigger (&gt;$250K/mes)</td><td class="text-right amount amount-red">$10,000/mes</td><td>PERMANENTE una vez activado</td></tr>
+                <tr><td>Competiciones Activas</td><td class="text-right amount">$2,500/mes</td><td>Solo meses con competencia activa</td></tr>
+                <tr><td>Consultoria Extra (&gt;10 hrs/mes)</td><td class="text-right amount">$100/hr</td><td>10 horas incluidas</td></tr>
+                <tr><td>Customizacion Post-Entrega</td><td class="text-right amount">$100/hr</td><td>A demanda</td></tr>
+                <tr><td>Hosting & Base de Datos</td><td class="text-right amount amount-yellow">TBD</td><td>A cargo del Licensee</td></tr>
+            </tbody>
+        </table>
+
+        <h3>Escenarios de Costo Mensual Axcera</h3>
+        <table>
+            <thead><tr><th>Escenario</th><th class="text-right">Mensual</th><th class="text-right">Anual</th><th class="text-right">Year 1 (+ Setup)</th></tr></thead>
+            <tbody>
+                <tr><td>CFD only (sin futures)</td><td class="text-right amount">$15,000</td><td class="text-right amount">$180,000</td><td class="text-right amount">$205,000</td></tr>
+                <tr><td>CFD + 1 Futures</td><td class="text-right amount">$20,000</td><td class="text-right amount">$240,000</td><td class="text-right amount">$265,000</td></tr>
+                <tr><td>CFD + 2 Futures</td><td class="text-right amount">$25,000</td><td class="text-right amount">$300,000</td><td class="text-right amount">$325,000</td></tr>
+                <tr><td>CFD + 1 Fut + Competitions</td><td class="text-right amount">$22,500</td><td class="text-right amount">$270,000</td><td class="text-right amount">$295,000</td></tr>
+                <tr class="total-row"><td>CFD + 1 Fut + Comp + Rev. Trigger</td><td class="text-right amount amount-red">$32,500</td><td class="text-right amount amount-red">$390,000</td><td class="text-right amount amount-red">$415,000</td></tr>
+            </tbody>
+        </table>
+
+        <div class="alert-red alert-box">
+            <strong>Revenue Trigger:</strong> NEOMAAA reporta $250K/mes actualmente. Esto activa inmediatamente el surcharge de $10,000/mes que es <em>permanente e irreversible</em>. Impacto: $120,000 extra por ano.
+        </div>
+
+        <div class="alert-yellow alert-box">
+            <strong>Inicio del MTSF (Section 3.3):</strong> Comienza al primero de: (i) primer cliente pagante, o (ii) 30 dias despues de recibir acceso a la plataforma. Aunque no hayan lanzado, empiezan a pagar a los 30 dias.
+        </div>
+    </section>
+
+    <!-- SECTION 4 -->
+    <section id="s4">
+        <h2><span class="section-num">4</span> Comparacion Directa: YPF vs Axcera</h2>
+        <h3>Costo Mensual al Volumen Actual (3,400 cuentas, revenue $250K)</h3>
+        <table>
+            <thead>
+                <tr><th>Concepto</th><th class="text-right">YPF (base)</th><th class="text-right">YPF (full)</th><th class="text-right">Axcera CFD+1Fut</th><th class="text-right">Axcera + Trigger</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Fee fijo plataforma</td><td class="text-right amount">$4,310</td><td class="text-right amount">$4,310</td><td class="text-right amount">$15,000</td><td class="text-right amount">$15,000</td></tr>
+                <tr><td>Futures platforms</td><td class="text-right" style="color:var(--text-light)">N/A</td><td class="text-right" style="color:var(--text-light)">N/A</td><td class="text-right amount">$5,000</td><td class="text-right amount">$5,000</td></tr>
+                <tr><td>Fee por cuentas (~3,400)</td><td class="text-right amount">$4,630</td><td class="text-right amount">$4,630</td><td class="text-right amount amount-green">$0</td><td class="text-right amount amount-green">$0</td></tr>
+                <tr><td>KYC / AML (~350 verif.)</td><td class="text-right amount">$1,160</td><td class="text-right amount">$1,160</td><td class="text-right amount amount-yellow">TBD</td><td class="text-right amount amount-yellow">TBD</td></tr>
+                <tr><td>Risk Management</td><td class="text-right" style="color:var(--text-light)">&mdash;</td><td class="text-right amount">$2,160</td><td class="text-right amount-green">Incluido</td><td class="text-right amount-green">Incluido</td></tr>
+                <tr><td>Competitions</td><td class="text-right" style="color:var(--text-light)">&mdash;</td><td class="text-right amount">$1,615</td><td class="text-right amount">$2,500</td><td class="text-right amount">$2,500</td></tr>
+                <tr><td>Revenue trigger</td><td class="text-right amount-green">No existe</td><td class="text-right amount-green">No existe</td><td class="text-right" style="color:var(--text-light)">&mdash;</td><td class="text-right amount amount-red">$10,000</td></tr>
+                <tr class="total-row"><td>Total Mensual</td><td class="text-right amount amount-green">$10,260</td><td class="text-right amount amount-yellow">$14,040</td><td class="text-right amount">$22,500</td><td class="text-right amount amount-red">$32,500</td></tr>
+            </tbody>
+        </table>
+
+        <h3>Costo Mensual &mdash; Visual</h3>
+        <div style="margin: 20px 0 32px;">
+            <div class="vs-bar"><span class="label">YPF Base</span><div class="bar ypf" style="width: 31.5%;">$10,260</div></div>
+            <div class="vs-bar"><span class="label">YPF Full</span><div class="bar ypf" style="width: 43.2%;">$14,040</div></div>
+            <div class="vs-bar"><span class="label">Axcera</span><div class="bar axcera" style="width: 69.2%;">$22,500</div></div>
+            <div class="vs-bar"><span class="label">Axcera + Trigger</span><div class="bar axcera" style="width: 100%;">$32,500</div></div>
+        </div>
+
+        <h3>Costo Anual Comparado</h3>
+        <table>
+            <thead><tr><th></th><th class="text-right">YPF Base</th><th class="text-right">YPF Full</th><th class="text-right">Axcera CFD+1Fut</th><th class="text-right">Axcera + Trigger</th></tr></thead>
+            <tbody>
+                <tr><td>Setup</td><td class="text-right amount amount-green">$0</td><td class="text-right amount amount-green">$0</td><td class="text-right amount">$25,000</td><td class="text-right amount">$25,000</td></tr>
+                <tr><td>Year 1</td><td class="text-right amount amount-green">$123,120</td><td class="text-right amount">$168,480</td><td class="text-right amount">$295,000</td><td class="text-right amount amount-red">$415,000</td></tr>
+                <tr><td>Year 2</td><td class="text-right amount amount-green">$123,120</td><td class="text-right amount">$168,480</td><td class="text-right amount">$270,000</td><td class="text-right amount amount-red">$390,000</td></tr>
+                <tr class="total-row"><td>Total 2 Anos</td><td class="text-right amount amount-green">$246,240</td><td class="text-right amount">$336,960</td><td class="text-right amount">$565,000</td><td class="text-right amount amount-red">$805,000</td></tr>
+            </tbody>
+        </table>
+
+        <div class="card-grid">
+            <div class="metric-card red">
+                <div class="label">Costo Extra vs YPF Base (2 anos)</div>
+                <div class="value">+$559K</div>
+                <div class="sub">Con revenue trigger activado</div>
+            </div>
+            <div class="metric-card red">
+                <div class="label">Costo Extra vs YPF Full (2 anos)</div>
+                <div class="value">+$468K</div>
+                <div class="sub">Con revenue trigger activado</div>
+            </div>
+        </div>
+
+        <h3>Comparacion de Features</h3>
+        <table>
+            <thead><tr><th>Feature</th><th class="text-center">YPF</th><th class="text-center">Axcera</th></tr></thead>
+            <tbody>
+                <tr><td>Dashboard / CRM</td><td class="text-center amount-green">Incluido</td><td class="text-center amount-green">Incluido</td></tr>
+                <tr><td>Plataformas CFD (hasta 3)</td><td class="text-center amount-green">Incluido</td><td class="text-center amount-green">Incluido</td></tr>
+                <tr><td>Plataformas Futures</td><td class="text-center amount-red">No disponible</td><td class="text-center amount-green">$5,000/plat</td></tr>
+                <tr><td>Fee por cuenta creada</td><td class="text-center amount-yellow">EUR 1.27/cuenta</td><td class="text-center amount-green">$0 (flat fee)</td></tr>
+                <tr><td>KYC / AML</td><td class="text-center amount-green">~EUR 3/verificacion</td><td class="text-center amount-yellow">No especificado</td></tr>
+                <tr><td>Risk Management</td><td class="text-center">EUR 1,997/mo addon</td><td class="text-center amount-yellow">Confirmar si incluido</td></tr>
+                <tr><td>Competitions</td><td class="text-center">EUR 1,497/mo addon</td><td class="text-center">$2,500/mo</td></tr>
+                <tr><td>Consultoria incluida</td><td class="text-center amount-red">No</td><td class="text-center amount-green">10 hrs/mo</td></tr>
+                <tr><td>Revenue trigger</td><td class="text-center amount-green">No existe</td><td class="text-center amount-red">+$10K permanente</td></tr>
+                <tr><td>SLA / Uptime</td><td class="text-center amount-yellow">No especificado</td><td class="text-center amount-red">Sin garantia (AS IS)</td></tr>
+                <tr><td>IP de customizaciones</td><td class="text-center amount-yellow">No especificado</td><td class="text-center amount-red">100% Axcera</td></tr>
+                <tr><td>Non-compete post-contrato</td><td class="text-center amount-green">No</td><td class="text-center amount-red">2 anos</td></tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- SECTION 5 -->
+    <section id="s5">
+        <h2><span class="section-num">5</span> Proyecciones a 24 Meses</h2>
+        <h3>Breakeven por Volumen de Cuentas</h3>
+        <p>Axcera tiene pricing flat. YPF escala linealmente. A mayor volumen, Axcera se vuelve mas competitivo:</p>
+        <table>
+            <thead><tr><th>Cuentas/Mes</th><th class="text-right">YPF (base)</th><th class="text-right">Axcera CFD+1Fut</th><th class="text-right">Axcera + Trigger</th><th class="text-center">Ganador</th></tr></thead>
+            <tbody>
+                <tr><td><strong>3,400 (actual)</strong></td><td class="text-right amount amount-green">$10,260</td><td class="text-right amount">$22,500</td><td class="text-right amount amount-red">$32,500</td><td class="text-center amount-green">YPF</td></tr>
+                <tr><td>5,000</td><td class="text-right amount amount-green">$13,500</td><td class="text-right amount">$22,500</td><td class="text-right amount amount-red">$32,500</td><td class="text-center amount-green">YPF</td></tr>
+                <tr><td>7,500</td><td class="text-right amount amount-green">$17,500</td><td class="text-right amount">$22,500</td><td class="text-right amount amount-red">$32,500</td><td class="text-center amount-green">YPF</td></tr>
+                <tr><td>10,000</td><td class="text-right amount">$21,000</td><td class="text-right amount">$22,500</td><td class="text-right amount amount-red">$32,500</td><td class="text-center amount-yellow">~Empate</td></tr>
+                <tr><td>15,000</td><td class="text-right amount amount-red">$28,500</td><td class="text-right amount amount-green">$22,500</td><td class="text-right amount">$32,500</td><td class="text-center amount-green">Axcera*</td></tr>
+                <tr><td>20,000</td><td class="text-right amount amount-red">$36,500</td><td class="text-right amount amount-green">$22,500</td><td class="text-right amount amount-green">$32,500</td><td class="text-center amount-green">Axcera</td></tr>
+            </tbody>
+        </table>
+        <p style="font-size: 12px; color: var(--text-light);">* Breakeven sin trigger: ~10,000 cuentas/mes (3x actual). Con trigger: ~20,000 cuentas/mes (6x actual).</p>
+
+        <h3>Proyeccion con Crecimiento 10% Mensual</h3>
+        <table>
+            <thead><tr><th>Periodo</th><th class="text-right">Cuentas</th><th class="text-right">YPF</th><th class="text-right">Axcera (+trigger)</th><th class="text-right">Diferencia</th></tr></thead>
+            <tbody>
+                <tr><td>Mes 1</td><td class="text-right">3,400</td><td class="text-right amount amount-green">$10,260</td><td class="text-right amount">$32,500</td><td class="text-right amount amount-red">-$22,240</td></tr>
+                <tr><td>Mes 6</td><td class="text-right">5,476</td><td class="text-right amount amount-green">$13,900</td><td class="text-right amount">$32,500</td><td class="text-right amount amount-red">-$18,600</td></tr>
+                <tr><td>Mes 12</td><td class="text-right">9,700</td><td class="text-right amount amount-green">$21,300</td><td class="text-right amount">$32,500</td><td class="text-right amount amount-red">-$11,200</td></tr>
+                <tr><td>Mes 18</td><td class="text-right">17,185</td><td class="text-right amount amount-red">$34,400</td><td class="text-right amount">$32,500</td><td class="text-right amount amount-green">+$1,900</td></tr>
+                <tr><td>Mes 24</td><td class="text-right">30,445</td><td class="text-right amount amount-red">$57,600</td><td class="text-right amount amount-green">$32,500</td><td class="text-right amount amount-green">+$25,100</td></tr>
+            </tbody>
+        </table>
+
+        <div class="alert-yellow alert-box">
+            <strong>Conclusion:</strong> Con 10% de crecimiento mensual sostenido, Axcera empieza a ser mas barato mensualmente a partir del mes ~17. Sin embargo, el costo acumulado de los primeros 17 meses donde YPF es mas barato (~$200K de diferencial) hace que Axcera solo se justifique si el crecimiento se mantiene consistentemente alto Y se logra negociar el contrato.
+        </div>
+    </section>
+
+    <!-- SECTION 6 -->
+    <section id="s6">
+        <h2><span class="section-num">6</span> Clausulas Criticas del Contrato Axcera</h2>
+
+        <div class="clause-card">
+            <div class="clause-header"><span class="clause-title">Non-Compete &mdash; 2 Anos Post-Contrato</span><span class="risk-badge risk-critical">Critico</span></div>
+            <div class="clause-ref">Section 6.3</div>
+            <div class="clause-body">El Licensee no puede <em>directa o indirectamente desarrollar, crear, licenciar u ofrecer</em> ninguna plataforma que compita con Axcera, durante el contrato <em>y por 2 anos despues de terminarlo</em>.<br><br><strong>Impacto:</strong> Si terminan con Axcera, no pueden usar otro proveedor de tecnologia prop trading durante 2 anos. Potencialmente destructor del negocio.</div>
+        </div>
+
+        <div class="clause-card">
+            <div class="clause-header"><span class="clause-title">Revenue Trigger Permanente (+$10K/mes)</span><span class="risk-badge risk-critical">Critico</span></div>
+            <div class="clause-ref">Appendix A, punto (c)</div>
+            <div class="clause-body">Si el revenue supera <em>$250,000 en cualquier mes</em>, se agrega $10,000/mes <em>para siempre</em>, independientemente de si el revenue cae despues.<br><br><strong>Impacto:</strong> Se activa inmediatamente con el revenue actual. Costo adicional: <em>$120,000/ano de por vida</em>. Ratchet sin retorno.</div>
+        </div>
+
+        <div class="clause-card">
+            <div class="clause-header"><span class="clause-title">Software "AS IS" &mdash; Sin Garantias</span><span class="risk-badge risk-high">Alto</span></div>
+            <div class="clause-ref">Article VII</div>
+            <div class="clause-body">Software entregado <em>"AS IS" sin garantia de ningun tipo</em>. Axcera <em>no garantiza que sea libre de bugs</em>, ininterrumpido o libre de errores.<br><br><strong>Impacto:</strong> Pagan $30K+/mes sin SLA, sin uptime garantizado, sin compromiso de soporte ante caidas criticas.</div>
+        </div>
+
+        <div class="clause-card">
+            <div class="clause-header"><span class="clause-title">IP 100% Propiedad de Axcera</span><span class="risk-badge risk-high">Alto</span></div>
+            <div class="clause-ref">Article VI + Article X</div>
+            <div class="clause-body">Toda la tecnologia y <em>todos los materiales originales</em> son <em>propiedad exclusiva de Axcera</em>. Incluso customizaciones pagadas por NEOMAAA.<br><br><strong>Impacto:</strong> Todo lo que paguen a $100/hr se convierte en propiedad de Axcera. Al terminar, se van con las manos vacias.</div>
+        </div>
+
+        <div class="clause-card">
+            <div class="clause-header"><span class="clause-title">Advance Payment Discrecional (3 meses)</span><span class="risk-badge risk-high">Alto</span></div>
+            <div class="clause-ref">Section 3.2(c)</div>
+            <div class="clause-body">Axcera puede, <em>a su sola discrecion</em>, requerir hasta <em>3 meses por adelantado</em> si determina "riesgo financiero". 5 dias habiles para pagar.<br><br><strong>Impacto:</strong> Pueden exigir $75,000&ndash;$97,500 en 5 dias sin criterio objetivo.</div>
+        </div>
+
+        <div class="clause-card">
+            <div class="clause-header"><span class="clause-title">Terminacion Inmediata Sin Aviso</span><span class="risk-badge risk-medium">Medio</span></div>
+            <div class="clause-ref">Section 9.2</div>
+            <div class="clause-body">Axcera puede terminar y <em>revocar credenciales inmediatamente, sin aviso</em>, por "actividades ilegales o no eticas". Definicion vaga y subjetiva.<br><br><strong>Impacto:</strong> Pueden cortar servicio de un dia para otro sin due process.</div>
+        </div>
+
+        <div class="clause-card">
+            <div class="clause-header"><span class="clause-title">Limitacion de Responsabilidad Unilateral</span><span class="risk-badge risk-medium">Medio</span></div>
+            <div class="clause-ref">Article VII</div>
+            <div class="clause-body">Axcera <em>no es responsable por danos indirectos, consecuentes, perdida de ganancias o interrupcion del negocio</em>. Responsabilidad maxima: reparar o reemplazar el software.<br><br><strong>Impacto:</strong> Si una falla causa perdidas a traders, Axcera no asume responsabilidad financiera.</div>
+        </div>
+    </section>
+
+    <!-- SECTION 7 -->
+    <section id="s7">
+        <h2><span class="section-num">7</span> Terminacion, Pagos y Atrasos</h2>
+
+        <h3>Termino y Renovacion</h3>
+        <div class="clause-card">
+            <div class="clause-header"><span class="clause-title">1 Ano + Auto-Renovacion</span><span class="risk-badge risk-medium">Medio</span></div>
+            <div class="clause-ref">Section 9.1</div>
+            <div class="clause-body">
+                <ul style="margin-left: 16px; margin-top: 8px;">
+                    <li>Duracion inicial: <em>1 ano calendario</em></li>
+                    <li>Renovacion automatica: <em>1 ano adicional</em> si no se da aviso</li>
+                    <li>Para terminar: aviso escrito con <em>60 dias de anticipacion</em></li>
+                    <li>Si no avisan a tiempo: atados <em>otro ano completo</em></li>
+                </ul>
+                <br><strong>Ejemplo:</strong> Contrato 1 May 2026 &rarr; ventana para no-renovar: antes del 2 Mar 2027. Si no, atados hasta May 2028.
+            </div>
+        </div>
+
+        <h3>Proceso de Falta de Pago</h3>
+        <table>
+            <thead><tr><th>Dias de Atraso</th><th>Consecuencia</th><th>Referencia</th></tr></thead>
+            <tbody>
+                <tr><td><strong>Dia 1</strong></td><td>Factura vencida. Interes <em>18% anual</em> sobre saldo</td><td>Section 5.3</td></tr>
+                <tr><td><strong>Dia 1&ndash;10</strong></td><td>Axcera envia Payment Notice. 10 dias para curar.</td><td>Section 3.2(b)</td></tr>
+                <tr><td><strong>Dia 10+</strong></td><td>Default. Axcera puede: suspender acceso, retener work product, revocar credenciales</td><td>Section 3.2(b)</td></tr>
+                <tr><td><strong>Dia 30+</strong></td><td>Axcera puede terminar contrato con o sin aviso</td><td>Section 5.5</td></tr>
+            </tbody>
+        </table>
+
+        <div class="clause-card">
+            <div class="clause-header"><span class="clause-title">Reactivacion Post-Suspension</span><span class="risk-badge risk-high">Alto</span></div>
+            <div class="clause-ref">Section 3.2(d)</div>
+            <div class="clause-body">Si suspenden servicio por no-pago y luego quieren reactivar:
+                <ul style="margin: 8px 0 0 16px;">
+                    <li>Pagar todo el saldo pendiente</li>
+                    <li>Axcera puede <em>aumentar el Contract Sum</em> por costos de suspension y reenganche</li>
+                    <li>Todo como <em>condicion previa</em> a reactivar</li>
+                </ul>
+                <br><strong>Impacto:</strong> Un atraso en pago puede terminar costando significativamente mas que la deuda original. Sin limite al costo de reenganche.
+            </div>
+        </div>
+
+        <h3>Escenarios de Terminacion</h3>
+        <table>
+            <thead><tr><th>Escenario</th><th>Quien</th><th>Aviso</th><th>Consecuencia</th></tr></thead>
+            <tbody>
+                <tr><td><strong>No-renovar</strong></td><td>Cualquiera</td><td>60 dias escrito</td><td>Termina al ano. Non-compete empieza.</td></tr>
+                <tr><td><strong>Breach material</strong></td><td>Cualquiera</td><td>15 dias para curar</td><td>Si no se cura, terminacion inmediata.</td></tr>
+                <tr><td><strong>Actividades "no eticas"</strong></td><td>Solo Axcera</td><td class="amount-red">Sin aviso</td><td>Terminacion inmediata + revocacion.</td></tr>
+                <tr><td><strong>No-pago &gt;30 dias</strong></td><td>Solo Axcera</td><td>Con o sin aviso</td><td>Terminacion. Retiene IP y work product.</td></tr>
+                <tr><td><strong>Bancarrota</strong></td><td>Cualquiera</td><td>Aviso escrito</td><td>Terminacion inmediata.</td></tr>
+            </tbody>
+        </table>
+
+        <h3>Obligaciones Post-Terminacion</h3>
+        <table>
+            <thead><tr><th>Obligacion</th><th>Duracion</th><th>Detalle</th></tr></thead>
+            <tbody>
+                <tr><td><strong>Non-compete</strong></td><td class="amount-red">2 anos</td><td>No usar/crear/licenciar tech competidora</td></tr>
+                <tr><td><strong>Confidencialidad</strong></td><td>Indefinida</td><td>No revelar info confidencial de Axcera</td></tr>
+                <tr><td><strong>Devolver materiales</strong></td><td>Inmediato</td><td>Devolver o destruir todos los docs y materiales</td></tr>
+                <tr><td><strong>Reps & Warranties</strong></td><td>Sobreviven</td><td>Declaraciones del Licensee siguen vigentes</td></tr>
+                <tr><td><strong>Pagos pendientes</strong></td><td>Sobreviven</td><td>Toda deuda sigue exigible + 18% interes</td></tr>
+            </tbody>
+        </table>
+
+        <div class="alert-red alert-box">
+            <strong>Peor caso:</strong> Si terminan el contrato: (1) devolver todo, (2) pagar saldo + 18% interes, (3) non-compete 2 anos &mdash; sin plataforma alternativa, (4) pierden customizaciones pagadas. El negocio puede quedar sin plataforma operativa.
+        </div>
+
+        <h3>Fees No Reembolsables &amp; Jurisdiccion</h3>
+        <div class="clause-card">
+            <div class="clause-header"><span class="clause-title">Todos los Pagos Son Finales (Section 5.1)</span><span class="risk-badge risk-high">Alto</span></div>
+            <div class="clause-body">Todos los fees pagados son <em>no-reembolsables</em>. Incluye setup ($25K), MTSF, y customizaciones. Si Axcera no cumple, no devuelven nada.</div>
+        </div>
+        <div class="clause-card">
+            <div class="clause-header"><span class="clause-title">Ley Aplicable: UAE / Dubai (Section 12.2)</span><span class="risk-badge risk-low">Bajo</span></div>
+            <div class="clause-body">Jurisdiccion: cortes de Dubai, UAE. Proceso: negociacion directa &rarr; mediacion &rarr; corte. No se puede iniciar accion civil hasta mediacion o 45 dias. Parte ganadora recupera honorarios. <strong>Favorable para NEOMAAA</strong> dado que operan desde Dubai.</div>
+        </div>
+    </section>
+
+    <!-- SECTION 8 -->
+    <section id="s8">
+        <h2><span class="section-num">8</span> Puntos de Negociacion Prioritarios</h2>
+        <table>
+            <thead><tr><th style="width:30px">#</th><th>Clausula</th><th>Riesgo</th><th>Estado Actual</th><th>Pedido NEOMAAA</th><th class="text-right">Impacto</th></tr></thead>
+            <tbody>
+                <tr><td>1</td><td><strong>Revenue trigger</strong></td><td><span class="risk-badge risk-critical">Critico</span></td><td>+$10K/mes permanente</td><td>Proporcional al mes real</td><td class="text-right amount amount-green">$120K/ano</td></tr>
+                <tr><td>2</td><td><strong>Non-compete</strong></td><td><span class="risk-badge risk-critical">Critico</span></td><td>2 anos</td><td>Eliminar o max 6 meses</td><td class="text-right">Existencial</td></tr>
+                <tr><td>3</td><td><strong>MTSF inicio</strong></td><td><span class="risk-badge risk-high">Alto</span></td><td>30 dias post-acceso</td><td>Solo con primer cliente</td><td class="text-right amount amount-green">$30K+</td></tr>
+                <tr><td>4</td><td><strong>Advance payment</strong></td><td><span class="risk-badge risk-high">Alto</span></td><td>3 meses discrecional</td><td>Eliminar</td><td class="text-right">Cash flow</td></tr>
+                <tr><td>5</td><td><strong>Terminacion</strong></td><td><span class="risk-badge risk-high">Alto</span></td><td>Inmediata sin aviso</td><td>30 dias notice + curar</td><td class="text-right">Continuidad</td></tr>
+                <tr><td>6</td><td><strong>SLA / Uptime</strong></td><td><span class="risk-badge risk-high">Alto</span></td><td>"AS IS"</td><td>99.5% uptime, soporte 4 hrs</td><td class="text-right">Operativo</td></tr>
+                <tr><td>7</td><td><strong>IP customizaciones</strong></td><td><span class="risk-badge risk-medium">Medio</span></td><td>100% Axcera</td><td>Licencia perpetua</td><td class="text-right">Inversion</td></tr>
+                <tr><td>8</td><td><strong>Futures pricing</strong></td><td><span class="risk-badge risk-medium">Medio</span></td><td>$5,000/plataforma</td><td>$3,500 o 2x$8K</td><td class="text-right amount amount-green">$18&ndash;24K/ano</td></tr>
+                <tr><td>9</td><td><strong>Setup fee</strong></td><td><span class="risk-badge risk-low">Bajo</span></td><td>$25K upfront</td><td>3 cuotas</td><td class="text-right">Cash flow</td></tr>
+                <tr><td>10</td><td><strong>Interes mora</strong></td><td><span class="risk-badge risk-low">Bajo</span></td><td>18% anual</td><td>12%</td><td class="text-right">Menor riesgo</td></tr>
+                <tr><td>11</td><td><strong>Revenue threshold</strong></td><td><span class="risk-badge risk-medium">Medio</span></td><td>$250K</td><td>Subir a $500K</td><td class="text-right amount amount-green">$120K/ano</td></tr>
+            </tbody>
+        </table>
+
+        <div class="alert-blue alert-box">
+            <strong>Estrategia:</strong> Puntos 1 y 2 son dealbreakers &mdash; si Axcera no cede en revenue trigger y non-compete, no firmar. Puntos 3&ndash;6 son negociables con presion. Puntos 7&ndash;11 demuestran que leimos el contrato a fondo.
+        </div>
+    </section>
+
+    <!-- SECTION 9: CONTRAPROPUESTA -->
+    <section id="s9">
+        <h2><span class="section-num">9</span> Contrapropuesta NEOMAAA (Position 2)</h2>
+
+        <p>Estructura de pricing propuesta con tiers basados en revenue y reset mensual. Reemplaza el MTSF fijo + revenue trigger permanente del contrato original.</p>
+
+        <h3>Estructura de Pricing Propuesta</h3>
+        <table>
+            <thead>
+                <tr><th>Configuracion</th><th class="text-right">Revenue &lt; $500K</th><th class="text-right">Revenue $500K+</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><strong>Base</strong> (2 CFD + 1 Futures)</td><td class="text-right amount">$15,000/mes</td><td class="text-right amount">$25,000/mes</td></tr>
+                <tr><td><strong>Con 4ta plataforma</strong> (2 CFD + 2 Futures)</td><td class="text-right amount">$20,000/mes</td><td class="text-right amount">$30,000/mes</td></tr>
+            </tbody>
+        </table>
+
+        <div class="alert-blue alert-box">
+            <strong>Reset mensual:</strong> El surcharge solo aplica en meses donde el revenue supere $500K. Si baja, el fee vuelve al base inmediatamente. Sin ratchet permanente.
+        </div>
+
+        <h3>Cambios Contractuales Adicionales</h3>
+        <table>
+            <thead><tr><th>Clausula</th><th>Contrato Original</th><th>Contrapropuesta</th></tr></thead>
+            <tbody>
+                <tr><td><strong>Pricing</strong></td><td>$15K base + $5K/Futures + $10K trigger permanente a $250K</td><td>Tiers: $15K (&lt;$500K) / $25K ($500K+), reset mensual. +$5K por 4ta plataforma</td></tr>
+                <tr><td><strong>MTSF inicio</strong></td><td>30 dias post-acceso o primer cliente</td><td>Solo con primer cliente pagante</td></tr>
+                <tr><td><strong>Installation fee</strong></td><td>$25,000</td><td>$15,000 &ndash; $20,000</td></tr>
+                <tr><td><strong>Non-compete</strong></td><td>2 anos post-contrato</td><td>6 meses o eliminado</td></tr>
+                <tr><td><strong>Terminacion</strong></td><td>Inmediata sin aviso</td><td>30 dias notice + derecho a curar</td></tr>
+                <tr><td><strong>SLA</strong></td><td>"AS IS"</td><td>99.5% uptime + soporte 4 hrs</td></tr>
+                <tr><td><strong>Advance payment</strong></td><td>3 meses a discrecion de Axcera</td><td>Eliminar o atar a historial de pagos</td></tr>
+            </tbody>
+        </table>
+
+        <h3>Trajectory de Crecimiento &mdash; Lo Que Axcera Recibe</h3>
+        <table>
+            <thead><tr><th>Fase</th><th>Periodo</th><th>Plataformas</th><th>Revenue Est.</th><th class="text-right">Mensual a Axcera</th></tr></thead>
+            <tbody>
+                <tr><td><strong>Lanzamiento</strong></td><td>Mes 1&ndash;2</td><td>2 CFD + 1 Futures</td><td>&lt;$500K</td><td class="text-right amount">$15,000</td></tr>
+                <tr><td><strong>2da Futures</strong></td><td>Mes 2&ndash;3</td><td>2 CFD + 2 Futures</td><td>&lt;$500K</td><td class="text-right amount">$20,000</td></tr>
+                <tr><td><strong>Escala</strong></td><td>Mes 3+</td><td>2 CFD + 2 Futures</td><td>$500K+</td><td class="text-right amount">$30,000</td></tr>
+            </tbody>
+        </table>
+
+        <h3>Presupuesto Anual Proyectado</h3>
+        <table>
+            <thead><tr><th>Periodo</th><th>Meses</th><th class="text-right">Mensual</th><th class="text-right">Subtotal</th></tr></thead>
+            <tbody>
+                <tr><td>Ramp-up (base, 1 Futures)</td><td>1&ndash;2</td><td class="text-right amount">$15,000</td><td class="text-right amount">$30,000</td></tr>
+                <tr><td>2da Futures, &lt;$500K</td><td>3&ndash;5</td><td class="text-right amount">$20,000</td><td class="text-right amount">$60,000</td></tr>
+                <tr><td>Escala, revenue $500K+</td><td>6&ndash;12</td><td class="text-right amount">$30,000</td><td class="text-right amount">$210,000</td></tr>
+                <tr><td>Competiciones (3 meses)</td><td>&mdash;</td><td class="text-right amount">$2,500</td><td class="text-right amount">$7,500</td></tr>
+                <tr class="total-row"><td>Year 1 (sin setup)</td><td></td><td></td><td class="text-right amount">$307,500</td></tr>
+                <tr class="highlight-row"><td>+ Installation Fee</td><td></td><td></td><td class="text-right amount">$15,000 &ndash; $20,000</td></tr>
+                <tr class="total-row"><td>Year 1 Total</td><td></td><td></td><td class="text-right amount" style="font-size: 15px;">$322,500 &ndash; $327,500</td></tr>
+            </tbody>
+        </table>
+
+        <table>
+            <thead><tr><th>Steady State (Year 2+)</th><th>Meses</th><th class="text-right">Mensual</th><th class="text-right">Total</th></tr></thead>
+            <tbody>
+                <tr><td>Base + 2 Futures + Surcharge ($500K+)</td><td>12</td><td class="text-right amount">$30,000</td><td class="text-right amount">$360,000</td></tr>
+                <tr><td>Competiciones (3 meses)</td><td>3</td><td class="text-right amount">$2,500</td><td class="text-right amount">$7,500</td></tr>
+                <tr class="total-row"><td>Year 2+ Anual</td><td></td><td></td><td class="text-right amount" style="font-size: 15px;">$367,500</td></tr>
+            </tbody>
+        </table>
+
+        <div class="card-grid">
+            <div class="metric-card green">
+                <div class="label">Mes 1&ndash;2 (Ramp-up)</div>
+                <div class="value">$15K</div>
+                <div class="sub">por mes / paquete base</div>
+            </div>
+            <div class="metric-card green">
+                <div class="label">Mes 3&ndash;5 (Crecimiento)</div>
+                <div class="value">$20K</div>
+                <div class="sub">por mes / 4 plataformas</div>
+            </div>
+            <div class="metric-card primary">
+                <div class="label">Mes 6+ (Steady State)</div>
+                <div class="value">$30K</div>
+                <div class="sub">por mes / 4 plat + surcharge</div>
+            </div>
+            <div class="metric-card blue">
+                <div class="label">Year 2+ Anual</div>
+                <div class="value">$368K</div>
+                <div class="sub">Ano completo steady state</div>
+            </div>
+        </div>
+
+        <h3>Total 2 Anos para Axcera</h3>
+        <table>
+            <thead><tr><th></th><th class="text-right">Monto</th></tr></thead>
+            <tbody>
+                <tr><td>Installation Fee</td><td class="text-right amount">$15,000 &ndash; $20,000</td></tr>
+                <tr><td>Year 1 (ramp-up + escala)</td><td class="text-right amount">$307,500</td></tr>
+                <tr><td>Year 2 (steady state)</td><td class="text-right amount">$367,500</td></tr>
+                <tr class="total-row"><td>Compromiso Total 2 Anos</td><td class="text-right amount" style="font-size: 16px;">$690,000 &ndash; $695,000</td></tr>
+            </tbody>
+        </table>
+
+        <h3>Contrapropuesta vs Contrato Original</h3>
+        <div style="margin: 20px 0;">
+            <div class="vs-bar"><span class="label">A. YPF actual</span><div class="bar ypf" style="width: 30.6%;">$246K</div></div>
+            <div class="vs-bar"><span class="label">B. Contrapropuesta</span><div class="bar ypf" style="width: 86%; background: var(--amber);">$690K</div></div>
+            <div class="vs-bar"><span class="label">C. Sin negociar</span><div class="bar axcera" style="width: 100%;">$805K</div></div>
+        </div>
+
+        <div class="alert-green alert-box">
+            <strong>Ahorro de negociar:</strong> La contrapropuesta (Position 2) ahorra <strong>~$115,000 en 2 anos</strong> vs el contrato original. Axcera sigue recibiendo <strong>$30,000/mes at steady state ($367,500/ano)</strong> &mdash; la diferencia es que NEOMAAA paga menos en los primeros meses de ramp-up y no tiene un ratchet permanente.
+        </div>
+
+        <div class="alert-blue alert-box">
+            <strong>Documento completo de la contrapropuesta:</strong> <a href="counterproposal.html" style="color: #1E40AF; font-weight: 600;">Ver contrapropuesta para Axcera &rarr;</a>
+        </div>
+    </section>
+
+    <!-- SECTION 10: ESCENARIOS -->
+    <section id="s10">
+        <h2><span class="section-num">10</span> Escenarios de Decision</h2>
+
+        <div class="scenario-box recommended">
+            <h4>Escenario A: YPF para CFD + Axcera Solo Futures</h4>
+            <div class="card-grid" style="margin-top: 14px;">
+                <div class="metric-card green"><div class="label">Costo Mensual</div><div class="value">$15,260</div><div class="sub">YPF $10,260 + Futures ~$5,000</div></div>
+                <div class="metric-card green"><div class="label">Costo Anual</div><div class="value">$183K</div></div>
+            </div>
+            <ul style="margin-top: 14px;">
+                <li><strong>Pro:</strong> Menor riesgo y costo. No migra lo que ya funciona.</li>
+                <li><strong>Pro:</strong> Prueba Futures sin comprometer CFD.</li>
+                <li><strong>Con:</strong> Axcera puede no vender Futures como modulo independiente.</li>
+                <li><strong>Con:</strong> Dos proveedores = mas complejidad operativa.</li>
+            </ul>
+        </div>
+
+        <div class="scenario-box">
+            <h4>Escenario B: Migrar Todo a Axcera</h4>
+            <div class="card-grid" style="margin-top: 14px;">
+                <div class="metric-card red"><div class="label">Costo Mensual</div><div class="value">$32,500</div><div class="sub">Con trigger + 1 futures</div></div>
+                <div class="metric-card red"><div class="label">Year 1</div><div class="value">$415K</div></div>
+            </div>
+            <ul style="margin-top: 14px;">
+                <li><strong>Pro:</strong> Una sola plataforma para CFD + Futures.</li>
+                <li><strong>Pro:</strong> Flat fee, predecible a escala alta.</li>
+                <li><strong>Con:</strong> 3x mas caro que YPF al volumen actual.</li>
+                <li><strong>Con:</strong> Contrato agresivo (non-compete, trigger, AS IS).</li>
+                <li>Solo tiene sentido si Futures genera &gt;$15K/mes neto Y negocian el contrato.</li>
+            </ul>
+        </div>
+
+        <div class="scenario-box">
+            <h4>Escenario C: Quedarse con YPF, No Lanzar Futures</h4>
+            <div class="card-grid" style="margin-top: 14px;">
+                <div class="metric-card green"><div class="label">Costo Mensual</div><div class="value">$10,260</div></div>
+                <div class="metric-card green"><div class="label">Costo Anual</div><div class="value">$123K</div></div>
+            </div>
+            <ul style="margin-top: 14px;">
+                <li><strong>Pro:</strong> Cero riesgo, cero migracion, cero costo adicional.</li>
+                <li><strong>Con:</strong> No captura mercado de futuros. Competidores ganan market share.</li>
+            </ul>
+        </div>
+
+        <div class="scenario-box">
+            <h4>Escenario D: YPF + Proveedor Alternativo para Futures</h4>
+            <div class="card-grid" style="margin-top: 14px;">
+                <div class="metric-card blue"><div class="label">Costo Mensual</div><div class="value">TBD</div><div class="sub">Requiere investigacion</div></div>
+            </div>
+            <ul style="margin-top: 14px;">
+                <li><strong>Pro:</strong> Potencialmente mas barato que Axcera. Evita contrato agresivo.</li>
+                <li><strong>Accion:</strong> Investigar proveedores futures-only antes de decidir.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- SECTION 10 -->
+    <section id="s11">
+        <h2><span class="section-num">11</span> Recomendacion Final</h2>
+
+        <div class="alert-red alert-box" style="font-size: 15px; line-height: 1.8;">
+            <strong>No firmar el contrato de Axcera en su estado actual.</strong> El non-compete de 2 anos y el revenue trigger permanente son inaceptables.
+        </div>
+
+        <h3>Plan de Accion</h3>
+        <table>
+            <thead><tr><th>#</th><th>Accion</th><th>Responsable</th><th>Prioridad</th></tr></thead>
+            <tbody>
+                <tr><td>1</td><td>Preguntar a Axcera si venden Futures por separado (sin migrar CFD)</td><td>Angel / Diego</td><td><span class="risk-badge risk-critical">Urgente</span></td></tr>
+                <tr><td>2</td><td>Proyectar revenue esperado de NEOMAAA Futures Year 1</td><td>Diego / Pepe</td><td><span class="risk-badge risk-critical">Urgente</span></td></tr>
+                <tr><td>3</td><td>Enviar contrapropuesta con los 11 puntos de negociacion</td><td>Angel / Susana</td><td><span class="risk-badge risk-high">Alta</span></td></tr>
+                <tr><td>4</td><td>Investigar proveedores alternativos para Futures</td><td>Diego</td><td><span class="risk-badge risk-high">Alta</span></td></tr>
+                <tr><td>5</td><td>Preguntar a YPF si planean ofrecer Futures</td><td>Angel</td><td><span class="risk-badge risk-medium">Media</span></td></tr>
+                <tr><td>6</td><td>Confirmar que incluye Axcera en KYC/AML</td><td>Angel</td><td><span class="risk-badge risk-medium">Media</span></td></tr>
+                <tr><td>7</td><td>Estimar costos de hosting/DB a cargo de NEOMAAA</td><td>Tech team</td><td><span class="risk-badge risk-medium">Media</span></td></tr>
+            </tbody>
+        </table>
+
+        <h3>Condiciones Minimas para Firmar</h3>
+        <div class="alert-yellow alert-box">
+            <strong>No firmar a menos que se logren AL MENOS estos 4 cambios:</strong>
+            <ul style="margin-top: 12px; margin-left: 16px;">
+                <li><strong>Non-compete:</strong> Eliminado o reducido a 6 meses maximo</li>
+                <li><strong>Revenue trigger:</strong> Proporcional al mes (no permanente) o threshold $500K</li>
+                <li><strong>Terminacion:</strong> 30 dias de aviso para ambas partes</li>
+                <li><strong>SLA:</strong> Uptime minimo 99.5% con creditos por caidas</li>
+            </ul>
+        </div>
+
+        <h3>Resumen Financiero Final</h3>
+
+        <table>
+            <thead>
+                <tr><th></th><th class="text-right">YPF (Actual)</th><th class="text-right">Axcera (CFD + 1 Futures + Trigger)</th><th class="text-right">Diferencia</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Setup / Migracion</td><td class="text-right amount amount-green">$0</td><td class="text-right amount">$25,000</td><td class="text-right amount amount-red">+$25,000</td></tr>
+                <tr><td>Costo Mensual</td><td class="text-right amount amount-green">$10,260</td><td class="text-right amount amount-red">$32,500</td><td class="text-right amount amount-red">+$22,240/mes</td></tr>
+                <tr><td>Costo Year 1</td><td class="text-right amount amount-green">$123,120</td><td class="text-right amount amount-red">$415,000</td><td class="text-right amount amount-red">+$291,880</td></tr>
+                <tr><td>Costo Year 2</td><td class="text-right amount amount-green">$123,120</td><td class="text-right amount amount-red">$390,000</td><td class="text-right amount amount-red">+$266,880</td></tr>
+                <tr class="total-row"><td>Total 2 Anos</td><td class="text-right amount amount-green">$246,240</td><td class="text-right amount amount-red">$805,000</td><td class="text-right amount amount-red">+$558,760</td></tr>
+            </tbody>
+        </table>
+
+        <div class="card-grid">
+            <div class="metric-card green"><div class="label">Costo Actual YPF</div><div class="value">$123K</div><div class="sub">por ano &bull; modelo variable</div></div>
+            <div class="metric-card red"><div class="label">Costo Axcera Year 1</div><div class="value">$415K</div><div class="sub">setup + CFD + 1 futures + trigger</div></div>
+            <div class="metric-card yellow"><div class="label">Costo Extra de Migrar</div><div class="value">+$559K</div><div class="sub">en 2 anos acumulado</div></div>
+            <div class="metric-card blue"><div class="label">Revenue Min. Futures</div><div class="value">$15K</div><div class="sub">neto/mes para justificar migracion</div></div>
+        </div>
+
+        <div style="background: var(--bg-white); border: 2px solid var(--accent); border-radius: var(--radius-lg); padding: 32px; margin-top: 32px;">
+            <h4 style="font-size: 18px; margin-bottom: 16px; color: var(--accent);">Veredicto</h4>
+            <table style="border: none; box-shadow: none; margin-bottom: 0;">
+                <tbody>
+                    <tr style="border: none;"><td style="border: none; padding: 8px 0; width: 200px; color: var(--text-muted); font-weight: 600;">Migrar todo a Axcera</td><td style="border: none; padding: 8px 0;"><span class="risk-badge risk-critical">No recomendado</span> &mdash; 3x mas caro al volumen actual. Contrato agresivo. Solo se justifica si Futures genera &gt;$15K/mes neto y se negocian clausulas criticas.</td></tr>
+                    <tr style="border: none;"><td style="border: none; padding: 8px 0; color: var(--text-muted); font-weight: 600;">YPF + Axcera solo Futures</td><td style="border: none; padding: 8px 0;"><span class="risk-badge risk-low">Recomendado</span> &mdash; Mantiene CFD a $10K/mes, agrega Futures por ~$5K/mes. Menor riesgo, menor costo. Requiere confirmacion de Axcera.</td></tr>
+                    <tr style="border: none;"><td style="border: none; padding: 8px 0; color: var(--text-muted); font-weight: 600;">Quedarse con YPF</td><td style="border: none; padding: 8px 0;"><span class="risk-badge risk-medium">Plan B seguro</span> &mdash; $123K/ano. Cero riesgo. No captura mercado de futuros.</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+</div>
+
+<div class="footer">
+    <strong>NEOMAAA</strong> &mdash; Documento interno confidencial<br>
+    Abril 2026 &bull; Datos basados en invoices reales Q1 2026 y contrato draft Axcera<br>
+    Este documento no constituye asesoramiento legal. Consultar abogado antes de firmar.
+</div>
+
+</body>
+</html>

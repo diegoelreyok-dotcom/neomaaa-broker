@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEOMAAA — Counterproposal to Axcera PaaS Agreement</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #FAFBFC;
+            --bg-white: #FFFFFF;
+            --bg-subtle: #F3F4F6;
+            --border: #E5E7EB;
+            --border-strong: #D1D5DB;
+            --text: #111827;
+            --text-secondary: #4B5563;
+            --text-muted: #6B7280;
+            --text-light: #9CA3AF;
+            --accent: #0F172A;
+            --green: #059669;
+            --green-bg: #ECFDF5;
+            --red: #DC2626;
+            --red-bg: #FEF2F2;
+            --amber: #D97706;
+            --amber-bg: #FFFBEB;
+            --blue: #2563EB;
+            --blue-bg: #EFF6FF;
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+            --radius: 8px;
+            --radius-lg: 12px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .header {
+            background: var(--accent);
+            padding: 48px 0;
+        }
+
+        .header-inner {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 48px;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 4px;
+        }
+
+        .doc-type {
+            background: rgba(5,150,105,0.2);
+            border: 1px solid rgba(5,150,105,0.4);
+            color: #6EE7B7;
+            padding: 5px 14px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .header h1 {
+            font-size: 32px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .header .subtitle {
+            color: #94A3B8;
+            font-size: 16px;
+        }
+
+        .header-meta {
+            display: flex;
+            gap: 32px;
+            margin-top: 24px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 13px;
+            color: #64748B;
+        }
+
+        .header-meta strong { color: #CBD5E1; }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 48px;
+        }
+
+        section {
+            margin-bottom: 0;
+            padding: 40px 0 44px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        section:last-of-type { border-bottom: none; }
+
+        h2 {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid var(--accent);
+            letter-spacing: -0.3px;
+        }
+
+        h3 {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin: 32px 0 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            padding-left: 14px;
+            border-left: 3px solid var(--green);
+        }
+
+        h3:first-of-type { margin-top: 8px; }
+
+        p {
+            margin-bottom: 14px;
+            color: var(--text-secondary);
+            font-size: 15px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0 28px;
+            font-size: 14px;
+            background: var(--bg-white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border);
+        }
+
+        thead th {
+            background: var(--bg-subtle);
+            color: var(--text-muted);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: 0.8px;
+            padding: 12px 18px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        tbody td {
+            padding: 12px 18px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-secondary);
+        }
+
+        tbody tr:last-child td { border-bottom: none; }
+
+        .text-right { text-align: right; }
+
+        .amount {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 600;
+            font-size: 13px;
+        }
+
+        .amount-green { color: var(--green); }
+        .amount-red { color: var(--red); }
+
+        .total-row {
+            background: var(--bg-subtle) !important;
+        }
+
+        .total-row td {
+            font-weight: 700;
+            color: var(--text);
+            border-top: 2px solid var(--border-strong);
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin: 20px 0 28px;
+        }
+
+        .metric-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 22px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .metric-card .label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+            font-weight: 500;
+        }
+
+        .metric-card .value {
+            font-size: 28px;
+            font-weight: 700;
+            font-family: 'JetBrains Mono', monospace;
+            letter-spacing: -1px;
+        }
+
+        .metric-card .sub {
+            font-size: 12px;
+            color: var(--text-light);
+            margin-top: 4px;
+        }
+
+        .metric-card.green { border-left: 4px solid var(--green); }
+        .metric-card.green .value { color: var(--green); }
+
+        .metric-card.blue { border-left: 4px solid var(--blue); }
+        .metric-card.blue .value { color: var(--blue); }
+
+        .metric-card.primary { border-left: 4px solid var(--accent); }
+        .metric-card.primary .value { color: var(--accent); }
+
+        .alert-box {
+            border-radius: var(--radius);
+            padding: 20px 24px;
+            margin: 20px 0 28px;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .alert-green {
+            background: var(--green-bg);
+            border: 1px solid #A7F3D0;
+            color: #065F46;
+        }
+
+        .alert-blue {
+            background: var(--blue-bg);
+            border: 1px solid #BFDBFE;
+            color: #1E40AF;
+        }
+
+        .alert-box strong { color: inherit; }
+
+        .proposal-item {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 24px 28px;
+            margin: 16px 0;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .proposal-item .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 8px;
+        }
+
+        .proposal-item .item-title {
+            font-weight: 700;
+            color: var(--text);
+            font-size: 16px;
+        }
+
+        .proposal-item .item-ref {
+            font-size: 11px;
+            color: var(--text-light);
+            font-family: 'JetBrains Mono', monospace;
+            margin-bottom: 12px;
+        }
+
+        .proposal-item .current {
+            background: var(--red-bg);
+            border-radius: 6px;
+            padding: 12px 16px;
+            margin: 12px 0;
+            font-size: 13px;
+            color: #991B1B;
+        }
+
+        .proposal-item .proposed {
+            background: var(--green-bg);
+            border-radius: 6px;
+            padding: 12px 16px;
+            margin: 12px 0;
+            font-size: 13px;
+            color: #065F46;
+        }
+
+        .proposal-item .rationale {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 12px;
+            line-height: 1.7;
+        }
+
+        .badge {
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .badge-required { background: #FEE2E2; color: #991B1B; }
+        .badge-important { background: #FFEDD5; color: #9A3412; }
+        .badge-new { background: #DBEAFE; color: #1E40AF; }
+
+        .signature-block {
+            margin-top: 48px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+        }
+
+        .sig-party {
+            border-top: 2px solid var(--border);
+            padding-top: 20px;
+        }
+
+        .sig-party .party-name {
+            font-weight: 700;
+            font-size: 16px;
+            color: var(--text);
+            margin-bottom: 4px;
+        }
+
+        .sig-party .party-role {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+
+        .sig-line {
+            border-bottom: 1px solid var(--border-strong);
+            margin: 32px 0 6px;
+        }
+
+        .sig-label {
+            font-size: 11px;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer {
+            border-top: 1px solid var(--border);
+            padding: 24px 48px;
+            text-align: center;
+            color: var(--text-light);
+            font-size: 12px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        ul { margin: 8px 0 12px 20px; font-size: 14px; }
+        ul li { margin-bottom: 6px; color: var(--text-secondary); }
+        ul li strong { color: var(--text); }
+
+        @media print {
+            .header { padding: 32px 0; }
+            .container { padding: 24px; }
+            .proposal-item { break-inside: avoid; }
+        }
+
+        @media (max-width: 768px) {
+            .header-inner, .container { padding: 24px; }
+            .header h1 { font-size: 24px; }
+            .signature-block { grid-template-columns: 1fr; gap: 32px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div class="header-inner">
+        <div class="header-top">
+            <div class="logo">NEOMAAA</div>
+            <div class="doc-type">Counterproposal</div>
+        </div>
+        <h1>Counterproposal to PaaS Agreement</h1>
+        <p class="subtitle">Proposed amendments to the Proprietary Trading Management Software Services Agreement</p>
+        <div class="header-meta">
+            <span>From: <strong>Neom Triple A Information Technology LLC</strong></span>
+            <span>To: <strong>Axcera LLC</strong></span>
+            <span>Date: <strong>April 2026</strong></span>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+
+    <!-- INTRO -->
+    <section>
+        <h2>Introduction</h2>
+        <p>Thank you for presenting the Proprietary Trading Management Software Services Agreement and the Multi-asset Appendix A. We have reviewed the full contract in detail and are interested in proceeding with Axcera as our technology partner for the expansion into Futures.</p>
+        <p>NEOMAAA is an established proprietary trading firm with a proven track record:</p>
+        <ul>
+            <li><strong>40,000+</strong> registered users</li>
+            <li><strong>3,400+</strong> accounts created per month</li>
+            <li><strong>$250,000+</strong> monthly revenue</li>
+            <li><strong>16-person</strong> operational team</li>
+            <li>Currently operating on <strong>3 CFD platforms</strong> (MT5 + TradeLocker)</li>
+        </ul>
+        <p>We are ready to commit to a long-term partnership. However, we have identified several terms that require adjustment to reflect the scale of our business and the mutual value of this relationship. Below are our proposed amendments.</p>
+
+        <div class="alert-green alert-box">
+            <strong>Our commitment:</strong> We are offering Axcera a client that will ramp from $15,000/month at launch to <strong>$30,000/month by month 6</strong> as we add a second Futures platform and cross the $500K revenue threshold. Steady-state annual value: <strong>$367,500</strong>. Total 2-year value: <strong>$690,000+</strong>. The tiered structure ensures Axcera earns more as NEOMAAA grows &mdash; true alignment.
+        </div>
+    </section>
+
+    <!-- PROPOSED AMENDMENTS -->
+    <section>
+        <h2>Proposed Amendments</h2>
+
+        <div class="proposal-item">
+            <div class="item-header">
+                <span class="item-title">1. Tiered Pricing Structure with Monthly Reset</span>
+                <span class="badge badge-required">Required</span>
+            </div>
+            <div class="item-ref">Reference: Appendix A &mdash; Replaces MTSF + Revenue Trigger</div>
+            <div class="current">
+                <strong>Current:</strong> Fixed MTSF of $15,000/month for multi-asset package (up to 3 CFD), plus $5,000 per Futures platform, plus a permanent $10,000/month surcharge once revenue exceeds $250,000. The surcharge applies to all subsequent months regardless of whether revenue falls below the threshold.
+            </div>
+            <div class="proposed">
+                <strong>Proposed:</strong> Replace the current fee structure with a single-tier, revenue-based model with <strong>monthly reset</strong>:
+                <br><br>
+                <strong>Base package (2 CFD + 1 Futures platform):</strong>
+                <ul style="margin: 8px 0 8px 20px;">
+                    <li>Revenue under $500,000 &rarr; <strong>$15,000/month</strong></li>
+                    <li>Revenue $500,000+ &rarr; <strong>$25,000/month</strong></li>
+                </ul>
+                <strong>4th platform add-on:</strong> +$5,000/month added to the applicable tier above.
+                <br><br>
+                The surcharge <strong>resets monthly</strong> &mdash; it only applies in months where the revenue threshold is actually exceeded. If revenue drops below $500K in any given month, the Licensee reverts to the base fee.
+            </div>
+            <div class="rationale">
+                <strong>Rationale:</strong> This structure is simpler, fairer, and aligns Axcera's revenue directly with NEOMAAA's success:
+                <ul style="margin: 8px 0 8px 20px;">
+                    <li><strong>Axcera earns more when NEOMAAA earns more</strong> &mdash; true partnership alignment</li>
+                    <li><strong>1 Futures platform included in the base</strong> &mdash; simplifies billing and removes friction for Futures adoption</li>
+                    <li><strong>Monthly reset eliminates the permanent ratchet</strong> &mdash; NEOMAAA pays the surcharge in growth months and gets relief in slower months. In practice, as we scale, the surcharge will be active most months</li>
+                    <li><strong>Higher threshold ($500K)</strong> &mdash; gives NEOMAAA 2&ndash;3 months of breathing room during migration. We currently generate $250K/month in CFD alone; combined with Futures, we project hitting $500K by month 3</li>
+                </ul>
+                NEOMAAA is not asking to avoid paying more &mdash; we are asking for a structure where we pay more <em>when we are actually generating more</em>.
+            </div>
+        </div>
+
+        <div class="proposal-item">
+            <div class="item-header">
+                <span class="item-title">2. MTSF Commencement</span>
+                <span class="badge badge-required">Required</span>
+            </div>
+            <div class="item-ref">Reference: Section 3.3</div>
+            <div class="current">
+                <strong>Current:</strong> The MTSF shall commence on the earlier of (i) the Licensee going live (first paying customer), or (ii) thirty (30) calendar days after Axcera has provided access to the Platform.
+            </div>
+            <div class="proposed">
+                <strong>Proposed:</strong> The MTSF shall commence only upon the Licensee going live, defined as having their <strong>first paying customer</strong>. Remove the 30-day automatic trigger.
+            </div>
+            <div class="rationale">
+                <strong>Rationale:</strong> The migration and integration process requires testing, data migration, and team training. Charging the full MTSF before the platform is operational creates financial pressure to rush the launch, which is not in either party's interest. Tying commencement to the first paying customer ensures NEOMAAA launches properly, which benefits Axcera's long-term revenue.
+            </div>
+        </div>
+
+        <div class="proposal-item">
+            <div class="item-header">
+                <span class="item-title">3. Installation Fee Reduction</span>
+                <span class="badge badge-important">Important</span>
+            </div>
+            <div class="item-ref">Reference: Appendix A &mdash; Installation Fee</div>
+            <div class="current">
+                <strong>Current:</strong> Installation Fee of $25,000 payable upon execution of the Agreement.
+            </div>
+            <div class="proposed">
+                <strong>Proposed:</strong> Reduce Installation Fee to <strong>$15,000 &ndash; $20,000</strong>, reflecting the lower onboarding cost for an established client migrating from an existing platform.
+            </div>
+            <div class="rationale">
+                <strong>Rationale:</strong> NEOMAAA is not a startup building from scratch. We have established operations, existing user base, and operational processes. The integration effort is a migration, not a greenfield setup. Additionally, Axcera will recover the setup cost within the first month of MTSF payments. A reduced installation fee of $15,000&ndash;$20,000 reflects the actual onboarding work required.
+            </div>
+        </div>
+
+        <div class="proposal-item">
+            <div class="item-header">
+                <span class="item-title">4. Non-Compete Clause</span>
+                <span class="badge badge-required">Required</span>
+            </div>
+            <div class="item-ref">Reference: Section 6.3</div>
+            <div class="current">
+                <strong>Current:</strong> 2 years post-termination. Covers any platform, software or service that "competes" with anything Axcera offers &mdash; extremely broad scope.
+            </div>
+            <div class="proposed">
+                <strong>Proposed:</strong> Reduce the post-termination non-compete period to <strong>six (6) months</strong>. Restrict scope to <strong>direct replication of Axcera's specific proprietary technology</strong> &mdash; not a blanket prohibition on operating in the prop trading space. The non-compete shall not apply if Axcera terminates the agreement for non-cause or fails to meet SLA obligations.
+            </div>
+            <div class="rationale">
+                <strong>Rationale:</strong> A 2-year blanket non-compete on an entire industry vertical is commercially disproportionate and difficult to enforce in most jurisdictions. Six months, limited to direct replication of Axcera's proprietary technology, protects Axcera's legitimate IP interests without restricting NEOMAAA's normal business operations.
+            </div>
+        </div>
+
+        <div class="proposal-item">
+            <div class="item-header">
+                <span class="item-title">5. Termination Notice Period</span>
+                <span class="badge badge-important">Important</span>
+            </div>
+            <div class="item-ref">Reference: Section 9.2</div>
+            <div class="current">
+                <strong>Current:</strong> Axcera reserves the exclusive right to terminate the Agreement and revoke credentials with immediate effect, without prior notice, if Licensee engages in illegal or unethical activities.
+            </div>
+            <div class="proposed">
+                <strong>Proposed:</strong> All termination scenarios require a minimum of <strong>30 calendar days written notice</strong> and a right to cure within that period. Immediate termination only for criminal convictions, not subjective determinations.
+            </div>
+            <div class="rationale">
+                <strong>Rationale:</strong> Immediate termination without notice or cure period puts NEOMAAA's entire operation at risk. A 30-day notice ensures business continuity and gives both parties the opportunity to resolve disputes. The term "unethical" is subjective; limiting immediate termination to criminal convictions provides objective criteria.
+            </div>
+        </div>
+
+        <div class="proposal-item">
+            <div class="item-header">
+                <span class="item-title">6. Service Level Agreement (SLA)</span>
+                <span class="badge badge-new">New Clause</span>
+            </div>
+            <div class="item-ref">Reference: Article VII (currently "AS IS")</div>
+            <div class="current">
+                <strong>Current:</strong> All software is provided "AS IS" without warranty of any kind. Axcera does not warrant that the software is bug-free or that use will be uninterrupted.
+            </div>
+            <div class="proposed">
+                <strong>Proposed:</strong> Add an SLA guaranteeing:
+                <ul style="margin-top: 8px;">
+                    <li><strong>99.5% monthly uptime</strong> for the Platform during market hours</li>
+                    <li><strong>4-hour response time</strong> for critical incidents affecting trading operations</li>
+                    <li><strong>MTSF credits</strong> for any month where uptime falls below 99.5%</li>
+                </ul>
+            </div>
+            <div class="rationale">
+                <strong>Rationale:</strong> At $20,000+/month, a service with zero performance guarantees creates unacceptable operational risk. An SLA is standard in enterprise software agreements at this price point and demonstrates Axcera's confidence in their platform.
+            </div>
+        </div>
+
+        <div class="proposal-item">
+            <div class="item-header">
+                <span class="item-title">7. Discretionary Advance Payment</span>
+                <span class="badge badge-important">Important</span>
+            </div>
+            <div class="item-ref">Reference: Section 3.2(c)</div>
+            <div class="current">
+                <strong>Current:</strong> Axcera can unilaterally demand up to three (3) months of fees upfront based on its own internal assessment of "financial risk." No objective criteria defined. Five (5) business days to pay or face immediate suspension.
+            </div>
+            <div class="proposed">
+                <strong>Proposed:</strong> Remove this clause entirely. Alternatively, replace with a strictly defined trigger &mdash; advance payment only applicable after <strong>two consecutive missed payments</strong>, with <strong>10 business days to cure</strong>.
+            </div>
+            <div class="rationale">
+                <strong>Rationale:</strong> As written, this is a subjective pressure tool with no checks. No SaaS agreement grants a vendor this level of unilateral discretion without objective thresholds. NEOMAAA is an established, revenue-generating business; tying the clause to documented payment delinquency provides a fair, objective trigger.
+            </div>
+        </div>
+
+        <div class="proposal-item">
+            <div class="item-header">
+                <span class="item-title">8. Resumption Fee After Suspension</span>
+                <span class="badge badge-important">Important</span>
+            </div>
+            <div class="item-ref">Reference: Section 3.2(d)</div>
+            <div class="current">
+                <strong>Current:</strong> Upon resuming service after non-payment suspension, Axcera adds its "reasonable expenses" for stoppage and re-engagement on top of the outstanding balance. No cap, no definition of what qualifies.
+            </div>
+            <div class="proposed">
+                <strong>Proposed:</strong> Remove entirely. Resumption of service shall occur automatically upon settlement of the outstanding balance, with no additional charges.
+            </div>
+            <div class="rationale">
+                <strong>Rationale:</strong> The Licensee is already paying MTSF for the platform. Charging a reinstatement fee on top of cleared arrears is a double penalty with no market precedent in standard SaaS agreements.
+            </div>
+        </div>
+
+        <div class="proposal-item">
+            <div class="item-header">
+                <span class="item-title">9. Late Payment Interest</span>
+                <span class="badge badge-important">Important</span>
+            </div>
+            <div class="item-ref">Reference: Section 5.3</div>
+            <div class="current">
+                <strong>Current:</strong> 18% per annum on overdue balances after 10 business days.
+            </div>
+            <div class="proposed">
+                <strong>Proposed:</strong> Reduce to <strong>8% per annum</strong>.
+            </div>
+            <div class="rationale">
+                <strong>Rationale:</strong> 18% is punitive and above standard commercial rates. 8% adequately compensates Axcera for late payment without functioning as a penalty clause.
+            </div>
+        </div>
+
+        <div class="proposal-item">
+            <div class="item-header">
+                <span class="item-title">10. Early Termination Right by Licensee</span>
+                <span class="badge badge-required">Required</span>
+            </div>
+            <div class="item-ref">Reference: Section 9.1</div>
+            <div class="current">
+                <strong>Current:</strong> No early termination right exists for the Licensee. The only exit options are material breach by Axcera or Axcera's bankruptcy. Outside of these, the Licensee is locked in for the full annual term with no exit.
+            </div>
+            <div class="proposed">
+                <strong>Proposed:</strong> Add an Early Termination Clause &mdash; Licensee may terminate at any time with <strong>30 days written notice</strong>, paying the current month plus <strong>one additional month</strong> as a termination fee. No further obligations after that period.
+            </div>
+            <div class="rationale">
+                <strong>Rationale:</strong> A 12-month lock-in with no exit right is unusually restrictive for a SaaS licensing agreement. The proposed 30-day notice plus one month's fee is a reasonable commercial compromise that protects Axcera's revenue while giving the Licensee a proportionate exit mechanism.
+            </div>
+        </div>
+
+        <div class="proposal-item">
+            <div class="item-header">
+                <span class="item-title">11. Auto-Renewal Notice Period</span>
+                <span class="badge badge-important">Important</span>
+            </div>
+            <div class="item-ref">Reference: Section 9.1</div>
+            <div class="current">
+                <strong>Current:</strong> 60 days written notice required to prevent automatic renewal.
+            </div>
+            <div class="proposed">
+                <strong>Proposed:</strong> Reduce to <strong>30 days</strong>.
+            </div>
+            <div class="rationale">
+                <strong>Rationale:</strong> 60 days is excessive for an annual contract. 30 days is the market standard.
+            </div>
+        </div>
+
+        <div class="proposal-item">
+            <div class="item-header">
+                <span class="item-title">12. Data Return on Termination</span>
+                <span class="badge badge-new">New Clause</span>
+            </div>
+            <div class="item-ref">Reference: New clause &mdash; Post-Termination Obligations</div>
+            <div class="current">
+                <strong>Current:</strong> The Agreement contains no explicit mechanism requiring Axcera to return or export Licensee client data, account configurations or platform settings upon termination.
+            </div>
+            <div class="proposed">
+                <strong>Proposed:</strong> Add an explicit clause: upon termination, Axcera shall provide a full export of all Licensee client data, account configurations and platform settings within <strong>14 calendar days</strong> at no additional charge, in a commonly readable format.
+            </div>
+            <div class="rationale">
+                <strong>Rationale:</strong> Client data belongs to the Licensee by definition. Without an explicit data return clause, there is no contractual mechanism to recover operational data after exit. This clause protects NEOMAAA's continuity of operations and is standard in enterprise SaaS/PaaS agreements.
+            </div>
+        </div>
+
+        <div class="proposal-item">
+            <div class="item-header">
+                <span class="item-title">13. Technical Commitments &mdash; Integration Scope</span>
+                <span class="badge badge-new">New Clause</span>
+            </div>
+            <div class="item-ref">Reference: New Annex &mdash; derived from Axcera Q&amp;A dated 19 November 2025</div>
+            <div class="current">
+                <strong>Current:</strong> The Agreement does not codify the integration capabilities committed verbally by Axcera during pre-contract due diligence. These commitments must be binding to protect NEOMAAA's integration roadmap.
+            </div>
+            <div class="proposed">
+                <strong>Proposed:</strong> Add a technical annex formalizing the following commitments confirmed by Axcera:
+                <ul style="margin: 8px 0 8px 20px;">
+                    <li><strong>WooCommerce compatibility</strong> &mdash; current checkout and affiliate system (WooCommerce-based) shall remain operative and integrated with the Platform.</li>
+                    <li><strong>Email provider</strong> &mdash; Brevo integration supported out of the box; no additional fee for connection.</li>
+                    <li><strong>APIs</strong> &mdash; REST APIs provided in pull-based read-only mode, covering at minimum:
+                        <ul style="margin: 4px 0 4px 20px;">
+                            <li>List of all account plans with details</li>
+                            <li>CRUD of users</li>
+                            <li>CRUD of trading accounts (with account plan and user reference)</li>
+                            <li>Account positions</li>
+                            <li>Account trades</li>
+                            <li>CRUD of user/account payouts</li>
+                            <li>CRUD of competitions</li>
+                        </ul>
+                    </li>
+                    <li><strong>Webhooks</strong> &mdash; full list of available webhooks to be delivered upon agreement execution and documented as a contractual annex.</li>
+                    <li><strong>Database access</strong> &mdash; access via CRM or API available to Licensee for back-office operations, custom dashboards and reporting.</li>
+                    <li><strong>Payment providers</strong> &mdash; any PSP with a WooCommerce plugin supported at no extra cost. Custom PSP integrations billable separately with written quote and Licensee's prior approval.</li>
+                    <li><strong>Data hosting</strong> &mdash; databases hosted on AWS, with data management terms per the draft agreement.</li>
+                    <li><strong>Data export</strong> &mdash; Licensee may export account histories, deals and stage transitions for risk management purposes without additional charge.</li>
+                </ul>
+            </div>
+            <div class="rationale">
+                <strong>Rationale:</strong> Axcera confirmed each of the above in writing via the "NeomAAA Tech Questions" document (last updated 19 November 2025). Codifying these answers as contractual commitments converts verbal assurances into enforceable obligations. Without this annex, NEOMAAA's integration roadmap depends on informal promises that carry no legal weight after signature.
+            </div>
+        </div>
+
+        <div class="proposal-item">
+            <div class="item-header">
+                <span class="item-title">14. Jurisdiction</span>
+                <span class="badge badge-new">Accepted</span>
+            </div>
+            <div class="item-ref">Reference: Section 12.2</div>
+            <div class="proposed">
+                <strong>Accepted as is:</strong> Dubai courts as jurisdiction, given that the Licensee entity (Neom Triple A Information Technology LLC) is based in Dubai.
+            </div>
+            <div class="rationale">
+                <strong>Rationale:</strong> No change requested. Jurisdiction aligns with the Licensee's domicile and presents no operational or legal friction.
+            </div>
+        </div>
+    </section>
+
+    <!-- RED LINES -->
+    <section>
+        <h2>Red Lines &mdash; Non-Negotiable</h2>
+        <p>The following four items are non-negotiable conditions for NEOMAAA to execute this Agreement. Each represents a structural protection of the Licensee's operational continuity and cannot be waived.</p>
+        <div class="proposal-item" style="border-left: 4px solid var(--red);">
+            <ul style="margin: 0 0 0 20px;">
+                <li><strong>Early Termination Clause is non-negotiable</strong> &mdash; 30 days notice, one month fee, clean exit.</li>
+                <li><strong>Non-compete must not exceed 6 months</strong> post-termination.</li>
+                <li><strong>Advance payment clause must be removed</strong> or objectively defined (tied to documented payment delinquency).</li>
+                <li><strong>Data return upon termination must be explicitly guaranteed</strong> (14 calendar days, no additional charge).</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- FINANCIAL SUMMARY -->
+    <section>
+        <h2>Financial Commitment</h2>
+
+        <h3>Proposed Fee Structure (Position 2)</h3>
+
+        <table>
+            <thead>
+                <tr><th>Configuration</th><th class="text-right">Revenue &lt; $500K</th><th class="text-right">Revenue $500K+</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><strong>Base package</strong> (2 CFD + 1 Futures)</td><td class="text-right amount">$15,000/mo</td><td class="text-right amount">$25,000/mo</td></tr>
+                <tr><td><strong>With 4th platform</strong> (2 CFD + 2 Futures)</td><td class="text-right amount">$20,000/mo</td><td class="text-right amount">$30,000/mo</td></tr>
+            </tbody>
+        </table>
+
+        <div class="alert-blue alert-box">
+            <strong>Monthly reset:</strong> The surcharge applies only in months where revenue actually exceeds $500K. If revenue drops below the threshold in any given month, the fee reverts to the base rate immediately. No permanent ratchet.
+        </div>
+
+        <h3>Growth Trajectory &mdash; What Axcera Will Receive</h3>
+        <p>This is not a static contract. NEOMAAA's growth plan means Axcera's revenue from this relationship <strong>increases over time</strong>:</p>
+
+        <table>
+            <thead>
+                <tr><th>Phase</th><th>Timeline</th><th>Platforms</th><th>Revenue Est.</th><th class="text-right">Monthly to Axcera</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><strong>Launch</strong></td><td>Month 1&ndash;2</td><td>2 CFD + 1 Futures</td><td>&lt;$500K</td><td class="text-right amount">$15,000</td></tr>
+                <tr><td><strong>2nd Futures</strong></td><td>Month 2&ndash;3</td><td>2 CFD + 2 Futures</td><td>&lt;$500K</td><td class="text-right amount">$20,000</td></tr>
+                <tr><td><strong>Scale</strong></td><td>Month 3+</td><td>2 CFD + 2 Futures</td><td>$500K+</td><td class="text-right amount">$30,000</td></tr>
+            </tbody>
+        </table>
+
+        <h3>Projected Annual Revenue to Axcera</h3>
+        <table>
+            <thead>
+                <tr><th>Period</th><th>Months</th><th class="text-right">Monthly</th><th class="text-right">Subtotal</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Ramp-up (base, 1 Futures)</td><td>1&ndash;2</td><td class="text-right amount">$15,000</td><td class="text-right amount">$30,000</td></tr>
+                <tr><td>2nd Futures added, &lt;$500K</td><td>3&ndash;5</td><td class="text-right amount">$20,000</td><td class="text-right amount">$60,000</td></tr>
+                <tr><td>At scale, revenue $500K+</td><td>6&ndash;12</td><td class="text-right amount">$30,000</td><td class="text-right amount">$210,000</td></tr>
+                <tr><td>Competitions (3 months)</td><td>&mdash;</td><td class="text-right amount">$2,500</td><td class="text-right amount">$7,500</td></tr>
+                <tr class="total-row"><td>Year 1 Total (excl. setup)</td><td></td><td></td><td class="text-right amount" style="font-size: 15px;">$307,500</td></tr>
+            </tbody>
+        </table>
+
+        <table>
+            <thead>
+                <tr><th>Steady State (Year 2+)</th><th>Months</th><th class="text-right">Monthly</th><th class="text-right">Total</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Base + 2 Futures + Surcharge ($500K+)</td><td>12</td><td class="text-right amount">$30,000</td><td class="text-right amount">$360,000</td></tr>
+                <tr><td>Competitions (3 months)</td><td>3</td><td class="text-right amount">$2,500</td><td class="text-right amount">$7,500</td></tr>
+                <tr class="total-row"><td>Year 2+ Annual</td><td></td><td></td><td class="text-right amount" style="font-size: 15px;">$367,500</td></tr>
+            </tbody>
+        </table>
+
+        <div class="card-grid">
+            <div class="metric-card green">
+                <div class="label">Month 1&ndash;2 (Ramp-up)</div>
+                <div class="value">$15K</div>
+                <div class="sub">per month / base package</div>
+            </div>
+            <div class="metric-card green">
+                <div class="label">Month 3&ndash;5 (Growth)</div>
+                <div class="value">$20K</div>
+                <div class="sub">per month / 4 platforms</div>
+            </div>
+            <div class="metric-card primary">
+                <div class="label">Month 6+ (Steady State)</div>
+                <div class="value">$30K</div>
+                <div class="sub">per month / 4 platforms + surcharge</div>
+            </div>
+            <div class="metric-card blue">
+                <div class="label">Year 2+ Annual</div>
+                <div class="value">$368K</div>
+                <div class="sub">Full year at steady state</div>
+            </div>
+        </div>
+
+        <h3>Installation Fee</h3>
+        <table>
+            <thead><tr><th></th><th class="text-right">Original</th><th class="text-right">Proposed</th></tr></thead>
+            <tbody>
+                <tr><td>Installation Fee (one-time)</td><td class="text-right amount">$25,000</td><td class="text-right amount amount-green">$15,000 &ndash; $20,000</td></tr>
+            </tbody>
+        </table>
+
+        <h3>Total 2-Year Value to Axcera</h3>
+        <table>
+            <thead><tr><th></th><th class="text-right">Amount</th></tr></thead>
+            <tbody>
+                <tr><td>Installation Fee</td><td class="text-right amount">$15,000 &ndash; $20,000</td></tr>
+                <tr><td>Year 1 (ramp-up + scale)</td><td class="text-right amount">$307,500</td></tr>
+                <tr><td>Year 2 (steady state)</td><td class="text-right amount">$367,500</td></tr>
+                <tr class="total-row"><td>Total 2-Year Commitment</td><td class="text-right amount" style="font-size: 16px;">$690,000 &ndash; $695,000</td></tr>
+            </tbody>
+        </table>
+
+        <div class="alert-green alert-box">
+            <strong>Total value to Axcera:</strong> With Position 2 pricing, Axcera receives <strong>$30,000/month at steady state ($367,500/year)</strong> with a clear growth trajectory. Over 2 years, total payments to Axcera reach <strong>$690,000+</strong> including setup, ramp-up, and surcharges. The monthly reset structure ensures Axcera earns more when NEOMAAA earns more &mdash; true partnership alignment.
+        </div>
+    </section>
+
+    <!-- SUMMARY OF CHANGES -->
+    <section>
+        <h2>Summary of Proposed Changes</h2>
+        <table>
+            <thead>
+                <tr><th style="width: 30px">#</th><th>Clause</th><th>Original</th><th>Proposed</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td><strong>Pricing structure</strong></td><td>$15K base + $5K/Futures + $10K permanent trigger at $250K</td><td>Tiered: $15K (&lt;$500K) / $25K ($500K+), monthly reset. +$5K for 4th platform</td></tr>
+                <tr><td>2</td><td><strong>MTSF start</strong></td><td>30 days or first client</td><td>First paying customer only</td></tr>
+                <tr><td>3</td><td><strong>Installation fee</strong></td><td>$25,000</td><td>$15,000 &ndash; $20,000</td></tr>
+                <tr><td>4</td><td><strong>Non-compete</strong></td><td>2 years post-termination</td><td>6 months or eliminated</td></tr>
+                <tr><td>5</td><td><strong>Termination</strong></td><td>Immediate, no notice</td><td>30 days notice + right to cure</td></tr>
+                <tr><td>6</td><td><strong>SLA</strong></td><td>"AS IS"</td><td>99.5% uptime + 4hr response</td></tr>
+                <tr><td>7</td><td><strong>Advance payment</strong></td><td>3 months at Axcera's discretion</td><td>Remove or tie to payment history</td></tr>
+                <tr><td>8</td><td><strong>Resumption fee after suspension</strong> (3.2d)</td><td>"Reasonable expenses" on top of arrears, no cap</td><td>Remove &mdash; automatic resumption upon payment</td></tr>
+                <tr><td>9</td><td><strong>Late payment interest</strong> (5.3)</td><td>18% per annum</td><td>8% per annum</td></tr>
+                <tr><td>10</td><td><strong>Early termination by Licensee</strong> (9.1)</td><td>No exit right</td><td>30 days notice + 1 month fee</td></tr>
+                <tr><td>11</td><td><strong>Auto-renewal notice</strong> (9.1)</td><td>60 days</td><td>30 days</td></tr>
+                <tr><td>12</td><td><strong>Data return on termination</strong> (10.2)</td><td>Not addressed</td><td>Full export within 14 days, no charge</td></tr>
+                <tr><td>13</td><td><strong>Technical commitments</strong></td><td>Verbal answers in Q&amp;A doc</td><td>Binding annex: APIs, webhooks, Brevo, WooCommerce, AWS, PSPs</td></tr>
+                <tr><td>14</td><td><strong>Jurisdiction</strong> (12.2)</td><td>Dubai courts</td><td>Accepted as is</td></tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- CLOSING -->
+    <section>
+        <h2>Closing</h2>
+        <p>We believe these amendments create a balanced agreement that reflects the value both parties bring to this partnership. NEOMAAA is committed to a long-term relationship with Axcera and we look forward to reaching a mutually agreeable set of terms.</p>
+        <p>We are available to discuss these proposed amendments at your earliest convenience.</p>
+
+        <div class="signature-block">
+            <div class="sig-party">
+                <div class="party-name">Neom Triple A Information Technology LLC</div>
+                <div class="party-role">Licensee</div>
+                <div class="sig-line"></div>
+                <div class="sig-label">Signature</div>
+                <div class="sig-line"></div>
+                <div class="sig-label">Name &amp; Title</div>
+                <div class="sig-line"></div>
+                <div class="sig-label">Date</div>
+            </div>
+            <div class="sig-party">
+                <div class="party-name">Axcera LLC</div>
+                <div class="party-role">Technology Provider</div>
+                <div class="sig-line"></div>
+                <div class="sig-label">Signature</div>
+                <div class="sig-line"></div>
+                <div class="sig-label">Name &amp; Title</div>
+                <div class="sig-line"></div>
+                <div class="sig-label">Date</div>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<div class="footer">
+    Neom Triple A Information Technology LLC &mdash; Onyx Building, Al-Khabees, Dubai, UAE<br>
+    This document constitutes a counterproposal and is subject to negotiation. Not binding until executed by both parties.
+</div>
+
+</body>
+</html>
