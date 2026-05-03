@@ -1,0 +1,179 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e33]:
+    - complementary [ref=e34]:
+      - button "Colapsar menú" [ref=e36]:
+        - img [ref=e37]
+      - generic [ref=e40]:
+        - link "Traders Hub Traders Hub Operations" [ref=e41] [cursor=pointer]:
+          - /url: /
+          - img "Traders Hub" [ref=e44]
+          - generic [ref=e45]:
+            - generic [ref=e46]: Traders Hub
+            - generic [ref=e47]: Operations
+        - button "Notificaciones" [ref=e50]:
+          - img [ref=e51]
+      - navigation [ref=e54]:
+        - generic [ref=e55]:
+          - generic [ref=e56]: Overview
+          - link "Dashboard" [ref=e58] [cursor=pointer]:
+            - /url: /
+            - img [ref=e60]
+            - generic [ref=e65]: Dashboard
+        - generic [ref=e66]:
+          - generic [ref=e67]: Workflow
+          - generic [ref=e68]:
+            - link "Pipeline" [ref=e69] [cursor=pointer]:
+              - /url: /pipeline
+              - img [ref=e70]
+              - generic [ref=e72]: Pipeline
+            - link "Calendario" [ref=e73] [cursor=pointer]:
+              - /url: /calendario
+              - img [ref=e74]
+              - generic [ref=e76]: Calendario
+            - link "Guests" [ref=e77] [cursor=pointer]:
+              - /url: /guests
+              - img [ref=e78]
+              - generic [ref=e83]: Guests
+        - generic [ref=e84]:
+          - generic [ref=e85]: Insights
+          - link "Assets" [ref=e87] [cursor=pointer]:
+            - /url: /assets
+            - img [ref=e88]
+            - generic [ref=e90]: Assets
+      - generic [ref=e92]:
+        - generic [ref=e93]:
+          - generic [ref=e97]:
+            - generic [ref=e98]: Sistema activo
+            - generic [ref=e99]: YouTube API · sincronizando
+          - img [ref=e100]
+        - button "Cerrar sesión" [ref=e106]:
+          - img [ref=e107]
+          - text: Cerrar sesión
+        - generic [ref=e110]:
+          - generic [ref=e111]: v0.6 · @etradershub
+          - generic [ref=e112]: Equipo
+    - main [ref=e113]:
+      - generic [ref=e114]:
+        - generic [ref=e116]:
+          - generic [ref=e117]:
+            - img [ref=e118]
+            - generic [ref=e121]: Operations dashboard
+          - heading "Traders Hub en una vista" [level=1] [ref=e122]:
+            - text: Traders Hub
+            - generic [ref=e123]: en una vista
+          - paragraph [ref=e124]: Estado del podcast, salud del canal y próximos pasos del equipo. Datos en vivo desde YouTube · @etradershub.
+          - generic [ref=e125]:
+            - link "Ver analytics" [ref=e126] [cursor=pointer]:
+              - /url: /analytics
+              - text: Ver analytics
+              - img [ref=e127]
+            - link "Pipeline del equipo" [ref=e130] [cursor=pointer]:
+              - /url: /pipeline
+        - generic [ref=e131]:
+          - generic [ref=e132]:
+            - heading "KPIs del canal" [level=2] [ref=e133]
+            - generic [ref=e134]: "Última actualización: hace 2 min"
+          - generic [ref=e135]:
+            - generic [ref=e137]:
+              - generic [ref=e138]: Suscriptores
+              - generic [ref=e139]: 10,100
+              - generic [ref=e140]:
+                - generic [ref=e141]:
+                  - img [ref=e142]
+                  - text: +370 / mes
+                - generic [ref=e145]: vs ritmo objetivo
+            - generic [ref=e147]:
+              - generic [ref=e148]: Views totales
+              - generic [ref=e149]: 296,064
+              - generic [ref=e150]:
+                - generic [ref=e151]:
+                  - img [ref=e152]
+                  - text: +12.4K
+                - generic [ref=e155]: últimos 30d
+            - generic [ref=e157]:
+              - generic [ref=e158]: Videos publicados
+              - generic [ref=e159]: "313"
+              - generic [ref=e161]: histórico
+            - generic [ref=e163]:
+              - generic [ref=e164]: Engagement
+              - generic [ref=e165]: 5.00%
+              - generic [ref=e166]:
+                - generic [ref=e167]:
+                  - img [ref=e168]
+                  - text: +0.4%
+                - generic [ref=e171]: top 10% YouTube
+        - generic [ref=e172]:
+          - generic [ref=e174]:
+            - generic [ref=e175]:
+              - generic [ref=e176]:
+                - img [ref=e178]
+                - generic [ref=e181]:
+                  - generic [ref=e182]: Próximo episodio
+                  - generic [ref=e183]: Sin guest agendado
+              - generic [ref=e184]: En edición · Sup Dimi
+            - paragraph [ref=e185]: Cuando agendes el próximo invitado, aparece acá con dossier auto-generado, preguntas curadas y status de producción.
+            - link "Agendar guest" [ref=e186] [cursor=pointer]:
+              - /url: /guests
+              - img [ref=e187]
+              - text: Agendar guest
+              - img [ref=e188]
+          - generic [ref=e191]:
+            - generic [ref=e192]: Health scores
+            - generic [ref=e193]:
+              - generic [ref=e195]:
+                - generic [ref=e196]: CORE-EEAT
+                - generic [ref=e197]: 4/10
+              - generic [ref=e201]:
+                - generic [ref=e202]: GEO / IA
+                - generic [ref=e203]: 1/10
+              - generic [ref=e207]:
+                - generic [ref=e208]: SEO YouTube
+                - generic [ref=e209]: 5/10
+              - generic [ref=e213]:
+                - generic [ref=e214]: Brand voice
+                - generic [ref=e215]: 7/10
+        - generic [ref=e218]:
+          - generic [ref=e219]:
+            - heading "Top tareas" [level=2] [ref=e220]
+            - generic [ref=e221]: 3 prioridades del equipo
+          - generic [ref=e222]:
+            - link "Borrar menciones de NEOMAAA del canal Diego · Branding En progreso" [ref=e223] [cursor=pointer]:
+              - /url: /pipeline
+              - generic [ref=e226]:
+                - generic [ref=e227]: Borrar menciones de NEOMAAA del canal
+                - generic [ref=e228]:
+                  - generic [ref=e229]: Diego
+                  - generic [ref=e230]: ·
+                  - generic [ref=e231]: Branding
+              - generic [ref=e232]:
+                - generic [ref=e233]: En progreso
+                - img [ref=e234]
+            - link "Linktree nuevo desde cero Diego · Distribución Por hacer" [ref=e237] [cursor=pointer]:
+              - /url: /pipeline
+              - generic [ref=e240]:
+                - generic [ref=e241]: Linktree nuevo desde cero
+                - generic [ref=e242]:
+                  - generic [ref=e243]: Diego
+                  - generic [ref=e244]: ·
+                  - generic [ref=e245]: Distribución
+              - generic [ref=e246]:
+                - generic [ref=e247]: Por hacer
+                - img [ref=e248]
+            - link "Subir banners YT públicos Lucas · Branding Por hacer" [ref=e251] [cursor=pointer]:
+              - /url: /pipeline
+              - generic [ref=e254]:
+                - generic [ref=e255]: Subir banners YT públicos
+                - generic [ref=e256]:
+                  - generic [ref=e257]: Lucas
+                  - generic [ref=e258]: ·
+                  - generic [ref=e259]: Branding
+              - generic [ref=e260]:
+                - generic [ref=e261]: Por hacer
+                - img [ref=e262]
+        - generic [ref=e265]:
+          - generic [ref=e266]: v0.2 · rediseño con animaciones
+          - generic [ref=e267]: Diego · Yulia · Lucas · @etradershub
+  - button "Abrir menu de creacion rapida" [ref=e270]:
+    - img [ref=e272]
+  - region
+  - alert [ref=e29]

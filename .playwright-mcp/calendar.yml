@@ -1,0 +1,304 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - complementary [ref=e4]:
+      - button "Colapsar menú" [ref=e6]:
+        - img [ref=e7]
+      - generic [ref=e10]:
+        - link "Traders Hub Traders Hub Operations" [ref=e11] [cursor=pointer]:
+          - /url: /
+          - img "Traders Hub" [ref=e14]
+          - generic [ref=e15]:
+            - generic [ref=e16]: Traders Hub
+            - generic [ref=e17]: Operations
+        - button "Notificaciones" [ref=e20]:
+          - img [ref=e21]
+      - navigation [ref=e24]:
+        - generic [ref=e25]:
+          - generic [ref=e26]: Overview
+          - link "Dashboard" [ref=e28] [cursor=pointer]:
+            - /url: /
+            - img [ref=e29]
+            - generic [ref=e34]: Dashboard
+        - generic [ref=e35]:
+          - generic [ref=e36]: Workflow
+          - generic [ref=e37]:
+            - link "Pipeline" [ref=e38] [cursor=pointer]:
+              - /url: /pipeline
+              - img [ref=e39]
+              - generic [ref=e41]: Pipeline
+            - link "Calendario" [ref=e42] [cursor=pointer]:
+              - /url: /calendario
+              - img [ref=e44]
+              - generic [ref=e46]: Calendario
+            - link "Guests" [ref=e47] [cursor=pointer]:
+              - /url: /guests
+              - img [ref=e48]
+              - generic [ref=e53]: Guests
+        - generic [ref=e54]:
+          - generic [ref=e55]: Business
+          - generic [ref=e56]:
+            - link "Sponsors" [ref=e57] [cursor=pointer]:
+              - /url: /sponsors
+              - img [ref=e58]
+              - generic [ref=e63]: Sponsors
+            - link "Finanzas" [ref=e64] [cursor=pointer]:
+              - /url: /finanzas
+              - img [ref=e65]
+              - generic [ref=e67]: Finanzas
+        - generic [ref=e68]:
+          - generic [ref=e69]: Insights
+          - generic [ref=e70]:
+            - link "Analytics" [ref=e71] [cursor=pointer]:
+              - /url: /analytics
+              - img [ref=e72]
+              - generic [ref=e75]: Analytics
+            - link "Assets" [ref=e76] [cursor=pointer]:
+              - /url: /assets
+              - img [ref=e77]
+              - generic [ref=e79]: Assets
+      - generic [ref=e81]:
+        - generic [ref=e82]:
+          - generic [ref=e86]:
+            - generic [ref=e87]: Sistema activo
+            - generic [ref=e88]: YouTube API · sincronizando
+          - img [ref=e89]
+        - button "Cerrar sesión" [ref=e95]:
+          - img [ref=e96]
+          - text: Cerrar sesión
+        - generic [ref=e99]:
+          - generic [ref=e100]: v0.6 · @etradershub
+          - generic [ref=e101]: Equipo
+    - main [ref=e102]:
+      - generic [ref=e103]:
+        - generic [ref=e104]:
+          - generic [ref=e105]:
+            - generic [ref=e106]: CONTENIDO
+            - heading "Calendario editorial" [level=1] [ref=e107]
+            - paragraph [ref=e108]: Vista mensual del contenido programado · Traders Hub Podcast
+          - button "Nuevo evento" [ref=e110]:
+            - img [ref=e111]
+            - text: Nuevo evento
+        - generic [ref=e122]:
+          - generic [ref=e123]:
+            - generic [ref=e124]:
+              - heading "Resumen del mes" [level=2] [ref=e125]
+              - generic [ref=e126]: Snapshot del mes activo
+            - generic [ref=e127]:
+              - generic [ref=e129]:
+                - generic [ref=e130]: Total este mes
+                - generic [ref=e131]: "16"
+                - generic [ref=e133]: Eventos planificados
+              - generic [ref=e135]:
+                - generic [ref=e136]: Long-form
+                - generic [ref=e137]: "4"
+                - generic [ref=e139]: Episodios
+              - generic [ref=e141]:
+                - generic [ref=e142]: Shorts + TikToks
+                - generic [ref=e143]: "7"
+                - generic [ref=e145]: Vertical
+              - generic [ref=e147]:
+                - generic [ref=e148]: Posts IG
+                - generic [ref=e149]: "3"
+                - generic [ref=e151]: Carruseles + reels
+              - generic [ref=e153]:
+                - generic [ref=e154]: Publicados
+                - generic [ref=e155]: "0"
+                - generic [ref=e157]: 0% completado · /16
+          - generic [ref=e158]:
+            - generic [ref=e159]:
+              - heading "Mayo 2026" [level=2] [ref=e160]
+              - generic [ref=e161]:
+                - button "Mes anterior" [ref=e162]:
+                  - img [ref=e163]
+                - button "Hoy" [ref=e165]
+                - button "Mes siguiente" [ref=e166]:
+                  - img [ref=e167]
+            - generic [ref=e169]:
+              - button "All" [ref=e170]
+              - button "Long-form" [ref=e171]
+              - button "Short" [ref=e172]
+              - button "TikTok" [ref=e173]
+              - button "Post IG" [ref=e174]
+              - button "Story" [ref=e175]
+          - generic [ref=e177]:
+            - generic [ref=e178]:
+              - generic [ref=e179]: Lun
+              - generic [ref=e180]: Mar
+              - generic [ref=e181]: Mié
+              - generic [ref=e182]: Jue
+              - generic [ref=e183]: Vie
+              - generic [ref=e184]: Sáb
+              - generic [ref=e185]: Dom
+            - generic [ref=e186]:
+              - button "27" [ref=e187] [cursor=pointer]:
+                - generic [ref=e189]: "27"
+              - button "28 1 08:00 Episodio Master Monroy · perdió todo por ego" [ref=e191] [cursor=pointer]:
+                - generic [ref=e192]:
+                  - generic [ref=e193]: "28"
+                  - generic [ref=e194]: "1"
+                - button "08:00 Episodio Master Monroy · perdió todo por ego" [ref=e197]:
+                  - generic [ref=e198]: 08:00
+                  - generic [ref=e199]: Episodio Master Monroy · perdió todo por ego
+                  - img [ref=e201]
+              - button "29" [ref=e204] [cursor=pointer]:
+                - generic [ref=e206]: "29"
+              - button "30" [ref=e208] [cursor=pointer]:
+                - generic [ref=e210]: "30"
+              - button "1" [ref=e212] [cursor=pointer]:
+                - generic [ref=e214]: "1"
+              - button "2" [ref=e216] [cursor=pointer]:
+                - generic [ref=e218]: "2"
+              - button "3" [ref=e220] [cursor=pointer]:
+                - generic [ref=e222]: "3"
+              - button "4" [ref=e224] [cursor=pointer]:
+                - generic [ref=e226]: "4"
+              - 'button "5 3 20:00 Episodio Sup Dimi · gestión de riesgo extrema 12:00 Short: error #1 del retail trader 18:00 Story IG · BTS edición" [ref=e228] [cursor=pointer]':
+                - generic [ref=e229]:
+                  - generic [ref=e230]: "5"
+                  - generic [ref=e231]: "3"
+                - generic [ref=e232]:
+                  - button "20:00 Episodio Sup Dimi · gestión de riesgo extrema" [ref=e234]:
+                    - generic [ref=e235]: 20:00
+                    - generic [ref=e236]: Episodio Sup Dimi · gestión de riesgo extrema
+                    - img [ref=e238]
+                  - 'button "12:00 Short: error #1 del retail trader" [ref=e245]':
+                    - generic [ref=e246]: 12:00
+                    - generic [ref=e247]: "Short: error #1 del retail trader"
+                    - img [ref=e249]
+                  - button "18:00 Story IG · BTS edición" [ref=e252]:
+                    - generic [ref=e253]: 18:00
+                    - generic [ref=e254]: Story IG · BTS edición
+                    - img [ref=e256]
+              - button "6 1 10:00 TikTok hook · 4 años perdiendo" [ref=e258] [cursor=pointer]:
+                - generic [ref=e259]:
+                  - generic [ref=e260]: "6"
+                  - generic [ref=e261]: "1"
+                - button "10:00 TikTok hook · 4 años perdiendo" [ref=e264]:
+                  - generic [ref=e265]: 10:00
+                  - generic [ref=e266]: TikTok hook · 4 años perdiendo
+                  - img [ref=e268]
+              - 'button "7 2 14:00 Post IG carrusel · disponible en plataformas 20:00 Short: cómo no quemar tu cuenta" [ref=e270] [cursor=pointer]':
+                - generic [ref=e271]:
+                  - generic [ref=e272]: "7"
+                  - generic [ref=e273]: "2"
+                - generic [ref=e274]:
+                  - button "14:00 Post IG carrusel · disponible en plataformas" [ref=e276]:
+                    - generic [ref=e277]: 14:00
+                    - generic [ref=e278]: Post IG carrusel · disponible en plataformas
+                    - img [ref=e280]
+                  - 'button "20:00 Short: cómo no quemar tu cuenta" [ref=e283]':
+                    - generic [ref=e284]: 20:00
+                    - generic [ref=e285]: "Short: cómo no quemar tu cuenta"
+                    - img [ref=e287]
+              - button "8" [ref=e289] [cursor=pointer]:
+                - generic [ref=e291]: "8"
+              - button "9" [ref=e293] [cursor=pointer]:
+                - generic [ref=e295]: "9"
+              - button "10" [ref=e297] [cursor=pointer]:
+                - generic [ref=e299]: "10"
+              - button "11" [ref=e301] [cursor=pointer]:
+                - generic [ref=e303]: "11"
+              - 'button "12 1 12:00 Short: el ego destruye al trader" [ref=e305] [cursor=pointer]':
+                - generic [ref=e306]:
+                  - generic [ref=e307]: "12"
+                  - generic [ref=e308]: "1"
+                - 'button "12:00 Short: el ego destruye al trader" [ref=e311]':
+                  - generic [ref=e312]: 12:00
+                  - generic [ref=e313]: "Short: el ego destruye al trader"
+                  - img [ref=e315]
+              - button "13 1 18:00 TikTok · ¿Qué prop firm elegir?" [ref=e317] [cursor=pointer]:
+                - generic [ref=e318]:
+                  - generic [ref=e319]: "13"
+                  - generic [ref=e320]: "1"
+                - button "18:00 TikTok · ¿Qué prop firm elegir?" [ref=e323]:
+                  - generic [ref=e324]: 18:00
+                  - generic [ref=e325]: TikTok · ¿Qué prop firm elegir?
+                  - img [ref=e327]
+              - button "14 1 11:00 Post IG · sorteo 10K subs anuncio" [ref=e329] [cursor=pointer]:
+                - generic [ref=e330]:
+                  - generic [ref=e331]: "14"
+                  - generic [ref=e332]: "1"
+                - button "11:00 Post IG · sorteo 10K subs anuncio" [ref=e335]:
+                  - generic [ref=e336]: 11:00
+                  - generic [ref=e337]: Post IG · sorteo 10K subs anuncio
+                  - img [ref=e339]
+              - button "15 1 16:00 Grabación Mati Martinez · psicotrading" [ref=e341] [cursor=pointer]:
+                - generic [ref=e342]:
+                  - generic [ref=e343]: "15"
+                  - generic [ref=e344]: "1"
+                - button "16:00 Grabación Mati Martinez · psicotrading" [ref=e347]:
+                  - generic [ref=e348]: 16:00
+                  - generic [ref=e349]: Grabación Mati Martinez · psicotrading
+                  - img [ref=e351]
+              - button "16" [ref=e353] [cursor=pointer]:
+                - generic [ref=e355]: "16"
+              - button "17" [ref=e357] [cursor=pointer]:
+                - generic [ref=e359]: "17"
+              - button "18" [ref=e361] [cursor=pointer]:
+                - generic [ref=e363]: "18"
+              - 'button "19 3 08:00 Publicación: Episodio Sup Dimi 20:00 Short del episodio Sup Dimi · R:R 1:5 10:00 Story IG · lanzamiento episodio" [ref=e365] [cursor=pointer]':
+                - generic [ref=e366]:
+                  - generic [ref=e367]: "19"
+                  - generic [ref=e368]: "3"
+                - generic [ref=e369]:
+                  - 'button "08:00 Publicación: Episodio Sup Dimi" [ref=e371]':
+                    - generic [ref=e372]: 08:00
+                    - generic [ref=e373]: "Publicación: Episodio Sup Dimi"
+                    - img [ref=e375]
+                  - button "20:00 Short del episodio Sup Dimi · R:R 1:5" [ref=e378]:
+                    - generic [ref=e379]: 20:00
+                    - generic [ref=e380]: Short del episodio Sup Dimi · R:R 1:5
+                    - img [ref=e382]
+                  - button "10:00 Story IG · lanzamiento episodio" [ref=e385]:
+                    - generic [ref=e386]: 10:00
+                    - generic [ref=e387]: Story IG · lanzamiento episodio
+                    - img [ref=e389]
+              - button "20 1 12:00 TikTok corte del episodio" [ref=e391] [cursor=pointer]:
+                - generic [ref=e392]:
+                  - generic [ref=e393]: "20"
+                  - generic [ref=e394]: "1"
+                - button "12:00 TikTok corte del episodio" [ref=e397]:
+                  - generic [ref=e398]: 12:00
+                  - generic [ref=e399]: TikTok corte del episodio
+                  - img [ref=e401]
+              - button "21" [ref=e403] [cursor=pointer]:
+                - generic [ref=e405]: "21"
+              - button "22" [ref=e407] [cursor=pointer]:
+                - generic [ref=e409]: "22"
+              - button "23" [ref=e411] [cursor=pointer]:
+                - generic [ref=e413]: "23"
+              - button "24" [ref=e415] [cursor=pointer]:
+                - generic [ref=e417]: "24"
+              - button "25" [ref=e419] [cursor=pointer]:
+                - generic [ref=e421]: "25"
+              - button "26 1 16:00 Grabación nuevo guest TBD" [ref=e423] [cursor=pointer]:
+                - generic [ref=e424]:
+                  - generic [ref=e425]: "26"
+                  - generic [ref=e426]: "1"
+                - button "16:00 Grabación nuevo guest TBD" [ref=e429]:
+                  - generic [ref=e430]: 16:00
+                  - generic [ref=e431]: Grabación nuevo guest TBD
+                  - img [ref=e433]
+              - 'button "27 1 11:00 Carrusel IG: top 5 traders LATAM" [ref=e435] [cursor=pointer]':
+                - generic [ref=e436]:
+                  - generic [ref=e437]: "27"
+                  - generic [ref=e438]: "1"
+                - 'button "11:00 Carrusel IG: top 5 traders LATAM" [ref=e441]':
+                  - generic [ref=e442]: 11:00
+                  - generic [ref=e443]: "Carrusel IG: top 5 traders LATAM"
+                  - img [ref=e445]
+              - button "28" [ref=e447] [cursor=pointer]:
+                - generic [ref=e449]: "28"
+              - button "29" [ref=e451] [cursor=pointer]:
+                - generic [ref=e453]: "29"
+              - button "30" [ref=e455] [cursor=pointer]:
+                - generic [ref=e457]: "30"
+              - button "31" [ref=e459] [cursor=pointer]:
+                - generic [ref=e461]: "31"
+        - generic [ref=e113]:
+          - generic [ref=e114]: v0.7 · sync con Supabase
+          - generic [ref=e115]: localhost · @etradershub
+  - button "Abrir menu de creacion rapida" [ref=e118]:
+    - img [ref=e120]
+  - region
+  - alert [ref=e121]

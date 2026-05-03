@@ -1,0 +1,665 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e34]:
+    - complementary [ref=e35]:
+      - button "Colapsar menú" [ref=e37]:
+        - img [ref=e38]
+      - generic [ref=e41]:
+        - link "Traders Hub Traders Hub Operations" [ref=e42] [cursor=pointer]:
+          - /url: /
+          - img "Traders Hub" [ref=e45]
+          - generic [ref=e46]:
+            - generic [ref=e47]: Traders Hub
+            - generic [ref=e48]: Operations
+        - button "Notificaciones" [ref=e51]:
+          - img [ref=e52]
+      - navigation [ref=e55]:
+        - generic [ref=e56]:
+          - generic [ref=e57]: Overview
+          - link "Dashboard" [ref=e59] [cursor=pointer]:
+            - /url: /
+            - img [ref=e60]
+            - generic [ref=e65]: Dashboard
+        - generic [ref=e66]:
+          - generic [ref=e67]: Workflow
+          - generic [ref=e68]:
+            - link "Pipeline" [ref=e69] [cursor=pointer]:
+              - /url: /pipeline
+              - img [ref=e70]
+              - generic [ref=e72]: Pipeline
+            - link "Calendario" [ref=e73] [cursor=pointer]:
+              - /url: /calendario
+              - img [ref=e74]
+              - generic [ref=e76]: Calendario
+            - link "Guests" [ref=e77] [cursor=pointer]:
+              - /url: /guests
+              - img [ref=e78]
+              - generic [ref=e83]: Guests
+            - link "Comentarios" [ref=e84] [cursor=pointer]:
+              - /url: /comentarios
+              - img [ref=e86]
+              - generic [ref=e88]: Comentarios
+        - generic [ref=e89]:
+          - generic [ref=e90]: Business
+          - generic [ref=e91]:
+            - link "Sponsors" [ref=e92] [cursor=pointer]:
+              - /url: /sponsors
+              - img [ref=e93]
+              - generic [ref=e98]: Sponsors
+            - link "Finanzas" [ref=e99] [cursor=pointer]:
+              - /url: /finanzas
+              - img [ref=e100]
+              - generic [ref=e102]: Finanzas
+        - generic [ref=e103]:
+          - generic [ref=e104]: Insights
+          - generic [ref=e105]:
+            - link "Analytics" [ref=e106] [cursor=pointer]:
+              - /url: /analytics
+              - img [ref=e107]
+              - generic [ref=e110]: Analytics
+            - link "Assets" [ref=e111] [cursor=pointer]:
+              - /url: /assets
+              - img [ref=e112]
+              - generic [ref=e114]: Assets
+        - generic [ref=e115]:
+          - generic [ref=e116]: Cuenta
+          - generic [ref=e117]:
+            - link "Perfil" [ref=e118] [cursor=pointer]:
+              - /url: /perfil
+              - img [ref=e119]
+              - generic [ref=e123]: Perfil
+            - link "Settings" [ref=e124] [cursor=pointer]:
+              - /url: /settings
+              - img [ref=e125]
+              - generic [ref=e128]: Settings
+      - generic [ref=e130]:
+        - generic [ref=e131]:
+          - generic [ref=e135]:
+            - generic [ref=e136]: Sistema activo
+            - generic [ref=e137]: YouTube API · sincronizando
+          - img [ref=e138]
+        - button "Cerrar sesión" [ref=e144]:
+          - img [ref=e145]
+          - text: Cerrar sesión
+        - generic [ref=e148]:
+          - generic [ref=e149]: v0.8 · @etradershub
+          - generic [ref=e150]: Equipo
+    - main [ref=e151]:
+      - generic [ref=e152]:
+        - generic [ref=e154]:
+          - generic [ref=e155]: INBOX
+          - heading "Comentarios" [level=1] [ref=e156]
+          - paragraph [ref=e157]: Todos los comentarios de YouTube en un solo lugar — responde, archiva, gestiona.
+        - generic [ref=e158]:
+          - generic [ref=e160]:
+            - generic [ref=e161]: Total
+            - generic [ref=e162]: 1,000
+            - generic [ref=e164]: Todos los comentarios
+          - generic [ref=e166]:
+            - generic [ref=e167]: Sin responder
+            - generic [ref=e168]: 1,000
+            - generic [ref=e170]: Pendientes de respuesta
+          - generic [ref=e172]:
+            - generic [ref=e173]: Respondidos
+            - generic [ref=e174]: "0"
+            - generic [ref=e176]: Ya gestionados
+          - generic [ref=e178]:
+            - generic [ref=e179]: Archivados
+            - generic [ref=e180]: "0"
+            - generic [ref=e182]: Fuera del inbox
+        - generic [ref=e184]:
+          - generic [ref=e185]:
+            - img
+            - textbox "Buscar por autor o texto..." [ref=e186]
+          - generic [ref=e187]:
+            - button "Todos 1000" [ref=e188]:
+              - text: Todos
+              - generic [ref=e189]: "1000"
+            - button "Sin responder 1000" [ref=e190]:
+              - text: Sin responder
+              - generic [ref=e191]: "1000"
+            - button "Respondidos 0" [ref=e192]:
+              - text: Respondidos
+              - generic [ref=e193]: "0"
+            - button "Archivados 0" [ref=e194]:
+              - text: Archivados
+              - generic [ref=e195]: "0"
+            - generic [ref=e196]:
+              - combobox [ref=e197] [cursor=pointer]:
+                - option "Todos los videos" [selected]
+                - 'option "#ElAñoDelTrading: ¡Comparte tu lección, logro y me…"'
+                - option "Cambié el Trading Manual por la IA... y esto pasó …"
+                - option "Charla real sobre trading 🎙️ | Traders Hub"
+                - option "Cripto en riesgo😬"
+                - option "Después de mi Peor racha.. aprendí Esto del Tradin…"
+                - option "Discipline Won’t Save You if Your Strategy Sucks \ud83d…"
+                - option "El 97% de Traders NO Debería escuchar Este Debate"
+                - option "El monstruo final del trading no es el mercado | E…"
+                - option "El PSICOTRADING no es lo que te Dicen | Mati Marti…"
+                - option "El Trading NO es Difícil, pero el 90% lo hace Mal …"
+                - option "Esta es la Mejor Prop Firm para 2026 | Conferencia…"
+                - option "Estuve 4 años Sin Ser Rentable, hasta que Descubrí…"
+                - 'option "Experta en Mentalidad: Así logré $1.000.000 en Fon…"'
+                - option "Ganar en Real NO es Difícil, pero el 90% lo hace M…"
+                - option "Ganó $140.000 en un mes... y casi se quiebra | Mas…"
+                - option "Perdí 40% en una semana operando capital ajeno | D…"
+                - option "Por qué el fondeo vence al capital propio 💼"
+                - option "Quality Over Quantity in Trading 🔥"
+                - option "Routine & Discipline = Trading Success 🧘‍♂️"
+                - option "The Hunger to Be Profitable in Trading 🔥"
+                - option "The Importance of Journaling Your Trades 📖"
+                - option "Todo lo que un TRADER necesita, Aprender Identidad…"
+                - option "Traders Expertos explican su camino al exito | Con…"
+              - combobox [ref=e198] [cursor=pointer]:
+                - option "Más recientes" [selected]
+                - option "Con más likes"
+              - button "Limpiar filtros" [ref=e199]:
+                - img [ref=e200]
+                - text: Limpiar filtros
+          - generic [ref=e203]:
+            - button "Todos" [ref=e204]
+            - button "Positivo" [ref=e205]
+            - button "Pregunta" [ref=e206]
+            - button "Neutral" [ref=e207]
+            - button "Negativo" [ref=e208]
+            - button "Spam" [ref=e209]
+        - generic [ref=e210]:
+          - list [ref=e211]:
+            - listitem [ref=e212]:
+              - generic [ref=e214]:
+                - checkbox "Seleccionar comentario" [ref=e216] [cursor=pointer]
+                - img "@etradershub" [ref=e218]
+                - generic [ref=e220]:
+                  - generic [ref=e221]:
+                    - generic [ref=e223]: "@etradershub"
+                    - paragraph [ref=e224]: 💬 ¿Qué tema querés que cubramos en un próximo Short? Dejá tu sugerencia abajo 👇
+                    - generic [ref=e225]:
+                      - generic [ref=e226]:
+                        - img [ref=e227]
+                        - text: "0"
+                      - generic [ref=e229]: hace 4 horas
+                      - link "Charla real sobre trading 🎙️ | Traders Hub" [ref=e230] [cursor=pointer]:
+                        - /url: https://www.youtube.com/watch?v=B3rjc0kI-bs
+                        - generic [ref=e231]: Charla real sobre trading 🎙️ | Traders Hub
+                  - generic [ref=e232]:
+                    - link "Abrir en YouTube" [ref=e233] [cursor=pointer]:
+                      - /url: https://www.youtube.com/watch?v=B3rjc0kI-bs&lc=Ugwy0ki5vg9WJEnIo2J4AaABAg
+                      - img [ref=e234]
+                    - button "Marcar como respondido" [ref=e238]:
+                      - img [ref=e239]
+                    - button "Archivar" [ref=e242]:
+                      - img [ref=e243]
+            - listitem [ref=e246]:
+              - generic [ref=e248]:
+                - checkbox "Seleccionar comentario" [ref=e250] [cursor=pointer]
+                - img "@chichiwilote69" [ref=e252]
+                - generic [ref=e254]:
+                  - generic [ref=e255]:
+                    - generic [ref=e257]: "@chichiwilote69"
+                    - paragraph [ref=e258]: Exenlente podcast
+                    - generic [ref=e259]:
+                      - generic [ref=e260]:
+                        - img [ref=e261]
+                        - text: "0"
+                      - generic [ref=e263]: hace 7 horas
+                      - link "Estuve 4 años Sin Ser Rentable, hasta que Descubrí Esta Estrategia | @SantiagoTrader" [ref=e264] [cursor=pointer]:
+                        - /url: https://www.youtube.com/watch?v=rs7u3q7ArrE
+                        - generic [ref=e265]: Estuve 4 años Sin Ser Rentable, hasta que Descubrí Esta Estrategia | @SantiagoTrader
+                  - generic [ref=e266]:
+                    - link "Abrir en YouTube" [ref=e267] [cursor=pointer]:
+                      - /url: https://www.youtube.com/watch?v=rs7u3q7ArrE&lc=UgxKEHW9ituTBy9_gpR4AaABAg
+                      - img [ref=e268]
+                    - button "Marcar como respondido" [ref=e272]:
+                      - img [ref=e273]
+                    - button "Archivar" [ref=e276]:
+                      - img [ref=e277]
+            - listitem [ref=e280]:
+              - generic [ref=e282]:
+                - checkbox "Seleccionar comentario" [ref=e284] [cursor=pointer]
+                - img "@VinoNuevoMilenario" [ref=e286]
+                - generic [ref=e288]:
+                  - generic [ref=e289]:
+                    - generic [ref=e291]: "@VinoNuevoMilenario"
+                    - paragraph [ref=e292]: El día que probé la marihuana destruí mi vida y está gente habla como si fuera algo lindo no no no niña madura
+                    - generic [ref=e293]:
+                      - generic [ref=e294]:
+                        - img [ref=e295]
+                        - text: "0"
+                      - generic [ref=e297]: hace 8 horas
+                      - link "Ganar en Real NO es Difícil, pero el 90% lo hace Mal | @Solci.Fx." [ref=e298] [cursor=pointer]:
+                        - /url: https://www.youtube.com/watch?v=CE-h1oCb3qw
+                        - generic [ref=e299]: Ganar en Real NO es Difícil, pero el 90% lo hace Mal | @Solci.Fx.
+                  - generic [ref=e300]:
+                    - link "Abrir en YouTube" [ref=e301] [cursor=pointer]:
+                      - /url: https://www.youtube.com/watch?v=CE-h1oCb3qw&lc=UgwERcN0dgrJC7tNVtx4AaABAg
+                      - img [ref=e302]
+                    - button "Marcar como respondido" [ref=e306]:
+                      - img [ref=e307]
+                    - button "Archivar" [ref=e310]:
+                      - img [ref=e311]
+            - listitem [ref=e314]:
+              - generic [ref=e316]:
+                - checkbox "Seleccionar comentario" [ref=e318] [cursor=pointer]
+                - img "@alexponsvidal4481" [ref=e320]
+                - generic [ref=e322]:
+                  - generic [ref=e323]:
+                    - generic [ref=e325]: "@alexponsvidal4481"
+                    - paragraph [ref=e326]: Y LA ESTRATEGIA?
+                    - generic [ref=e327]:
+                      - generic [ref=e328]:
+                        - img [ref=e329]
+                        - text: "0"
+                      - generic [ref=e331]: hace 12 horas
+                      - link "Estuve 4 años Sin Ser Rentable, hasta que Descubrí Esta Estrategia | @SantiagoTrader" [ref=e332] [cursor=pointer]:
+                        - /url: https://www.youtube.com/watch?v=rs7u3q7ArrE
+                        - generic [ref=e333]: Estuve 4 años Sin Ser Rentable, hasta que Descubrí Esta Estrategia | @SantiagoTrader
+                  - generic [ref=e334]:
+                    - link "Abrir en YouTube" [ref=e335] [cursor=pointer]:
+                      - /url: https://www.youtube.com/watch?v=rs7u3q7ArrE&lc=UgyIJrqhDUqXTG92pE14AaABAg
+                      - img [ref=e336]
+                    - button "Marcar como respondido" [ref=e340]:
+                      - img [ref=e341]
+                    - button "Archivar" [ref=e344]:
+                      - img [ref=e345]
+            - listitem [ref=e348]:
+              - generic [ref=e350]:
+                - checkbox "Seleccionar comentario" [ref=e352] [cursor=pointer]
+                - img "@LuisAvila01" [ref=e354]
+                - generic [ref=e356]:
+                  - generic [ref=e357]:
+                    - generic [ref=e359]: "@LuisAvila01"
+                    - paragraph [ref=e360]: Excelente. Estoy empezando en este mundo del trading y Me identifico mucho con ella 🔥🔥🔥
+                    - generic [ref=e361]:
+                      - generic [ref=e362]:
+                        - img [ref=e363]
+                        - text: "0"
+                      - generic [ref=e365]: hace 12 horas
+                      - link "Ganar en Real NO es Difícil, pero el 90% lo hace Mal | @Solci.Fx." [ref=e366] [cursor=pointer]:
+                        - /url: https://www.youtube.com/watch?v=CE-h1oCb3qw
+                        - generic [ref=e367]: Ganar en Real NO es Difícil, pero el 90% lo hace Mal | @Solci.Fx.
+                  - generic [ref=e368]:
+                    - link "Abrir en YouTube" [ref=e369] [cursor=pointer]:
+                      - /url: https://www.youtube.com/watch?v=CE-h1oCb3qw&lc=UgwUbg6xRGAZMVYgy8J4AaABAg
+                      - img [ref=e370]
+                    - button "Marcar como respondido" [ref=e374]:
+                      - img [ref=e375]
+                    - button "Archivar" [ref=e378]:
+                      - img [ref=e379]
+            - listitem [ref=e382]:
+              - generic [ref=e384]:
+                - checkbox "Seleccionar comentario" [ref=e386] [cursor=pointer]
+                - img "@Jowi_S" [ref=e388]
+                - generic [ref=e390]:
+                  - generic [ref=e391]:
+                    - generic [ref=e393]: "@Jowi_S"
+                    - paragraph [ref=e394]: 🔥🔥🔥🔥🔥
+                    - generic [ref=e395]:
+                      - generic [ref=e396]:
+                        - img [ref=e397]
+                        - text: "1"
+                      - generic [ref=e399]: hace 13 horas
+                      - link "Estuve 4 años Sin Ser Rentable, hasta que Descubrí Esta Estrategia | @SantiagoTrader" [ref=e400] [cursor=pointer]:
+                        - /url: https://www.youtube.com/watch?v=rs7u3q7ArrE
+                        - generic [ref=e401]: Estuve 4 años Sin Ser Rentable, hasta que Descubrí Esta Estrategia | @SantiagoTrader
+                  - generic [ref=e402]:
+                    - link "Abrir en YouTube" [ref=e403] [cursor=pointer]:
+                      - /url: https://www.youtube.com/watch?v=rs7u3q7ArrE&lc=UgzlSRfmZakC1pgDdsd4AaABAg
+                      - img [ref=e404]
+                    - button "Marcar como respondido" [ref=e408]:
+                      - img [ref=e409]
+                    - button "Archivar" [ref=e412]:
+                      - img [ref=e413]
+            - listitem [ref=e416]:
+              - generic [ref=e418]:
+                - checkbox "Seleccionar comentario" [ref=e420] [cursor=pointer]
+                - img "@AI_Unlockers" [ref=e422]
+                - generic [ref=e424]:
+                  - generic [ref=e425]:
+                    - generic [ref=e427]: "@AI_Unlockers"
+                    - paragraph [ref=e428]: Alguien sabe donde esta el link del canal de discord?
+                    - generic [ref=e429]:
+                      - generic [ref=e430]:
+                        - img [ref=e431]
+                        - text: "0"
+                      - generic [ref=e433]: hace 14 horas
+                      - link "Estuve 4 años Sin Ser Rentable, hasta que Descubrí Esta Estrategia | @SantiagoTrader" [ref=e434] [cursor=pointer]:
+                        - /url: https://www.youtube.com/watch?v=rs7u3q7ArrE
+                        - generic [ref=e435]: Estuve 4 años Sin Ser Rentable, hasta que Descubrí Esta Estrategia | @SantiagoTrader
+                  - generic [ref=e436]:
+                    - link "Abrir en YouTube" [ref=e437] [cursor=pointer]:
+                      - /url: https://www.youtube.com/watch?v=rs7u3q7ArrE&lc=UgyiRzssiMD8UEN7ATh4AaABAg
+                      - img [ref=e438]
+                    - button "Marcar como respondido" [ref=e442]:
+                      - img [ref=e443]
+                    - button "Archivar" [ref=e446]:
+                      - img [ref=e447]
+            - listitem [ref=e450]:
+              - generic [ref=e452]:
+                - checkbox "Seleccionar comentario" [ref=e454] [cursor=pointer]
+                - img "@otherside5004" [ref=e456]
+                - generic [ref=e458]:
+                  - generic [ref=e459]:
+                    - generic [ref=e461]: "@otherside5004"
+                    - paragraph [ref=e462]: Supuestamente es trader profesional y dice que mando a la mier las cuentas la semana pasada 🤦 no creo absolutamente nada de ésta entrevista
+                    - generic [ref=e463]:
+                      - generic [ref=e464]:
+                        - img [ref=e465]
+                        - text: "0"
+                      - generic [ref=e467]: hace 16 horas
+                      - link "Ganar en Real NO es Difícil, pero el 90% lo hace Mal | @Solci.Fx." [ref=e468] [cursor=pointer]:
+                        - /url: https://www.youtube.com/watch?v=CE-h1oCb3qw
+                        - generic [ref=e469]: Ganar en Real NO es Difícil, pero el 90% lo hace Mal | @Solci.Fx.
+                  - generic [ref=e470]:
+                    - link "Abrir en YouTube" [ref=e471] [cursor=pointer]:
+                      - /url: https://www.youtube.com/watch?v=CE-h1oCb3qw&lc=Ugx_QZwgI16aI_gXNvV4AaABAg
+                      - img [ref=e472]
+                    - button "Marcar como respondido" [ref=e476]:
+                      - img [ref=e477]
+                    - button "Archivar" [ref=e480]:
+                      - img [ref=e481]
+            - listitem [ref=e484]:
+              - generic [ref=e486]:
+                - checkbox "Seleccionar comentario" [ref=e488] [cursor=pointer]
+                - img "@davidzamarron_5599" [ref=e490]
+                - generic [ref=e492]:
+                  - generic [ref=e493]:
+                    - generic [ref=e495]: "@davidzamarron_5599"
+                    - paragraph [ref=e496]: Estos videos son oro molido para los que vamos empezando en este camino. Escuchar diferentes historias no solo motiva, también te hace entender que sí es posible si no te rindes. 💪 Gracias por compartir tanto valor.
+                    - generic [ref=e497]:
+                      - generic [ref=e498]:
+                        - img [ref=e499]
+                        - text: "0"
+                      - generic [ref=e501]: hace 17 horas
+                      - link "Estuve 4 años Sin Ser Rentable, hasta que Descubrí Esta Estrategia | @SantiagoTrader" [ref=e502] [cursor=pointer]:
+                        - /url: https://www.youtube.com/watch?v=rs7u3q7ArrE
+                        - generic [ref=e503]: Estuve 4 años Sin Ser Rentable, hasta que Descubrí Esta Estrategia | @SantiagoTrader
+                  - generic [ref=e504]:
+                    - link "Abrir en YouTube" [ref=e505] [cursor=pointer]:
+                      - /url: https://www.youtube.com/watch?v=rs7u3q7ArrE&lc=UgxAW4rNbltEXuUgKWV4AaABAg
+                      - img [ref=e506]
+                    - button "Marcar como respondido" [ref=e510]:
+                      - img [ref=e511]
+                    - button "Archivar" [ref=e514]:
+                      - img [ref=e515]
+            - listitem [ref=e518]:
+              - generic [ref=e520]:
+                - checkbox "Seleccionar comentario" [ref=e522] [cursor=pointer]
+                - img "@GGR69-c4y" [ref=e524]
+                - generic [ref=e526]:
+                  - generic [ref=e527]:
+                    - generic [ref=e529]: "@GGR69-c4y"
+                    - paragraph [ref=e530]: Y sin embargo hay más hombres en el trading lol Q deje de fumar le hace dańo
+                    - generic [ref=e531]:
+                      - generic [ref=e532]:
+                        - img [ref=e533]
+                        - text: "0"
+                      - generic [ref=e535]: hace 19 horas
+                      - link "Ganar en Real NO es Difícil, pero el 90% lo hace Mal | @Solci.Fx." [ref=e536] [cursor=pointer]:
+                        - /url: https://www.youtube.com/watch?v=CE-h1oCb3qw
+                        - generic [ref=e537]: Ganar en Real NO es Difícil, pero el 90% lo hace Mal | @Solci.Fx.
+                  - generic [ref=e538]:
+                    - link "Abrir en YouTube" [ref=e539] [cursor=pointer]:
+                      - /url: https://www.youtube.com/watch?v=CE-h1oCb3qw&lc=UgyhIr_KdWucRWZ7abp4AaABAg
+                      - img [ref=e540]
+                    - button "Marcar como respondido" [ref=e544]:
+                      - img [ref=e545]
+                    - button "Archivar" [ref=e548]:
+                      - img [ref=e549]
+            - listitem [ref=e552]:
+              - generic [ref=e554]:
+                - checkbox "Seleccionar comentario" [ref=e556] [cursor=pointer]
+                - img "@fernandoalcinarodriguez" [ref=e558]
+                - generic [ref=e560]:
+                  - generic [ref=e561]:
+                    - generic [ref=e563]: "@fernandoalcinarodriguez"
+                    - paragraph [ref=e564]: Con esa intro ya se nota la cantidad de fantasías que van a hablar 😂 👎
+                    - generic [ref=e565]:
+                      - generic [ref=e566]:
+                        - img [ref=e567]
+                        - text: "0"
+                      - generic [ref=e569]: hace 20 horas
+                      - link "Ganar en Real NO es Difícil, pero el 90% lo hace Mal | @Solci.Fx." [ref=e570] [cursor=pointer]:
+                        - /url: https://www.youtube.com/watch?v=CE-h1oCb3qw
+                        - generic [ref=e571]: Ganar en Real NO es Difícil, pero el 90% lo hace Mal | @Solci.Fx.
+                  - generic [ref=e572]:
+                    - link "Abrir en YouTube" [ref=e573] [cursor=pointer]:
+                      - /url: https://www.youtube.com/watch?v=CE-h1oCb3qw&lc=Ugw7qc6b4g70HVpJZfN4AaABAg
+                      - img [ref=e574]
+                    - button "Marcar como respondido" [ref=e578]:
+                      - img [ref=e579]
+                    - button "Archivar" [ref=e582]:
+                      - img [ref=e583]
+            - listitem [ref=e586]:
+              - generic [ref=e588]:
+                - checkbox "Seleccionar comentario" [ref=e590] [cursor=pointer]
+                - img "@Marosruojes" [ref=e592]
+                - generic [ref=e594]:
+                  - generic [ref=e595]:
+                    - generic [ref=e597]: "@Marosruojes"
+                    - paragraph [ref=e598]: Llegué tarde😢😢
+                    - generic [ref=e599]:
+                      - generic [ref=e600]:
+                        - img [ref=e601]
+                        - text: "0"
+                      - generic [ref=e603]: hace 21 horas
+                      - link "Estuve 4 años Sin Ser Rentable, hasta que Descubrí Esta Estrategia | @SantiagoTrader" [ref=e604] [cursor=pointer]:
+                        - /url: https://www.youtube.com/watch?v=rs7u3q7ArrE
+                        - generic [ref=e605]: Estuve 4 años Sin Ser Rentable, hasta que Descubrí Esta Estrategia | @SantiagoTrader
+                  - generic [ref=e606]:
+                    - link "Abrir en YouTube" [ref=e607] [cursor=pointer]:
+                      - /url: https://www.youtube.com/watch?v=rs7u3q7ArrE&lc=UgwZXu-Rg17xkdLxMQx4AaABAg
+                      - img [ref=e608]
+                    - button "Marcar como respondido" [ref=e612]:
+                      - img [ref=e613]
+                    - button "Archivar" [ref=e616]:
+                      - img [ref=e617]
+            - listitem [ref=e620]:
+              - generic [ref=e622]:
+                - checkbox "Seleccionar comentario" [ref=e624] [cursor=pointer]
+                - img "@orfisbrea290" [ref=e626]
+                - generic [ref=e628]:
+                  - generic [ref=e629]:
+                    - generic [ref=e631]: "@orfisbrea290"
+                    - paragraph [ref=e632]: Este es un buen podcast muy bueno. La invitada es bien sincera y nos deja saber que el trading es posible es algo real de lo que si se puede vivir, y si análisis bien la entrevista te das cuenta que el truco siempre está en la mentalidad no hay más la clave está ahí ❤
+                    - generic [ref=e633]:
+                      - generic [ref=e634]:
+                        - img [ref=e635]
+                        - text: "1"
+                      - generic [ref=e637]: hace 1 día
+                      - link "Ganar en Real NO es Difícil, pero el 90% lo hace Mal | @Solci.Fx." [ref=e638] [cursor=pointer]:
+                        - /url: https://www.youtube.com/watch?v=CE-h1oCb3qw
+                        - generic [ref=e639]: Ganar en Real NO es Difícil, pero el 90% lo hace Mal | @Solci.Fx.
+                  - generic [ref=e640]:
+                    - link "Abrir en YouTube" [ref=e641] [cursor=pointer]:
+                      - /url: https://www.youtube.com/watch?v=CE-h1oCb3qw&lc=Ugwh1lrlIAPX7XqLM1t4AaABAg
+                      - img [ref=e642]
+                    - button "Marcar como respondido" [ref=e646]:
+                      - img [ref=e647]
+                    - button "Archivar" [ref=e650]:
+                      - img [ref=e651]
+            - listitem [ref=e654]:
+              - generic [ref=e656]:
+                - checkbox "Seleccionar comentario" [ref=e658] [cursor=pointer]
+                - img "@keithdarycruz5571" [ref=e660]
+                - generic [ref=e662]:
+                  - generic [ref=e663]:
+                    - generic [ref=e665]: "@keithdarycruz5571"
+                    - paragraph [ref=e666]: un trader nuevo con uan estrategia buena podria tener 10 stop seguidos? si por errores humanos , pero una estrategia super buena en manos de un trader prefecional de muchos años nunca tendra 10 stop seguidos al menos que este en un momento de bajo autoestima o problemas de sentimentales y emocionales, pero si todo esta bien en su vida no tendra 10 stop seguidos despues de tener muchos años siendo "rentable"
+                    - generic [ref=e667]:
+                      - generic [ref=e668]:
+                        - img [ref=e669]
+                        - text: "0"
+                      - generic [ref=e671]: hace 1 día
+                      - link "Ganar en Real NO es Difícil, pero el 90% lo hace Mal | @Solci.Fx." [ref=e672] [cursor=pointer]:
+                        - /url: https://www.youtube.com/watch?v=CE-h1oCb3qw
+                        - generic [ref=e673]: Ganar en Real NO es Difícil, pero el 90% lo hace Mal | @Solci.Fx.
+                  - generic [ref=e674]:
+                    - link "Abrir en YouTube" [ref=e675] [cursor=pointer]:
+                      - /url: https://www.youtube.com/watch?v=CE-h1oCb3qw&lc=UgzJLxpsQqTl35oPgBJ4AaABAg
+                      - img [ref=e676]
+                    - button "Marcar como respondido" [ref=e680]:
+                      - img [ref=e681]
+                    - button "Archivar" [ref=e684]:
+                      - img [ref=e685]
+            - listitem [ref=e688]:
+              - generic [ref=e690]:
+                - checkbox "Seleccionar comentario" [ref=e692] [cursor=pointer]
+                - img "@reglanet" [ref=e694]
+                - generic [ref=e696]:
+                  - generic [ref=e697]:
+                    - generic [ref=e699]: "@reglanet"
+                    - paragraph [ref=e700]: No tenés algo más fantasma?? 😂😂😂
+                    - generic [ref=e701]:
+                      - generic [ref=e702]:
+                        - img [ref=e703]
+                        - text: "0"
+                      - generic [ref=e705]: hace 1 día
+                      - link "Ganar en Real NO es Difícil, pero el 90% lo hace Mal | @Solci.Fx." [ref=e706] [cursor=pointer]:
+                        - /url: https://www.youtube.com/watch?v=CE-h1oCb3qw
+                        - generic [ref=e707]: Ganar en Real NO es Difícil, pero el 90% lo hace Mal | @Solci.Fx.
+                  - generic [ref=e708]:
+                    - link "Abrir en YouTube" [ref=e709] [cursor=pointer]:
+                      - /url: https://www.youtube.com/watch?v=CE-h1oCb3qw&lc=Ugw3dOE7KLyzbqzTYQN4AaABAg
+                      - img [ref=e710]
+                    - button "Marcar como respondido" [ref=e714]:
+                      - img [ref=e715]
+                    - button "Archivar" [ref=e718]:
+                      - img [ref=e719]
+            - listitem [ref=e722]:
+              - generic [ref=e724]:
+                - checkbox "Seleccionar comentario" [ref=e726] [cursor=pointer]
+                - img "@vicenteccoica1161" [ref=e728]
+                - generic [ref=e730]:
+                  - generic [ref=e731]:
+                    - generic [ref=e733]: "@vicenteccoica1161"
+                    - paragraph [ref=e734]: me alegra que sea una mujer exitosa en el trading pero tiene que saber que Dios nos puso en la tierra como ejemplo para los demas aun peor si tenemos seguidores
+                    - generic [ref=e735]:
+                      - generic [ref=e736]:
+                        - img [ref=e737]
+                        - text: "0"
+                      - generic [ref=e739]: hace 1 día
+                      - link "Ganar en Real NO es Difícil, pero el 90% lo hace Mal | @Solci.Fx." [ref=e740] [cursor=pointer]:
+                        - /url: https://www.youtube.com/watch?v=CE-h1oCb3qw
+                        - generic [ref=e741]: Ganar en Real NO es Difícil, pero el 90% lo hace Mal | @Solci.Fx.
+                  - generic [ref=e742]:
+                    - link "Abrir en YouTube" [ref=e743] [cursor=pointer]:
+                      - /url: https://www.youtube.com/watch?v=CE-h1oCb3qw&lc=UgzL_BnAyY_ieZ7i-wR4AaABAg
+                      - img [ref=e744]
+                    - button "Marcar como respondido" [ref=e748]:
+                      - img [ref=e749]
+                    - button "Archivar" [ref=e752]:
+                      - img [ref=e753]
+            - listitem [ref=e756]:
+              - generic [ref=e758]:
+                - checkbox "Seleccionar comentario" [ref=e760] [cursor=pointer]
+                - img "@eltestigodelmesias1945" [ref=e762]
+                - generic [ref=e764]:
+                  - generic [ref=e765]:
+                    - generic [ref=e767]: "@eltestigodelmesias1945"
+                    - paragraph [ref=e768]: En verdad existen salvación y condenación luego de esta vida
+                    - generic [ref=e769]:
+                      - generic [ref=e770]:
+                        - img [ref=e771]
+                        - text: "0"
+                      - generic [ref=e773]: hace 1 día
+                      - link "Ganar en Real NO es Difícil, pero el 90% lo hace Mal | @Solci.Fx." [ref=e774] [cursor=pointer]:
+                        - /url: https://www.youtube.com/watch?v=CE-h1oCb3qw
+                        - generic [ref=e775]: Ganar en Real NO es Difícil, pero el 90% lo hace Mal | @Solci.Fx.
+                  - generic [ref=e776]:
+                    - link "Abrir en YouTube" [ref=e777] [cursor=pointer]:
+                      - /url: https://www.youtube.com/watch?v=CE-h1oCb3qw&lc=Ugxa7uevBRTFPm5xp0R4AaABAg
+                      - img [ref=e778]
+                    - button "Marcar como respondido" [ref=e782]:
+                      - img [ref=e783]
+                    - button "Archivar" [ref=e786]:
+                      - img [ref=e787]
+            - listitem [ref=e790]:
+              - generic [ref=e792]:
+                - checkbox "Seleccionar comentario" [ref=e794] [cursor=pointer]
+                - img "@eltestigodelmesias1945" [ref=e796]
+                - generic [ref=e798]:
+                  - generic [ref=e799]:
+                    - generic [ref=e801]: "@eltestigodelmesias1945"
+                    - paragraph [ref=e802]: Que deje la mariguana y busque a Dios, ojo no entre a ninguna religión, pero que estudie la biblia.
+                    - generic [ref=e803]:
+                      - generic [ref=e804]:
+                        - img [ref=e805]
+                        - text: "0"
+                      - generic [ref=e807]: hace 1 día
+                      - link "Ganar en Real NO es Difícil, pero el 90% lo hace Mal | @Solci.Fx." [ref=e808] [cursor=pointer]:
+                        - /url: https://www.youtube.com/watch?v=CE-h1oCb3qw
+                        - generic [ref=e809]: Ganar en Real NO es Difícil, pero el 90% lo hace Mal | @Solci.Fx.
+                  - generic [ref=e810]:
+                    - link "Abrir en YouTube" [ref=e811] [cursor=pointer]:
+                      - /url: https://www.youtube.com/watch?v=CE-h1oCb3qw&lc=Ugw1t2yW_IdCkCR6M8N4AaABAg
+                      - img [ref=e812]
+                    - button "Marcar como respondido" [ref=e816]:
+                      - img [ref=e817]
+                    - button "Archivar" [ref=e820]:
+                      - img [ref=e821]
+            - listitem [ref=e824]:
+              - generic [ref=e826]:
+                - checkbox "Seleccionar comentario" [ref=e828] [cursor=pointer]
+                - img "@deeper_soundfy5528" [ref=e830]
+                - generic [ref=e832]:
+                  - generic [ref=e833]:
+                    - generic [ref=e834]:
+                      - generic [ref=e835]: "@deeper_soundfy5528"
+                      - generic [ref=e836]: Reply
+                    - paragraph [ref=e837]: "@RonnysPacheco por qué estás frustrado? Ánimo!"
+                    - generic [ref=e838]:
+                      - generic [ref=e839]:
+                        - img [ref=e840]
+                        - text: "0"
+                      - generic [ref=e842]: hace 2 días
+                      - link "Estuve 4 años Sin Ser Rentable, hasta que Descubrí Esta Estrategia | @SantiagoTrader" [ref=e843] [cursor=pointer]:
+                        - /url: https://www.youtube.com/watch?v=rs7u3q7ArrE
+                        - generic [ref=e844]: Estuve 4 años Sin Ser Rentable, hasta que Descubrí Esta Estrategia | @SantiagoTrader
+                  - generic [ref=e845]:
+                    - link "Abrir en YouTube" [ref=e846] [cursor=pointer]:
+                      - /url: https://www.youtube.com/watch?v=rs7u3q7ArrE&lc=UgwafU2FCzquumOgAXt4AaABAg.AW4NPuNAbp0AWHh7uLRn-K
+                      - img [ref=e847]
+                    - button "Marcar como respondido" [ref=e851]:
+                      - img [ref=e852]
+                    - button "Archivar" [ref=e855]:
+                      - img [ref=e856]
+            - listitem [ref=e859]:
+              - generic [ref=e861]:
+                - checkbox "Seleccionar comentario" [ref=e863] [cursor=pointer]
+                - img "@RonnysPacheco" [ref=e865]
+                - generic [ref=e867]:
+                  - generic [ref=e868]:
+                    - generic [ref=e869]:
+                      - generic [ref=e870]: "@RonnysPacheco"
+                      - generic [ref=e871]: Reply
+                    - paragraph [ref=e872]: Dejé la frustración 😂,
+                    - generic [ref=e873]:
+                      - generic [ref=e874]:
+                        - img [ref=e875]
+                        - text: "0"
+                      - generic [ref=e877]: hace 2 días
+                      - link "Estuve 4 años Sin Ser Rentable, hasta que Descubrí Esta Estrategia | @SantiagoTrader" [ref=e878] [cursor=pointer]:
+                        - /url: https://www.youtube.com/watch?v=rs7u3q7ArrE
+                        - generic [ref=e879]: Estuve 4 años Sin Ser Rentable, hasta que Descubrí Esta Estrategia | @SantiagoTrader
+                  - generic [ref=e880]:
+                    - link "Abrir en YouTube" [ref=e881] [cursor=pointer]:
+                      - /url: https://www.youtube.com/watch?v=rs7u3q7ArrE&lc=UgwafU2FCzquumOgAXt4AaABAg.AW4NPuNAbp0AWHgOInvdHp
+                      - img [ref=e882]
+                    - button "Marcar como respondido" [ref=e886]:
+                      - img [ref=e887]
+                    - button "Archivar" [ref=e890]:
+                      - img [ref=e891]
+          - generic [ref=e894]:
+            - generic [ref=e895]: Mostrando 1–20 de 1000
+            - generic [ref=e896]:
+              - button "Página anterior" [disabled] [ref=e897]:
+                - img [ref=e898]
+              - generic [ref=e900]: 1 / 50
+              - button "Página siguiente" [ref=e901]:
+                - img [ref=e902]
+        - generic [ref=e904]:
+          - generic [ref=e905]: v0.1 · sync con Supabase
+          - generic [ref=e906]: Diego + Claude
+  - button "Abrir menu de creacion rapida" [ref=e909]:
+    - img [ref=e911]
+  - region
+  - alert [ref=e30]: Comentarios · Traders Hub

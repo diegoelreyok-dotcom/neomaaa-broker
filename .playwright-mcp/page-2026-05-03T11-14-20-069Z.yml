@@ -1,0 +1,161 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - complementary [ref=e3]:
+      - button "Colapsar menú" [ref=e5]:
+        - img [ref=e6]
+      - generic [ref=e9]:
+        - link "Traders Hub Traders Hub Operations" [ref=e10] [cursor=pointer]:
+          - /url: /
+          - img "Traders Hub" [ref=e13]
+          - generic [ref=e14]:
+            - generic [ref=e15]: Traders Hub
+            - generic [ref=e16]: Operations
+        - button "Notificaciones" [ref=e207]:
+          - img [ref=e20]
+      - navigation [ref=e23]:
+        - generic [ref=e24]:
+          - generic [ref=e25]: Overview
+          - link "Dashboard" [ref=e27] [cursor=pointer]:
+            - /url: /
+            - img [ref=e28]
+            - generic [ref=e33]: Dashboard
+        - generic [ref=e34]:
+          - generic [ref=e35]: Workflow
+          - generic [ref=e36]:
+            - link "Pipeline" [ref=e37] [cursor=pointer]:
+              - /url: /pipeline
+              - img [ref=e38]
+              - generic [ref=e40]: Pipeline
+            - link "Calendario" [ref=e41] [cursor=pointer]:
+              - /url: /calendario
+              - img [ref=e42]
+              - generic [ref=e44]: Calendario
+            - link "Guests" [ref=e45] [cursor=pointer]:
+              - /url: /guests
+              - img [ref=e46]
+              - generic [ref=e51]: Guests
+        - generic [ref=e52]:
+          - generic [ref=e53]: Business
+          - generic [ref=e54]:
+            - link "Sponsors" [ref=e55] [cursor=pointer]:
+              - /url: /sponsors
+              - img [ref=e56]
+              - generic [ref=e61]: Sponsors
+            - link "Finanzas" [ref=e62] [cursor=pointer]:
+              - /url: /finanzas
+              - img [ref=e63]
+              - generic [ref=e65]: Finanzas
+        - generic [ref=e66]:
+          - generic [ref=e67]: Insights
+          - generic [ref=e68]:
+            - link "Analytics" [ref=e69] [cursor=pointer]:
+              - /url: /analytics
+              - img [ref=e70]
+              - generic [ref=e73]: Analytics
+            - link "Assets" [ref=e74] [cursor=pointer]:
+              - /url: /assets
+              - img [ref=e75]
+              - generic [ref=e77]: Assets
+      - generic [ref=e79]:
+        - generic [ref=e80]:
+          - generic [ref=e84]:
+            - generic [ref=e85]: Sistema activo
+            - generic [ref=e86]: YouTube API · sincronizando
+          - img [ref=e87]
+        - button "Cerrar sesión" [ref=e93]:
+          - img [ref=e94]
+          - text: Cerrar sesión
+        - generic [ref=e97]:
+          - generic [ref=e98]: v0.6 · @etradershub
+          - generic [ref=e99]: Equipo
+    - main [ref=e100]:
+      - generic [ref=e101]:
+        - generic [ref=e102]:
+          - generic [ref=e103]:
+            - generic [ref=e104]: INBOX
+            - heading "Notificaciones" [level=1] [ref=e105]
+            - paragraph [ref=e106]: Todas las alertas, avisos y actualizaciones del proyecto
+          - button "Marcar todas como leídas" [disabled] [ref=e108]:
+            - img [ref=e109]
+            - text: Marcar todas como leídas
+        - generic [ref=e112]:
+          - generic [ref=e114]:
+            - generic [ref=e115]: Total
+            - generic [ref=e116]: "1"
+            - generic [ref=e118]: Todas las notifs
+          - generic [ref=e120]:
+            - generic [ref=e121]: Sin leer
+            - generic [ref=e122]: "0"
+            - generic [ref=e124]: Pendientes de revisar
+          - generic [ref=e126]:
+            - generic [ref=e127]: Esta semana
+            - generic [ref=e128]: "1"
+            - generic [ref=e130]: Últimos 7 días
+          - generic [ref=e132]:
+            - generic [ref=e133]: Críticas
+            - generic [ref=e134]: "0"
+            - generic [ref=e136]: Alerts + warnings
+        - generic [ref=e138]:
+          - generic [ref=e139]:
+            - img
+            - textbox "Buscar por título o descripción..." [ref=e140]
+          - generic [ref=e141]:
+            - button "Todas 1" [ref=e165]:
+              - text: Todas
+              - generic [ref=e143]: "1"
+            - button "Sin leer 0" [ref=e208]:
+              - text: Sin leer
+              - generic [ref=e145]: "0"
+            - button "Leídas 1" [ref=e209]:
+              - text: Leídas
+              - generic [ref=e147]: "1"
+            - button "Archivadas 0" [ref=e148]:
+              - text: Archivadas
+              - generic [ref=e149]: "0"
+            - generic [ref=e150]:
+              - combobox [ref=e151] [cursor=pointer]:
+                - option "Todos los tipos" [selected]
+                - option "Alertas"
+                - option "Avisos"
+                - option "Info"
+                - option "Éxito"
+              - combobox [ref=e152] [cursor=pointer]:
+                - option "Todas las categorías" [selected]
+                - option "Sponsor"
+                - option "Contenido"
+                - option "API"
+                - option "Equipo"
+                - option "Finanzas"
+        - generic [ref=e153]:
+          - list [ref=e167]:
+            - listitem [ref=e168]:
+              - button "Seleccionar notificación Equipo Info SMOKE-NOTIF-MCP test mark as read hace 33 segundos Archivar" [ref=e210] [cursor=pointer]:
+                - generic [ref=e170]:
+                  - checkbox "Seleccionar notificación" [ref=e172]
+                  - img [ref=e176]
+                  - generic [ref=e179]:
+                    - generic [ref=e180]:
+                      - generic [ref=e181]:
+                        - generic [ref=e182]: Equipo
+                        - generic [ref=e183]: Info
+                      - generic [ref=e184]: SMOKE-NOTIF-MCP
+                      - generic [ref=e185]: test mark as read
+                    - generic [ref=e186]:
+                      - generic [ref=e187]: hace 33 segundos
+                      - button "Archivar" [ref=e193]:
+                        - img [ref=e194]
+          - generic [ref=e197]:
+            - generic [ref=e198]: Mostrando 1–1 de 1
+            - generic [ref=e199]:
+              - button "Página anterior" [disabled] [ref=e200]:
+                - img [ref=e201]
+              - generic [ref=e203]: 1 / 1
+              - button "Página siguiente" [disabled] [ref=e204]:
+                - img [ref=e205]
+        - generic [ref=e154]:
+          - generic [ref=e155]: v0.7 · sync con Supabase
+          - generic [ref=e156]: Diego + Claude
+  - button "Abrir menu de creacion rapida" [ref=e159]:
+    - img [ref=e161]
+  - region
+  - alert [ref=e162]

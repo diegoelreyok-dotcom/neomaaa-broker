@@ -1,0 +1,26 @@
+- generic [ref=e1]:
+  - generic [ref=e3]:
+    - generic [ref=e4]:
+      - img "Traders Hub" [ref=e6]
+      - generic [ref=e7]: Operations dashboard
+      - heading "Traders Hub" [level=1] [ref=e8]
+      - paragraph [ref=e9]: Acceso solo para el equipo
+    - generic [ref=e10]:
+      - generic [ref=e11]:
+        - generic [ref=e12]: Email
+        - generic [ref=e13]:
+          - img [ref=e14]
+          - textbox "Email" [active] [ref=e17]:
+            - /placeholder: diego@etradershub.com
+      - generic [ref=e18]:
+        - generic [ref=e19]: Contraseña
+        - generic [ref=e20]:
+          - img [ref=e21]
+          - textbox "Contraseña" [ref=e24]:
+            - /placeholder: ••••••••
+      - button "Entrar" [disabled] [ref=e25]:
+        - text: Entrar
+        - img [ref=e26]
+    - paragraph [ref=e28]: Si necesitás acceso, contactá a Diego o Yulia.
+  - region
+  - alert [ref=e29]

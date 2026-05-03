@@ -16,7 +16,22 @@
       "Bash(curl -sS -o /Users/gsiglobalteamevent/neomaaa-hub/public/flags/es.svg https://flagcdn.com/es.svg)",
       "Bash(curl -sS -o /Users/gsiglobalteamevent/neomaaa-hub/public/flags/ru.svg https://flagcdn.com/ru.svg)",
       "mcp__obsidian__read-note",
-      "Bash(grep -E \"sadd|scard|expire\" /Users/gsiglobalteamevent/neomaaa-hub/node_modules/@vercel/kv/dist/*.d.ts)"
+      "Bash(grep -E \"sadd|scard|expire\" /Users/gsiglobalteamevent/neomaaa-hub/node_modules/@vercel/kv/dist/*.d.ts)",
+      "Bash(curl -s http://localhost:3000/dashboard -o /dev/null -w \"code:%{http_code} time:%{time_total}s\\\\n\")",
+      "Bash(npm run *)",
+      "Bash(echo \"pid $!\")",
+      "Bash(curl -s -o /dev/null -w \"login:%{http_code}\\\\n\" http://localhost:3000/login)",
+      "Bash(curl -s -o /dev/null -w \"login:%{http_code} dashboard:%{http_code}\\\\n\" --max-time 5 http://localhost:3000/login)",
+      "Bash(curl -s -o /dev/null -w \"login:%{http_code}\\\\n\" --max-time 10 http://localhost:3000/login)",
+      "Bash(grep -nA1 \"neo-\" /Users/gsiglobalteamevent/neomaaa-hub/tailwind.config.ts)",
+      "Bash(curl -s -o /dev/null -w \"HTTP: %{http_code}\\\\n\" http://localhost:3000)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3000)",
+      "Bash(curl -s -o /dev/null -w \"HTTP: %{http_code} | Time: %{time_total}s\\\\n\" http://localhost:3000)",
+      "Bash(curl -sS -m 5 -o /dev/null -w \"HTTP: %{http_code}\\\\n\" http://localhost:3000)",
+      "Bash(curl -sI https://traders-hub-dashboard.vercel.app/login)",
+      "Bash(curl -sI https://www.vercel-status.com/api/v2/status.json)",
+      "Bash(curl -s https://www.vercel-status.com/api/v2/status.json)",
+      "Bash(vercel projects *)"
     ]
   }
 }

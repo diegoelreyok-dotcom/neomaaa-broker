@@ -1,0 +1,225 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - complementary [ref=e3]:
+      - button "Colapsar menú" [ref=e5]:
+        - img [ref=e6]
+      - generic [ref=e9]:
+        - link "Traders Hub Traders Hub Operations" [ref=e10] [cursor=pointer]:
+          - /url: /
+          - img "Traders Hub" [ref=e13]
+          - generic [ref=e14]:
+            - generic [ref=e15]: Traders Hub
+            - generic [ref=e16]: Operations
+        - button "Notificaciones" [ref=e19]:
+          - img [ref=e20]
+      - navigation [ref=e23]:
+        - generic [ref=e24]:
+          - generic [ref=e25]: Overview
+          - link "Dashboard" [ref=e27] [cursor=pointer]:
+            - /url: /
+            - img [ref=e29]
+            - generic [ref=e34]: Dashboard
+        - generic [ref=e35]:
+          - generic [ref=e36]: Workflow
+          - generic [ref=e37]:
+            - link "Pipeline" [ref=e38] [cursor=pointer]:
+              - /url: /pipeline
+              - img [ref=e39]
+              - generic [ref=e41]: Pipeline
+            - link "Calendario" [ref=e42] [cursor=pointer]:
+              - /url: /calendario
+              - img [ref=e43]
+              - generic [ref=e45]: Calendario
+            - link "Guests" [ref=e46] [cursor=pointer]:
+              - /url: /guests
+              - img [ref=e47]
+              - generic [ref=e52]: Guests
+            - link "Comentarios" [ref=e53] [cursor=pointer]:
+              - /url: /comentarios
+              - img [ref=e54]
+              - generic [ref=e56]: Comentarios
+        - generic [ref=e57]:
+          - generic [ref=e58]: Business
+          - generic [ref=e59]:
+            - link "Sponsors" [ref=e60] [cursor=pointer]:
+              - /url: /sponsors
+              - img [ref=e61]
+              - generic [ref=e66]: Sponsors
+            - link "Finanzas" [ref=e67] [cursor=pointer]:
+              - /url: /finanzas
+              - img [ref=e68]
+              - generic [ref=e70]: Finanzas
+        - generic [ref=e71]:
+          - generic [ref=e72]: Insights
+          - generic [ref=e73]:
+            - link "Analytics" [ref=e74] [cursor=pointer]:
+              - /url: /analytics
+              - img [ref=e75]
+              - generic [ref=e78]: Analytics
+            - link "Assets" [ref=e79] [cursor=pointer]:
+              - /url: /assets
+              - img [ref=e80]
+              - generic [ref=e82]: Assets
+        - generic [ref=e83]:
+          - generic [ref=e84]: Cuenta
+          - generic [ref=e85]:
+            - link "Perfil" [ref=e86] [cursor=pointer]:
+              - /url: /perfil
+              - img [ref=e87]
+              - generic [ref=e91]: Perfil
+            - link "Settings" [ref=e92] [cursor=pointer]:
+              - /url: /settings
+              - img [ref=e93]
+              - generic [ref=e96]: Settings
+      - generic [ref=e98]:
+        - generic [ref=e99]:
+          - generic [ref=e103]:
+            - generic [ref=e104]: Sistema activo
+            - generic [ref=e105]: YouTube API · sincronizando
+          - img [ref=e106]
+        - button "Cerrar sesión" [ref=e112]:
+          - img [ref=e113]
+          - text: Cerrar sesión
+        - generic [ref=e116]:
+          - generic [ref=e117]: v0.8 · @etradershub
+          - generic [ref=e118]: Equipo
+    - main [ref=e119]:
+      - generic [ref=e120]:
+        - generic [ref=e122]:
+          - generic [ref=e123]:
+            - img [ref=e124]
+            - generic [ref=e127]: Operations dashboard
+          - heading "Traders Hub en una vista" [level=1] [ref=e128]:
+            - text: Traders Hub
+            - generic [ref=e129]: en una vista
+          - paragraph [ref=e130]: Pulso del canal, inbox, sponsors y agenda en tiempo real. Datos en vivo desde Supabase + YouTube · @etradershub.
+          - generic [ref=e131]:
+            - link "Ver analytics" [ref=e132] [cursor=pointer]:
+              - /url: /analytics
+              - text: Ver analytics
+              - img [ref=e133]
+            - link "Pipeline del equipo" [ref=e136] [cursor=pointer]:
+              - /url: /pipeline
+        - generic [ref=e137]:
+          - generic [ref=e138]:
+            - heading "Señales en vivo" [level=2] [ref=e139]
+            - generic [ref=e140]: "Última actualización: ahora mismo"
+          - generic [ref=e207]:
+            - generic [ref=e209]:
+              - generic [ref=e210]: Suscriptores
+              - generic [ref=e211]: 10,300
+              - generic [ref=e213]: yt_channel_snapshots
+            - generic [ref=e215]:
+              - generic [ref=e216]: Comentarios pendientes
+              - generic [ref=e217]: 1,574
+              - generic [ref=e219]: sin responder
+            - generic [ref=e221]:
+              - generic [ref=e222]: Tareas activas
+              - generic [ref=e223]: "14"
+              - generic [ref=e225]: todo + in-progress
+            - generic [ref=e227]:
+              - generic [ref=e228]: MRR sponsors
+              - generic [ref=e229]: $1,500
+              - generic [ref=e231]: 1 activos
+        - generic [ref=e146]:
+          - generic [ref=e148]:
+            - generic [ref=e149]:
+              - generic [ref=e150]:
+                - img [ref=e152]
+                - generic [ref=e158]:
+                  - generic [ref=e159]: Top performer · 30d
+                  - generic [ref=e160]: Ganar en Real NO es Difícil, pero el 90% lo hace Mal | @Solci.Fx.
+              - generic [ref=e232]: Long-form
+            - generic [ref=e161]:
+              - link [ref=e233] [cursor=pointer]:
+                - /url: https://www.youtube.com/watch?v=CE-h1oCb3qw
+              - generic [ref=e163]:
+                - generic [ref=e234]:
+                  - generic [ref=e235]:
+                    - generic [ref=e236]:
+                      - img [ref=e237]
+                      - text: Views
+                    - generic [ref=e240]: 20,126
+                  - generic [ref=e241]:
+                    - generic [ref=e242]:
+                      - img [ref=e243]
+                      - text: Likes
+                    - generic [ref=e246]: 1,040
+                  - generic [ref=e247]:
+                    - generic [ref=e248]:
+                      - img [ref=e249]
+                      - text: Coments
+                    - generic [ref=e251]: "159"
+                - generic [ref=e252]:
+                  - generic [ref=e253]: Publicado 13 de abr
+                  - link "118 sin responder" [ref=e254] [cursor=pointer]:
+                    - /url: /comentarios
+                    - img [ref=e255]
+                    - text: 118 sin responder
+                    - img [ref=e258]
+          - generic [ref=e166]:
+            - generic [ref=e167]:
+              - img [ref=e169]
+              - generic [ref=e173]: Próximo en agenda
+            - generic [ref=e261]:
+              - generic [ref=e262]: "Short: error #1 del retail trader"
+              - generic [ref=e263]:
+                - generic [ref=e264]: Short
+                - generic [ref=e265]: planned
+              - generic [ref=e266]: mar 5 de may · 12:00
+              - generic [ref=e267]: "Owner: Lucas"
+            - link "Ver calendario" [ref=e268] [cursor=pointer]:
+              - /url: /calendario
+              - text: Ver calendario
+              - img [ref=e269]
+        - generic [ref=e178]:
+          - generic [ref=e179]:
+            - heading "Top tareas pendientes" [level=2] [ref=e180]
+            - generic [ref=e181]: 14 pendientes en total
+          - generic [ref=e272]:
+            - link "subir podcast domingo mesa redonda Lucas · Contenido · high Por hacer" [ref=e273] [cursor=pointer]:
+              - /url: /pipeline
+              - generic [ref=e276]:
+                - generic [ref=e277]: subir podcast domingo mesa redonda
+                - generic [ref=e278]:
+                  - generic [ref=e279]: Lucas
+                  - generic [ref=e280]: ·
+                  - generic [ref=e281]: Contenido
+                  - generic [ref=e282]: ·
+                  - generic [ref=e283]: high
+              - generic [ref=e284]:
+                - generic [ref=e285]: Por hacer
+                - img [ref=e286]
+            - link "Linktree nuevo desde cero Diego · Distribución · high Por hacer" [ref=e289] [cursor=pointer]:
+              - /url: /pipeline
+              - generic [ref=e292]:
+                - generic [ref=e293]: Linktree nuevo desde cero
+                - generic [ref=e294]:
+                  - generic [ref=e295]: Diego
+                  - generic [ref=e296]: ·
+                  - generic [ref=e297]: Distribución
+                  - generic [ref=e298]: ·
+                  - generic [ref=e299]: high
+              - generic [ref=e300]:
+                - generic [ref=e301]: Por hacer
+                - img [ref=e302]
+            - link "Reescribir description del canal Diego · Branding · high Por hacer" [ref=e305] [cursor=pointer]:
+              - /url: /pipeline
+              - generic [ref=e308]:
+                - generic [ref=e309]: Reescribir description del canal
+                - generic [ref=e310]:
+                  - generic [ref=e311]: Diego
+                  - generic [ref=e312]: ·
+                  - generic [ref=e313]: Branding
+                  - generic [ref=e314]: ·
+                  - generic [ref=e315]: high
+              - generic [ref=e316]:
+                - generic [ref=e317]: Por hacer
+                - img [ref=e318]
+        - generic [ref=e198]:
+          - generic [ref=e199]: v0.3 · señales en vivo
+          - generic [ref=e200]: Diego · Yulia · Lucas · @etradershub
+  - button "Abrir menu de creacion rapida" [ref=e203]:
+    - img [ref=e205]
+  - region
+  - alert [ref=e206]

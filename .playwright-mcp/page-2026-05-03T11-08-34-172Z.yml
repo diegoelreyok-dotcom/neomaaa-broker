@@ -1,0 +1,304 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - complementary [ref=e3]:
+      - button "Colapsar menú" [ref=e5]:
+        - img [ref=e6]
+      - generic [ref=e9]:
+        - link "Traders Hub Traders Hub Operations" [ref=e10] [cursor=pointer]:
+          - /url: /
+          - img "Traders Hub" [ref=e13]
+          - generic [ref=e14]:
+            - generic [ref=e15]: Traders Hub
+            - generic [ref=e16]: Operations
+        - button "Notificaciones" [ref=e19]:
+          - img [ref=e20]
+      - navigation [ref=e23]:
+        - generic [ref=e24]:
+          - generic [ref=e25]: Overview
+          - link "Dashboard" [ref=e27] [cursor=pointer]:
+            - /url: /
+            - img [ref=e28]
+            - generic [ref=e33]: Dashboard
+        - generic [ref=e34]:
+          - generic [ref=e35]: Workflow
+          - generic [ref=e36]:
+            - link "Pipeline" [ref=e37] [cursor=pointer]:
+              - /url: /pipeline
+              - img [ref=e39]
+              - generic [ref=e41]: Pipeline
+            - link "Calendario" [ref=e42] [cursor=pointer]:
+              - /url: /calendario
+              - img [ref=e43]
+              - generic [ref=e45]: Calendario
+            - link "Guests" [ref=e46] [cursor=pointer]:
+              - /url: /guests
+              - img [ref=e47]
+              - generic [ref=e52]: Guests
+        - generic [ref=e53]:
+          - generic [ref=e54]: Business
+          - generic [ref=e55]:
+            - link "Sponsors" [ref=e56] [cursor=pointer]:
+              - /url: /sponsors
+              - img [ref=e57]
+              - generic [ref=e62]: Sponsors
+            - link "Finanzas" [ref=e63] [cursor=pointer]:
+              - /url: /finanzas
+              - img [ref=e64]
+              - generic [ref=e66]: Finanzas
+        - generic [ref=e67]:
+          - generic [ref=e68]: Insights
+          - generic [ref=e69]:
+            - link "Analytics" [ref=e70] [cursor=pointer]:
+              - /url: /analytics
+              - img [ref=e71]
+              - generic [ref=e74]: Analytics
+            - link "Assets" [ref=e75] [cursor=pointer]:
+              - /url: /assets
+              - img [ref=e76]
+              - generic [ref=e78]: Assets
+      - generic [ref=e80]:
+        - generic [ref=e81]:
+          - generic [ref=e85]:
+            - generic [ref=e86]: Sistema activo
+            - generic [ref=e87]: YouTube API · sincronizando
+          - img [ref=e88]
+        - button "Cerrar sesión" [ref=e94]:
+          - img [ref=e95]
+          - text: Cerrar sesión
+        - generic [ref=e98]:
+          - generic [ref=e99]: v0.6 · @etradershub
+          - generic [ref=e100]: Equipo
+    - main [ref=e101]:
+      - generic [ref=e102]:
+        - generic [ref=e103]:
+          - generic [ref=e104]:
+            - generic [ref=e105]: OPERACIONES
+            - heading "Pipeline" [level=1] [ref=e106]
+            - paragraph [ref=e107]: Tareas del equipo · drag & drop entre columnas para cambiar estado
+          - generic [ref=e108]:
+            - button "Exportar CSV" [ref=e109]:
+              - img [ref=e110]
+              - text: Exportar CSV
+            - button "Nueva tarea" [ref=e113]:
+              - img [ref=e114]
+              - text: Nueva tarea
+        - generic [ref=e124]:
+          - generic [ref=e125]:
+            - img
+            - textbox "Buscar por título…" [ref=e126]
+          - generic [ref=e127]:
+            - generic [ref=e128]: Owner
+            - button "Todos" [ref=e129]
+            - button "Diego" [ref=e130]
+            - button "Yulia" [ref=e131]
+            - button "Lucas" [ref=e132]
+            - button "Editor" [ref=e133]
+          - generic [ref=e134]:
+            - generic [ref=e135]: Área
+            - button "Todas" [ref=e136]
+            - button "Branding" [ref=e137]
+            - button "Distribución" [ref=e138]
+            - button "Contenido" [ref=e139]
+            - button "Sponsors" [ref=e140]
+            - button "Redes" [ref=e141]
+            - button "Tech" [ref=e142]
+        - generic [ref=e143]:
+          - generic [ref=e144]:
+            - generic [ref=e145]:
+              - heading "TO DO" [level=3] [ref=e148]
+              - generic [ref=e149]: "14"
+            - generic [ref=e150]:
+              - button "Seleccionar tarea SMOKE-DEL-1 Tech DI" [ref=e151]:
+                - checkbox "Seleccionar tarea" [ref=e153] [cursor=pointer]
+                - generic [ref=e154]:
+                  - paragraph [ref=e155]: SMOKE-DEL-1
+                  - img [ref=e156]
+                - generic [ref=e157]:
+                  - generic [ref=e158]: Tech
+                  - generic "Diego" [ref=e159]: DI
+              - button "Seleccionar tarea SMOKE-DEL-2 Tech DI" [ref=e160]:
+                - checkbox "Seleccionar tarea" [ref=e162] [cursor=pointer]
+                - generic [ref=e163]:
+                  - paragraph [ref=e164]: SMOKE-DEL-2
+                  - img [ref=e165]
+                - generic [ref=e166]:
+                  - generic [ref=e167]: Tech
+                  - generic "Diego" [ref=e168]: DI
+              - button "Seleccionar tarea SMOKE-DEL-3 Tech DI" [ref=e169]:
+                - checkbox "Seleccionar tarea" [ref=e171] [cursor=pointer]
+                - generic [ref=e172]:
+                  - paragraph [ref=e173]: SMOKE-DEL-3
+                  - img [ref=e174]
+                - generic [ref=e175]:
+                  - generic [ref=e176]: Tech
+                  - generic "Diego" [ref=e177]: DI
+              - button "Seleccionar tarea Reescribir description del canal Branding DI" [ref=e178]:
+                - checkbox "Seleccionar tarea" [ref=e180] [cursor=pointer]
+                - generic [ref=e181]:
+                  - paragraph [ref=e182]: Reescribir description del canal
+                  - img [ref=e183]
+                - generic [ref=e185]:
+                  - generic [ref=e186]: Branding
+                  - generic "Diego" [ref=e187]: DI
+              - button "Seleccionar tarea Subir banners YT públicos Branding LU" [ref=e188]:
+                - checkbox "Seleccionar tarea" [ref=e190] [cursor=pointer]
+                - generic [ref=e191]:
+                  - paragraph [ref=e192]: Subir banners YT públicos
+                  - img [ref=e193]
+                - generic [ref=e194]:
+                  - generic [ref=e195]: Branding
+                  - generic "Lucas" [ref=e196]: LU
+              - button "Seleccionar tarea Borrar Shorts en inglés del canal Contenido LU" [ref=e197]:
+                - checkbox "Seleccionar tarea" [ref=e199] [cursor=pointer]
+                - generic [ref=e200]:
+                  - paragraph [ref=e201]: Borrar Shorts en inglés del canal
+                  - img [ref=e202]
+                - generic [ref=e204]:
+                  - generic [ref=e205]: Contenido
+                  - generic "Lucas" [ref=e206]: LU
+              - button "Seleccionar tarea Setear channel trailer 30-90s Contenido LU" [ref=e207]:
+                - checkbox "Seleccionar tarea" [ref=e209] [cursor=pointer]
+                - generic [ref=e210]:
+                  - paragraph [ref=e211]: Setear channel trailer 30-90s
+                  - img [ref=e212]
+                - generic [ref=e213]:
+                  - generic [ref=e214]: Contenido
+                  - generic "Lucas" [ref=e215]: LU
+              - button "Seleccionar tarea Sorteo 10K subs en Instagram Redes YU" [ref=e216]:
+                - checkbox "Seleccionar tarea" [ref=e218] [cursor=pointer]
+                - generic [ref=e219]:
+                  - paragraph [ref=e220]: Sorteo 10K subs en Instagram
+                  - img [ref=e221]
+                - generic [ref=e222]:
+                  - generic [ref=e223]: Redes
+                  - generic "Yulia" [ref=e224]: YU
+              - button "Seleccionar tarea Crear grupo WhatsApp comunidad Redes DI" [ref=e225]:
+                - checkbox "Seleccionar tarea" [ref=e227] [cursor=pointer]
+                - generic [ref=e228]:
+                  - paragraph [ref=e229]: Crear grupo WhatsApp comunidad
+                  - img [ref=e230]
+                - generic [ref=e231]:
+                  - generic [ref=e232]: Redes
+                  - generic "Diego" [ref=e233]: DI
+              - button "Seleccionar tarea Diego guest en 6 podcasts ES Distribución DI" [ref=e234]:
+                - checkbox "Seleccionar tarea" [ref=e236] [cursor=pointer]
+                - generic [ref=e237]:
+                  - paragraph [ref=e238]: Diego guest en 6 podcasts ES
+                  - img [ref=e239]
+                - generic [ref=e240]:
+                  - generic [ref=e241]: Distribución
+                  - generic "Diego" [ref=e242]: DI
+              - button "Seleccionar tarea Sembrar 8 listicles podcasts trading 2026 Distribución YU" [ref=e243]:
+                - checkbox "Seleccionar tarea" [ref=e245] [cursor=pointer]
+                - generic [ref=e246]:
+                  - paragraph [ref=e247]: Sembrar 8 listicles podcasts trading 2026
+                  - img [ref=e248]
+                - generic [ref=e249]:
+                  - generic [ref=e250]: Distribución
+                  - generic "Yulia" [ref=e251]: YU
+              - button "Seleccionar tarea Pillar page prop firms español Contenido LU" [ref=e252]:
+                - checkbox "Seleccionar tarea" [ref=e254] [cursor=pointer]
+                - generic [ref=e255]:
+                  - paragraph [ref=e256]: Pillar page prop firms español
+                  - img [ref=e257]
+                - generic [ref=e258]:
+                  - generic [ref=e259]: Contenido
+                  - generic "Lucas" [ref=e260]: LU
+              - button "Seleccionar tarea Sitio web propio del podcast Tech DI" [ref=e261]:
+                - checkbox "Seleccionar tarea" [ref=e263] [cursor=pointer]
+                - generic [ref=e264]:
+                  - paragraph [ref=e265]: Sitio web propio del podcast
+                  - img [ref=e266]
+                - generic [ref=e268]:
+                  - generic [ref=e269]: Tech
+                  - generic "Diego" [ref=e270]: DI
+              - button "Seleccionar tarea Linktree nuevo desde cero Distribución DI" [ref=e271]:
+                - checkbox "Seleccionar tarea" [ref=e273] [cursor=pointer]
+                - generic [ref=e274]:
+                  - paragraph [ref=e275]: Linktree nuevo desde cero
+                  - img [ref=e276]
+                - generic [ref=e278]:
+                  - generic [ref=e279]: Distribución
+                  - generic "Diego" [ref=e280]: DI
+            - generic [ref=e281]: 14 tareas
+          - generic [ref=e282]:
+            - generic [ref=e283]:
+              - heading "IN PROGRESS" [level=3] [ref=e286]
+              - generic [ref=e287]: "3"
+            - generic [ref=e288]:
+              - button "Seleccionar tarea subir podcast domingo mesa redonda Contenido LU" [ref=e289]:
+                - checkbox "Seleccionar tarea" [ref=e291] [cursor=pointer]
+                - generic [ref=e292]:
+                  - paragraph [ref=e293]: subir podcast domingo mesa redonda
+                  - img [ref=e294]
+                - generic [ref=e296]:
+                  - generic [ref=e297]: Contenido
+                  - generic "Lucas" [ref=e298]: LU
+              - button "Seleccionar tarea Carrusel 'disponible en' plataformas Redes LU" [ref=e299]:
+                - checkbox "Seleccionar tarea" [ref=e301] [cursor=pointer]
+                - generic [ref=e302]:
+                  - paragraph [ref=e303]: Carrusel 'disponible en' plataformas
+                  - img [ref=e304]
+                - generic [ref=e305]:
+                  - generic [ref=e306]: Redes
+                  - generic "Lucas" [ref=e307]: LU
+              - button "Seleccionar tarea Outreach Lucid/TPT/Apex afiliados Sponsors YU" [ref=e308]:
+                - checkbox "Seleccionar tarea" [ref=e310] [cursor=pointer]
+                - generic [ref=e311]:
+                  - paragraph [ref=e312]: Outreach Lucid/TPT/Apex afiliados
+                  - img [ref=e313]
+                - generic [ref=e315]:
+                  - generic [ref=e316]: Sponsors
+                  - generic "Yulia" [ref=e317]: YU
+            - generic [ref=e318]: 3 tareas
+          - generic [ref=e319]:
+            - generic [ref=e320]:
+              - heading "REVIEW" [level=3] [ref=e323]
+              - generic [ref=e324]: "1"
+            - button "Seleccionar tarea Recalibrar rate card vs Studio Analytics real Sponsors YU" [ref=e326]:
+              - checkbox "Seleccionar tarea" [ref=e328] [cursor=pointer]
+              - generic [ref=e329]:
+                - paragraph [ref=e330]: Recalibrar rate card vs Studio Analytics real
+                - img [ref=e331]
+              - generic [ref=e333]:
+                - generic [ref=e334]: Sponsors
+                - generic "Yulia" [ref=e335]: YU
+            - generic [ref=e336]: 1 tarea
+          - generic [ref=e337]:
+            - generic [ref=e338]:
+              - heading "DONE" [level=3] [ref=e341]
+              - generic [ref=e342]: "3"
+            - generic [ref=e343]:
+              - button "Seleccionar tarea Borrar menciones NEOMAAA del canal Branding DI" [ref=e344]:
+                - checkbox "Seleccionar tarea" [ref=e346] [cursor=pointer]
+                - generic [ref=e347]:
+                  - paragraph [ref=e348]: Borrar menciones NEOMAAA del canal
+                  - img [ref=e349]
+                - generic [ref=e351]:
+                  - generic [ref=e352]: Branding
+                  - generic "Diego" [ref=e353]: DI
+              - button "Seleccionar tarea Configurar nanobanana-mcp con Gemini Tech DI" [ref=e354]:
+                - checkbox "Seleccionar tarea" [ref=e356] [cursor=pointer]
+                - generic [ref=e357]:
+                  - paragraph [ref=e358]: Configurar nanobanana-mcp con Gemini
+                  - img [ref=e359]
+                - generic [ref=e360]:
+                  - generic [ref=e361]: Tech
+                  - generic "Diego" [ref=e362]: DI
+              - button "Seleccionar tarea Auditoría SEO completa del canal Branding DI" [ref=e363]:
+                - checkbox "Seleccionar tarea" [ref=e365] [cursor=pointer]
+                - generic [ref=e366]:
+                  - paragraph [ref=e367]: Auditoría SEO completa del canal
+                  - img [ref=e368]
+                - generic [ref=e370]:
+                  - generic [ref=e371]: Branding
+                  - generic "Diego" [ref=e372]: DI
+            - generic [ref=e373]: 3 tareas
+        - status [ref=e374]
+        - generic [ref=e116]:
+          - generic [ref=e117]: v0.7 · sync con Supabase
+          - generic [ref=e118]: Diego + Claude
+  - button "Abrir menu de creacion rapida" [ref=e121]:
+    - img [ref=e123]
+  - region
+  - alert [ref=e375]

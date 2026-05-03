@@ -1,0 +1,494 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - complementary [ref=e4]:
+      - button "Colapsar menú" [ref=e6]:
+        - img [ref=e7]
+      - generic [ref=e10]:
+        - link "Traders Hub Traders Hub Operations" [ref=e11] [cursor=pointer]:
+          - /url: /
+          - img "Traders Hub" [ref=e14]
+          - generic [ref=e15]:
+            - generic [ref=e16]: Traders Hub
+            - generic [ref=e17]: Operations
+        - button "Notificaciones" [ref=e20]:
+          - img [ref=e21]
+      - navigation [ref=e24]:
+        - generic [ref=e25]:
+          - generic [ref=e26]: Overview
+          - link "Dashboard" [ref=e28] [cursor=pointer]:
+            - /url: /
+            - img [ref=e29]
+            - generic [ref=e34]: Dashboard
+        - generic [ref=e35]:
+          - generic [ref=e36]: Workflow
+          - generic [ref=e37]:
+            - link "Pipeline" [ref=e38] [cursor=pointer]:
+              - /url: /pipeline
+              - img [ref=e39]
+              - generic [ref=e41]: Pipeline
+            - link "Calendario" [ref=e42] [cursor=pointer]:
+              - /url: /calendario
+              - img [ref=e43]
+              - generic [ref=e45]: Calendario
+            - link "Guests" [ref=e46] [cursor=pointer]:
+              - /url: /guests
+              - img [ref=e47]
+              - generic [ref=e52]: Guests
+            - link "Comentarios" [ref=e53] [cursor=pointer]:
+              - /url: /comentarios
+              - img [ref=e54]
+              - generic [ref=e56]: Comentarios
+        - generic [ref=e57]:
+          - generic [ref=e58]: Insights
+          - link "Assets" [ref=e60] [cursor=pointer]:
+            - /url: /assets
+            - img [ref=e61]
+            - generic [ref=e63]: Assets
+        - generic [ref=e64]:
+          - generic [ref=e65]: Cuenta
+          - generic [ref=e66]:
+            - link "Perfil" [ref=e67] [cursor=pointer]:
+              - /url: /perfil
+              - img [ref=e68]
+              - generic [ref=e72]: Perfil
+            - link "Settings" [ref=e73] [cursor=pointer]:
+              - /url: /settings
+              - img [ref=e74]
+              - generic [ref=e77]: Settings
+      - generic [ref=e79]:
+        - generic [ref=e80]:
+          - generic [ref=e84]:
+            - generic [ref=e85]: Sistema activo
+            - generic [ref=e86]: YouTube API · sincronizando
+          - img [ref=e87]
+        - button "Cerrar sesión" [ref=e93]:
+          - img [ref=e94]
+          - text: Cerrar sesión
+        - generic [ref=e97]:
+          - generic [ref=e98]: v0.8 · @etradershub
+          - generic [ref=e99]: Equipo
+    - main [ref=e100]:
+      - generic [ref=e101]:
+        - generic [ref=e102]:
+          - generic [ref=e103]:
+            - generic [ref=e104]: DATOS EN VIVO
+            - heading "Analytics" [level=1] [ref=e105]
+            - paragraph [ref=e106]: Métricas del canal · YouTube Data API v3 · @etradershub
+          - generic [ref=e107]:
+            - button "Refresh data" [ref=e108]
+            - button "Exportar PDF" [ref=e109]:
+              - img [ref=e110]
+              - text: Exportar PDF
+        - generic [ref=e113]:
+          - generic [ref=e114]:
+            - heading "Audience Growth" [level=2] [ref=e115]
+            - generic [ref=e116]: snapshots diarios · últimos 90 días
+          - generic [ref=e118]: Cargando snapshots…
+        - generic [ref=e119]:
+          - generic [ref=e120]:
+            - heading "KPIs del canal" [level=2] [ref=e121]
+            - generic [ref=e122]: "Última actualización: hace pocos min"
+          - generic [ref=e123]:
+            - generic [ref=e125]:
+              - generic [ref=e126]: Suscriptores
+              - generic [ref=e127]: 6,580
+              - generic [ref=e128]:
+                - generic [ref=e129]:
+                  - img [ref=e130]
+                  - text: +370 / mes
+                - generic [ref=e133]: vs ritmo objetivo
+            - generic [ref=e135]:
+              - generic [ref=e136]: Views totales
+              - generic [ref=e137]: 354,947
+              - generic [ref=e139]: histórico
+            - generic [ref=e141]:
+              - generic [ref=e142]: Videos publicados
+              - generic [ref=e143]: "199"
+              - generic [ref=e145]: canal completo
+            - generic [ref=e147]:
+              - generic [ref=e148]: Engagement
+              - generic [ref=e149]: 4.00%
+              - generic [ref=e151]: avg likes/views top 10
+        - generic [ref=e152]:
+          - generic [ref=e155]:
+            - generic [ref=e156]:
+              - generic [ref=e157]:
+                - generic [ref=e158]: Top performers
+                - heading "Top 10 videos por views" [level=3] [ref=e159]
+                - paragraph [ref=e160]: Hover sobre cualquier barra para destacar su valor
+              - generic [ref=e161]:
+                - generic [ref=e162]:
+                  - generic [ref=e163]: Top 1
+                  - generic [ref=e164]: 20,128
+                - generic [ref=e165]:
+                  - img [ref=e166]
+                  - text: views
+            - generic [ref=e169]: Pasá el mouse por una barra
+            - application [ref=e172]:
+              - generic [ref=e211]: 20.1K
+              - generic [ref=e213]:
+                - generic [ref=e215]: Ganar en Real NO es Difícil,pero el …
+                - generic [ref=e217]: El Trading NO es Difícil, peroel 90%…
+                - generic [ref=e219]: "Experta en Mentalidad: Asílogré $1.0…"
+                - generic [ref=e221]: Después de mi Peor racha..aprendí Es…
+                - generic [ref=e223]: El 97% de Traders NODebería escuchar…
+                - generic [ref=e225]: El monstruo final del tradingno es e…
+                - generic [ref=e227]: Estuve 4 años Sin SerRentable, hasta…
+                - generic [ref=e229]: Ganó $140.000 en un mes...y casi se …
+                - generic [ref=e231]: Perdí 40% en una semanaoperando capi…
+                - generic [ref=e233]: El PSICOTRADING no es loque te Dicen…
+          - generic [ref=e236]:
+            - generic [ref=e237]:
+              - generic [ref=e238]:
+                - generic [ref=e239]:
+                  - img [ref=e240]
+                  - text: Quality signal
+                - heading "Engagement vs views" [level=3] [ref=e243]
+                - paragraph [ref=e244]: Cada punto = un video · radio según engagement · hover para destacar
+              - generic [ref=e245]:
+                - generic [ref=e246]:
+                  - generic [ref=e247]: Mejor engagement
+                  - generic [ref=e248]: 12.73%
+                - generic [ref=e249]:
+                  - img [ref=e250]
+                  - text: promedio 8.42%
+            - generic [ref=e254]: Perdí 40% en una semana operando capital ajeno | Dimi·4.5K views · 315 likes · 254 comments
+            - application [ref=e257]:
+              - generic [ref=e297]:
+                - generic [ref=e298]:
+                  - generic [ref=e300]: "0"
+                  - generic [ref=e302]: 5.5K
+                  - generic [ref=e304]: 11.0K
+                  - generic [ref=e306]: 16.5K
+                  - generic [ref=e308]: 22.0K
+                - generic [ref=e309]: Views
+                - generic [ref=e310]:
+                  - generic [ref=e312]: 0%
+                  - generic [ref=e314]: 4%
+                  - generic [ref=e316]: 8%
+                  - generic [ref=e318]: 12%
+                  - generic [ref=e320]: 16%
+                - generic [ref=e321]: Engagement
+                - generic [ref=e322]: Avg 8.42%
+            - generic [ref=e323]:
+              - generic [ref=e324]: Videos
+              - generic [ref=e326]: Activo
+              - generic [ref=e328]: Promedio 8.42%
+        - generic [ref=e331]:
+          - generic [ref=e332]:
+            - generic [ref=e333]: Detalle granular
+            - heading "Detalle top 10" [level=3] [ref=e334]
+          - table [ref=e336]:
+            - rowgroup [ref=e337]:
+              - row "Video Publicado Views Likes Comments Duración" [ref=e338]:
+                - columnheader "Video" [ref=e339]
+                - columnheader "Publicado" [ref=e340]
+                - columnheader "Views" [ref=e341]
+                - columnheader "Likes" [ref=e342]
+                - columnheader "Comments" [ref=e343]
+                - columnheader "Duración" [ref=e344]
+            - rowgroup [ref=e345]:
+              - row "Ganar en Real NO es Difícil, pero el 90% lo hace Mal | @Solci.Fx. 13 abr 2026 20.128 1.040 159 35:42" [ref=e346]:
+                - cell "Ganar en Real NO es Difícil, pero el 90% lo hace Mal | @Solci.Fx." [ref=e347]:
+                  - link "Ganar en Real NO es Difícil, pero el 90% lo hace Mal | @Solci.Fx." [ref=e348] [cursor=pointer]:
+                    - /url: https://www.youtube.com/watch?v=CE-h1oCb3qw
+                    - generic [ref=e349]: Ganar en Real NO es Difícil, pero el 90% lo hace Mal | @Solci.Fx.
+                - cell "13 abr 2026" [ref=e350]
+                - cell "20.128" [ref=e351]
+                - cell "1.040" [ref=e352]
+                - cell "159" [ref=e353]
+                - cell "35:42" [ref=e354]
+              - row "El Trading NO es Difícil, pero el 90% lo hace Mal | Santi Amado 22 mar 2026 17.552 929 166 1:02:49" [ref=e355]:
+                - cell "El Trading NO es Difícil, pero el 90% lo hace Mal | Santi Amado" [ref=e356]:
+                  - link "El Trading NO es Difícil, pero el 90% lo hace Mal | Santi Amado" [ref=e357] [cursor=pointer]:
+                    - /url: https://www.youtube.com/watch?v=6HCQ3mvfKoY
+                    - generic [ref=e358]: El Trading NO es Difícil, pero el 90% lo hace Mal | Santi Amado
+                - cell "22 mar 2026" [ref=e359]
+                - cell "17.552" [ref=e360]
+                - cell "929" [ref=e361]
+                - cell "166" [ref=e362]
+                - cell "1:02:49" [ref=e363]
+              - 'row "Experta en Mentalidad: Así logré $1.000.000 en Fondeo en menos de 1 año | @Paulavallejosk_Fx 20 abr 2026 11.813 796 96 25:52" [ref=e364]':
+                - 'cell "Experta en Mentalidad: Así logré $1.000.000 en Fondeo en menos de 1 año | @Paulavallejosk_Fx" [ref=e365]':
+                  - 'link "Experta en Mentalidad: Así logré $1.000.000 en Fondeo en menos de 1 año | @Paulavallejosk_Fx" [ref=e366] [cursor=pointer]':
+                    - /url: https://www.youtube.com/watch?v=ItJoZTmCMI0
+                    - generic [ref=e367]: "Experta en Mentalidad: Así logré $1.000.000 en Fondeo en menos de 1 año | @Paulavallejosk_Fx"
+                - cell "20 abr 2026" [ref=e368]
+                - cell "11.813" [ref=e369]
+                - cell "796" [ref=e370]
+                - cell "96" [ref=e371]
+                - cell "25:52" [ref=e372]
+              - row "Después de mi Peor racha.. aprendí Esto del Trading | @FaFinanzas 15 mar 2026 8.995 574 150 1:01:37" [ref=e373]:
+                - cell "Después de mi Peor racha.. aprendí Esto del Trading | @FaFinanzas" [ref=e374]:
+                  - link "Después de mi Peor racha.. aprendí Esto del Trading | @FaFinanzas" [ref=e375] [cursor=pointer]:
+                    - /url: https://www.youtube.com/watch?v=0fArXmfj6JE
+                    - generic [ref=e376]: Después de mi Peor racha.. aprendí Esto del Trading | @FaFinanzas
+                - cell "15 mar 2026" [ref=e377]
+                - cell "8.995" [ref=e378]
+                - cell "574" [ref=e379]
+                - cell "150" [ref=e380]
+                - cell "1:01:37" [ref=e381]
+              - row "El 97% de Traders NO Debería escuchar Este Debate 30 mar 2026 7.159 457 117 1:56:19" [ref=e382]:
+                - cell "El 97% de Traders NO Debería escuchar Este Debate" [ref=e383]:
+                  - link "El 97% de Traders NO Debería escuchar Este Debate" [ref=e384] [cursor=pointer]:
+                    - /url: https://www.youtube.com/watch?v=VbktHNqwi60
+                    - generic [ref=e385]: El 97% de Traders NO Debería escuchar Este Debate
+                - cell "30 mar 2026" [ref=e386]
+                - cell "7.159" [ref=e387]
+                - cell "457" [ref=e388]
+                - cell "117" [ref=e389]
+                - cell "1:56:19" [ref=e390]
+              - row "El monstruo final del trading no es el mercado | Ema Trader 14 dic 2025 6.605 440 170 55:44" [ref=e391]:
+                - cell "El monstruo final del trading no es el mercado | Ema Trader" [ref=e392]:
+                  - link "El monstruo final del trading no es el mercado | Ema Trader" [ref=e393] [cursor=pointer]:
+                    - /url: https://www.youtube.com/watch?v=JGM3Lx96_SQ
+                    - generic [ref=e394]: El monstruo final del trading no es el mercado | Ema Trader
+                - cell "14 dic 2025" [ref=e395]
+                - cell "6.605" [ref=e396]
+                - cell "440" [ref=e397]
+                - cell "170" [ref=e398]
+                - cell "55:44" [ref=e399]
+              - row "Estuve 4 años Sin Ser Rentable, hasta que Descubrí Esta Estrategia | @SantiagoTrader 27 abr 2026 6.504 415 83 59:55" [ref=e400]:
+                - cell "Estuve 4 años Sin Ser Rentable, hasta que Descubrí Esta Estrategia | @SantiagoTrader" [ref=e401]:
+                  - link "Estuve 4 años Sin Ser Rentable, hasta que Descubrí Esta Estrategia | @SantiagoTrader" [ref=e402] [cursor=pointer]:
+                    - /url: https://www.youtube.com/watch?v=rs7u3q7ArrE
+                    - generic [ref=e403]: Estuve 4 años Sin Ser Rentable, hasta que Descubrí Esta Estrategia | @SantiagoTrader
+                - cell "27 abr 2026" [ref=e404]
+                - cell "6.504" [ref=e405]
+                - cell "415" [ref=e406]
+                - cell "83" [ref=e407]
+                - cell "59:55" [ref=e408]
+              - row "Ganó $140.000 en un mes... y casi se quiebra | Master Monroy 8 dic 2025 5.728 357 129 1:01:30" [ref=e409]:
+                - cell "Ganó $140.000 en un mes... y casi se quiebra | Master Monroy" [ref=e410]:
+                  - link "Ganó $140.000 en un mes... y casi se quiebra | Master Monroy" [ref=e411] [cursor=pointer]:
+                    - /url: https://www.youtube.com/watch?v=nxZzQ1rUF0s
+                    - generic [ref=e412]: Ganó $140.000 en un mes... y casi se quiebra | Master Monroy
+                - cell "8 dic 2025" [ref=e413]
+                - cell "5.728" [ref=e414]
+                - cell "357" [ref=e415]
+                - cell "129" [ref=e416]
+                - cell "1:01:30" [ref=e417]
+              - row "Perdí 40% en una semana operando capital ajeno | Dimi 21 dic 2025 4.471 315 254 57:58" [ref=e418]:
+                - cell "Perdí 40% en una semana operando capital ajeno | Dimi" [ref=e419]:
+                  - link "Perdí 40% en una semana operando capital ajeno | Dimi" [ref=e420] [cursor=pointer]:
+                    - /url: https://www.youtube.com/watch?v=G1ZWcH4s5fs
+                    - generic [ref=e421]: Perdí 40% en una semana operando capital ajeno | Dimi
+                - cell "21 dic 2025" [ref=e422]
+                - cell "4.471" [ref=e423]
+                - cell "315" [ref=e424]
+                - cell "254" [ref=e425]
+                - cell "57:58" [ref=e426]
+              - row "El PSICOTRADING no es lo que te Dicen | Mati Martinez 28 dic 2025 4.316 310 131 1:04:23" [ref=e427]:
+                - cell "El PSICOTRADING no es lo que te Dicen | Mati Martinez" [ref=e428]:
+                  - link "El PSICOTRADING no es lo que te Dicen | Mati Martinez" [ref=e429] [cursor=pointer]:
+                    - /url: https://www.youtube.com/watch?v=N0sm_0B0Gvs
+                    - generic [ref=e430]: El PSICOTRADING no es lo que te Dicen | Mati Martinez
+                - cell "28 dic 2025" [ref=e431]
+                - cell "4.316" [ref=e432]
+                - cell "310" [ref=e433]
+                - cell "131" [ref=e434]
+                - cell "1:04:23" [ref=e435]
+        - generic [ref=e436]:
+          - generic [ref=e437]:
+            - heading "Top performers" [level=2] [ref=e438]
+            - generic [ref=e439]: datos persistidos · yt_video_stats
+          - generic [ref=e440]:
+            - generic [ref=e442]:
+              - generic [ref=e443]:
+                - img [ref=e444]
+                - text: Top performers
+              - heading "Top 10 videos" [level=3] [ref=e450]
+              - paragraph [ref=e451]: Filtrá por período, formato y ordená por la métrica que importa
+            - generic [ref=e452]:
+              - generic [ref=e453]:
+                - generic [ref=e454]: Período
+                - generic [ref=e455]:
+                  - button "7d" [ref=e456]
+                  - button "30d" [ref=e457]
+                  - button "90d" [ref=e458]
+                  - button "Todos" [ref=e459]
+              - generic [ref=e460]:
+                - generic [ref=e461]: Formato
+                - generic [ref=e462]:
+                  - button "Todos" [ref=e463]
+                  - button "Long-form" [ref=e464]
+                  - button "Shorts" [ref=e465]
+              - generic [ref=e466]:
+                - generic [ref=e467]: Ordenar
+                - generic [ref=e468]:
+                  - button "Views" [ref=e469]
+                  - button "Engagement" [ref=e470]
+                  - button "Likes" [ref=e471]
+                  - button "Comments" [ref=e472]
+            - generic [ref=e473]:
+              - img [ref=e474]
+              - text: Cargando videos…
+        - generic [ref=e476]:
+          - generic [ref=e477]:
+            - heading "Long-form vs Shorts" [level=2] [ref=e478]
+            - generic [ref=e479]: ventana fija · últimos 90 días
+          - generic [ref=e480]:
+            - generic [ref=e481]:
+              - generic [ref=e482]:
+                - img [ref=e483]
+                - text: Format comparison
+              - heading "Long-form vs Shorts" [level=3] [ref=e489]
+              - paragraph [ref=e490]: Últimos 90 días · ventana fija para comparación justa
+            - generic [ref=e491]:
+              - img [ref=e492]
+              - text: Cargando…
+        - generic [ref=e494]:
+          - generic [ref=e497]:
+            - generic [ref=e498]:
+              - generic [ref=e499]:
+                - generic [ref=e500]:
+                  - img [ref=e501]
+                  - text: Audiencia
+                - heading "Comentarios por día" [level=3] [ref=e503]
+                - paragraph [ref=e504]: Pasá el mouse por un día para destacar su volumen
+              - generic [ref=e505]:
+                - generic [ref=e506]:
+                  - generic [ref=e507]: Pico del período
+                  - generic [ref=e508]: "20"
+                - generic [ref=e509]:
+                  - img [ref=e510]
+                  - text: total 50
+            - generic [ref=e514]: Promedio diario 12.5 · pico el 30 de abril
+            - application [ref=e517]:
+              - generic [ref=e534]:
+                - generic [ref=e535]:
+                  - generic [ref=e537]: 30 abr
+                  - generic [ref=e539]: 1 may
+                  - generic [ref=e541]: 2 may
+                  - generic [ref=e543]: 3 may
+                - generic [ref=e544]:
+                  - generic [ref=e546]: "0"
+                  - generic [ref=e548]: "5"
+                  - generic [ref=e550]: "10"
+                  - generic [ref=e552]: "15"
+                  - generic [ref=e554]: "20"
+                - generic [ref=e555]: Avg 12.5/día
+            - generic [ref=e556]:
+              - generic [ref=e557]: Comentarios diarios
+              - generic [ref=e559]: Día activo
+              - generic [ref=e561]: Promedio 12.5/día
+          - generic [ref=e564]:
+            - generic [ref=e565]:
+              - generic [ref=e566]:
+                - generic [ref=e567]: Voz de la audiencia
+                - heading "Últimos comentarios" [level=3] [ref=e568]
+              - generic [ref=e569]:
+                - img [ref=e570]
+                - text: 50 totales
+            - generic [ref=e572]:
+              - generic [ref=e573]:
+                - generic [ref=e574]:
+                  - generic [ref=e575]:
+                    - generic [ref=e576]: "@etradershub"
+                    - generic [ref=e577]: hace alrededor de 4 horas
+                  - paragraph [ref=e578]: 💬 ¿Qué tema querés que cubramos en un próximo Short? Dejá tu sugerencia abajo 👇
+                - link "Ver" [ref=e579] [cursor=pointer]:
+                  - /url: https://www.youtube.com/watch?v=B3rjc0kI-bs&lc=Ugwy0ki5vg9WJEnIo2J4AaABAg
+                  - text: Ver
+                  - img [ref=e580]
+              - generic [ref=e583]:
+                - generic [ref=e584]:
+                  - generic [ref=e585]:
+                    - generic [ref=e586]: "@chichiwilote69"
+                    - generic [ref=e587]: hace alrededor de 7 horas
+                  - paragraph [ref=e588]: Exenlente podcast
+                - link "Ver" [ref=e589] [cursor=pointer]:
+                  - /url: https://www.youtube.com/watch?v=rs7u3q7ArrE&lc=UgxKEHW9ituTBy9_gpR4AaABAg
+                  - text: Ver
+                  - img [ref=e590]
+              - generic [ref=e593]:
+                - generic [ref=e594]:
+                  - generic [ref=e595]:
+                    - generic [ref=e596]: "@VinoNuevoMilenario"
+                    - generic [ref=e597]: hace alrededor de 8 horas
+                  - paragraph [ref=e598]: El día que probé la marihuana destruí mi vida y está gente habla como si fuera algo lindo no no no …
+                - link "Ver" [ref=e599] [cursor=pointer]:
+                  - /url: https://www.youtube.com/watch?v=CE-h1oCb3qw&lc=UgwERcN0dgrJC7tNVtx4AaABAg
+                  - text: Ver
+                  - img [ref=e600]
+              - generic [ref=e603]:
+                - generic [ref=e604]:
+                  - generic [ref=e605]:
+                    - generic [ref=e606]: "@alexponsvidal4481"
+                    - generic [ref=e607]: hace alrededor de 12 horas
+                  - paragraph [ref=e608]: Y LA ESTRATEGIA?
+                - link "Ver" [ref=e609] [cursor=pointer]:
+                  - /url: https://www.youtube.com/watch?v=rs7u3q7ArrE&lc=UgyIJrqhDUqXTG92pE14AaABAg
+                  - text: Ver
+                  - img [ref=e610]
+              - generic [ref=e613]:
+                - generic [ref=e614]:
+                  - generic [ref=e615]:
+                    - generic [ref=e616]: "@LuisAvila01"
+                    - generic [ref=e617]: hace alrededor de 12 horas
+                  - paragraph [ref=e618]: Excelente. Estoy empezando en este mundo del trading y Me identifico mucho con ella 🔥🔥🔥
+                - link "Ver" [ref=e619] [cursor=pointer]:
+                  - /url: https://www.youtube.com/watch?v=CE-h1oCb3qw&lc=UgwUbg6xRGAZMVYgy8J4AaABAg
+                  - text: Ver
+                  - img [ref=e620]
+              - generic [ref=e623]:
+                - generic [ref=e624]:
+                  - generic [ref=e625]:
+                    - generic [ref=e626]: "@Jowi_S"
+                    - generic [ref=e627]: hace alrededor de 13 horas
+                  - paragraph [ref=e628]: 🔥🔥🔥🔥🔥
+                  - generic [ref=e629]:
+                    - img [ref=e630]
+                    - text: "1"
+                - link "Ver" [ref=e632] [cursor=pointer]:
+                  - /url: https://www.youtube.com/watch?v=rs7u3q7ArrE&lc=UgzlSRfmZakC1pgDdsd4AaABAg
+                  - text: Ver
+                  - img [ref=e633]
+              - generic [ref=e636]:
+                - generic [ref=e637]:
+                  - generic [ref=e638]:
+                    - generic [ref=e639]: "@AI_Unlockers"
+                    - generic [ref=e640]: hace alrededor de 14 horas
+                  - paragraph [ref=e641]: Alguien sabe donde esta el link del canal de discord?
+                - link "Ver" [ref=e642] [cursor=pointer]:
+                  - /url: https://www.youtube.com/watch?v=rs7u3q7ArrE&lc=UgyiRzssiMD8UEN7ATh4AaABAg
+                  - text: Ver
+                  - img [ref=e643]
+              - generic [ref=e646]:
+                - generic [ref=e647]:
+                  - generic [ref=e648]:
+                    - generic [ref=e649]: "@otherside5004"
+                    - generic [ref=e650]: hace alrededor de 16 horas
+                  - paragraph [ref=e651]: Supuestamente es trader profesional y dice que mando a la mier las cuentas la semana pasada 🤦 no c…
+                - link "Ver" [ref=e652] [cursor=pointer]:
+                  - /url: https://www.youtube.com/watch?v=CE-h1oCb3qw&lc=Ugx_QZwgI16aI_gXNvV4AaABAg
+                  - text: Ver
+                  - img [ref=e653]
+              - generic [ref=e656]:
+                - generic [ref=e657]:
+                  - generic [ref=e658]:
+                    - generic [ref=e659]: "@davidzamarron_5599"
+                    - generic [ref=e660]: hace alrededor de 17 horas
+                  - paragraph [ref=e661]: Estos videos son oro molido para los que vamos empezando en este camino. Escuchar diferentes histor…
+                - link "Ver" [ref=e662] [cursor=pointer]:
+                  - /url: https://www.youtube.com/watch?v=rs7u3q7ArrE&lc=UgxAW4rNbltEXuUgKWV4AaABAg
+                  - text: Ver
+                  - img [ref=e663]
+              - generic [ref=e666]:
+                - generic [ref=e667]:
+                  - generic [ref=e668]:
+                    - generic [ref=e669]: "@GGR69-c4y"
+                    - generic [ref=e670]: hace alrededor de 19 horas
+                  - paragraph [ref=e671]: Y sin embargo hay más hombres en el trading lol Q deje de fumar le hace dańo
+                - link "Ver" [ref=e672] [cursor=pointer]:
+                  - /url: https://www.youtube.com/watch?v=CE-h1oCb3qw&lc=UgyhIr_KdWucRWZ7abp4AaABAg
+                  - text: Ver
+                  - img [ref=e673]
+        - generic [ref=e676]:
+          - generic [ref=e677]: v0.2 · YouTube Data API v3
+          - generic [ref=e678]: Cache 1h · 3/5/2026
+  - button "Abrir menu de creacion rapida" [ref=e681]:
+    - img [ref=e683]
+  - region
+  - alert [ref=e684]
+  - generic [ref=e685]: "5"

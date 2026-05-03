@@ -1,0 +1,392 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - complementary [ref=e3]:
+      - button "Colapsar menú" [ref=e5]:
+        - img [ref=e6]
+      - generic [ref=e9]:
+        - link "Traders Hub Traders Hub Operations" [ref=e10] [cursor=pointer]:
+          - /url: /
+          - img "Traders Hub" [ref=e13]
+          - generic [ref=e14]:
+            - generic [ref=e15]: Traders Hub
+            - generic [ref=e16]: Operations
+        - button "Notificaciones" [ref=e19]:
+          - img [ref=e20]
+      - navigation [ref=e23]:
+        - generic [ref=e24]:
+          - generic [ref=e25]: Overview
+          - link "Dashboard" [ref=e27] [cursor=pointer]:
+            - /url: /
+            - img [ref=e28]
+            - generic [ref=e33]: Dashboard
+        - generic [ref=e34]:
+          - generic [ref=e35]: Workflow
+          - generic [ref=e36]:
+            - link "Pipeline" [ref=e37] [cursor=pointer]:
+              - /url: /pipeline
+              - img [ref=e38]
+              - generic [ref=e40]: Pipeline
+            - link "Calendario" [ref=e41] [cursor=pointer]:
+              - /url: /calendario
+              - img [ref=e42]
+              - generic [ref=e44]: Calendario
+            - link "Guests" [ref=e45] [cursor=pointer]:
+              - /url: /guests
+              - img [ref=e46]
+              - generic [ref=e51]: Guests
+        - generic [ref=e52]:
+          - generic [ref=e53]: Business
+          - generic [ref=e54]:
+            - link "Sponsors" [ref=e55] [cursor=pointer]:
+              - /url: /sponsors
+              - img [ref=e57]
+              - generic [ref=e62]: Sponsors
+            - link "Finanzas" [ref=e63] [cursor=pointer]:
+              - /url: /finanzas
+              - img [ref=e64]
+              - generic [ref=e66]: Finanzas
+        - generic [ref=e67]:
+          - generic [ref=e68]: Insights
+          - generic [ref=e69]:
+            - link "Analytics" [ref=e70] [cursor=pointer]:
+              - /url: /analytics
+              - img [ref=e71]
+              - generic [ref=e74]: Analytics
+            - link "Assets" [ref=e75] [cursor=pointer]:
+              - /url: /assets
+              - img [ref=e76]
+              - generic [ref=e78]: Assets
+      - generic [ref=e80]:
+        - generic [ref=e81]:
+          - generic [ref=e85]:
+            - generic [ref=e86]: Sistema activo
+            - generic [ref=e87]: YouTube API · sincronizando
+          - img [ref=e88]
+        - button "Cerrar sesión" [ref=e94]:
+          - img [ref=e95]
+          - text: Cerrar sesión
+        - generic [ref=e98]:
+          - generic [ref=e99]: v0.6 · @etradershub
+          - generic [ref=e100]: Equipo
+    - main [ref=e101]:
+      - generic [ref=e102]:
+        - generic [ref=e103]:
+          - generic [ref=e104]:
+            - generic [ref=e105]: REVENUE
+            - heading "Sponsors" [level=1] [ref=e106]
+            - paragraph [ref=e107]: Pipeline B2B y tracker de revenue · Diego + Yulia
+          - generic [ref=e108]:
+            - button "Exportar CSV" [ref=e109]:
+              - img [ref=e110]
+              - text: Exportar CSV
+            - button "Exportar PDF" [ref=e113]:
+              - img [ref=e114]
+              - text: Exportar PDF
+            - button "Nuevo prospecto" [ref=e117]:
+              - img [ref=e118]
+              - text: Nuevo prospecto
+        - generic [ref=e129]:
+          - generic [ref=e130]:
+            - heading "KPIs sponsors" [level=2] [ref=e131]
+            - generic [ref=e132]: Snapshot del pipeline filtrado
+          - generic [ref=e133]:
+            - generic [ref=e135]:
+              - generic [ref=e136]: MRR estimado
+              - generic [ref=e137]: $1,500/mes
+              - generic [ref=e139]: Sponsors active
+            - generic [ref=e141]:
+              - generic [ref=e142]: Prospectos activos
+              - generic [ref=e143]: "7"
+              - generic [ref=e145]: Prospect → Negotiation
+            - generic [ref=e147]:
+              - generic [ref=e148]: Firmados mes
+              - generic [ref=e149]: "0"
+              - generic [ref=e151]: Deals signed este mes
+            - generic [ref=e153]:
+              - generic [ref=e154]: Pipeline total
+              - generic [ref=e155]: $121,200
+              - generic [ref=e157]: Activos + en negociación
+        - generic [ref=e160]:
+          - generic [ref=e161]:
+            - generic [ref=e162]:
+              - generic [ref=e163]: Pipeline funnel
+              - heading "Conversión de deals" [level=3] [ref=e164]
+              - paragraph [ref=e165]: Prospect → Active. Hover sobre cualquier stage para ver su tasa.
+            - generic [ref=e167]:
+              - generic [ref=e168]: Prospect rate
+              - generic [ref=e169]: —
+          - generic [ref=e170]: "Prospect: 3 deals"
+          - generic [ref=e171]:
+            - generic [ref=e172] [cursor=pointer]:
+              - generic [ref=e173]: Prospect3
+              - generic [ref=e176]: "3"
+              - generic [ref=e177]: —
+            - generic [ref=e178] [cursor=pointer]:
+              - generic [ref=e179]: Contacted2
+              - generic [ref=e182]: "2"
+              - generic [ref=e184]: 67%
+            - generic [ref=e185] [cursor=pointer]:
+              - generic [ref=e186]: Proposal1
+              - generic [ref=e189]: "1"
+              - generic [ref=e191]: 50%
+            - generic [ref=e192] [cursor=pointer]:
+              - generic [ref=e193]: Negotiation1
+              - generic [ref=e196]: "1"
+              - generic [ref=e198]: 100%
+            - generic [ref=e199] [cursor=pointer]:
+              - generic [ref=e200]: Signed1
+              - generic [ref=e203]: "1"
+              - generic [ref=e205]: 100%
+            - generic [ref=e206] [cursor=pointer]:
+              - generic [ref=e207]: Active1
+              - generic [ref=e210]: "1"
+              - generic [ref=e212]: 100%
+          - generic [ref=e213]:
+            - generic [ref=e214]:
+              - generic [ref=e215]: Prospects ingreso
+              - generic [ref=e216]: "3"
+            - generic [ref=e217]:
+              - generic [ref=e218]: Active deals
+              - generic [ref=e219]: "1"
+            - generic [ref=e220]:
+              - generic [ref=e221]: Conversion overall
+              - generic [ref=e222]: 33.3%
+            - generic [ref=e223]:
+              - generic [ref=e224]:
+                - img [ref=e225]
+                - text: Lost deals
+              - generic [ref=e228]: "1"
+        - generic [ref=e229]:
+          - generic [ref=e230]:
+            - generic [ref=e231]: Industria
+            - button "Todas" [ref=e232]
+            - button "Broker" [ref=e233]
+            - button "Prop firm" [ref=e234]
+            - button "Software" [ref=e235]
+            - button "Edu" [ref=e236]
+            - button "Otro" [ref=e237]
+          - generic [ref=e238]:
+            - generic [ref=e239]: Owner
+            - button "Todos" [ref=e240]
+            - button "Diego" [ref=e241]
+            - button "Yulia" [ref=e242]
+        - generic [ref=e243]:
+          - generic [ref=e244]:
+            - button "Kanban" [ref=e245]:
+              - img [ref=e246]
+              - text: Kanban
+            - button "Tabla" [ref=e251]:
+              - img [ref=e252]
+              - text: Tabla
+          - generic [ref=e254]: 10 sponsors
+        - generic [ref=e255]:
+          - generic [ref=e257]:
+            - generic [ref=e258]:
+              - generic [ref=e259]:
+                - heading "Prospect" [level=3] [ref=e262]
+                - generic [ref=e263]: "3"
+              - generic [ref=e264]:
+                - generic [ref=e266]:
+                  - checkbox "Seleccionar sponsor" [ref=e268] [cursor=pointer]
+                  - button "SM SMOKE-Sponsor-MCP Broker" [ref=e269]:
+                    - generic [ref=e270]:
+                      - generic [ref=e271]: SM
+                      - generic [ref=e272]:
+                        - generic [ref=e273]: SMOKE-Sponsor-MCP
+                        - generic [ref=e275]: Broker
+                  - generic [ref=e276]:
+                    - generic "Diego" [ref=e277]: DI
+                    - button "hoy · ver" [ref=e278]
+                - generic [ref=e280]:
+                  - checkbox "Seleccionar sponsor" [ref=e282] [cursor=pointer]
+                  - button "AT Apex Trader Funding Prop firm est. $2,500 /mes" [ref=e283]:
+                    - generic [ref=e284]:
+                      - generic [ref=e285]: AT
+                      - generic [ref=e286]:
+                        - generic [ref=e287]: Apex Trader Funding
+                        - generic [ref=e289]: Prop firm
+                    - generic [ref=e290]:
+                      - text: est. $2,500
+                      - generic [ref=e291]: /mes
+                  - generic [ref=e292]:
+                    - generic "Yulia" [ref=e293]: YU
+                    - button "4d · ver" [ref=e294]
+                - generic [ref=e296]:
+                  - checkbox "Seleccionar sponsor" [ref=e298] [cursor=pointer]
+                  - button "ET Eight Trading Academy Edu est. $800 /mes" [ref=e299]:
+                    - generic [ref=e300]:
+                      - generic [ref=e301]: ET
+                      - generic [ref=e302]:
+                        - generic [ref=e303]: Eight Trading Academy
+                        - generic [ref=e305]: Edu
+                    - generic [ref=e306]:
+                      - text: est. $800
+                      - generic [ref=e307]: /mes
+                  - generic [ref=e308]:
+                    - generic "Yulia" [ref=e309]: YU
+                    - button "4d · ver" [ref=e310]
+            - generic [ref=e311]:
+              - generic [ref=e312]:
+                - heading "Contacted" [level=3] [ref=e315]
+                - generic [ref=e316]: "2"
+              - generic [ref=e317]:
+                - generic [ref=e319]:
+                  - checkbox "Seleccionar sponsor" [ref=e321] [cursor=pointer]
+                  - button "TO TopStepTrader Prop firm est. $2,800 /mes" [ref=e322]:
+                    - generic [ref=e323]:
+                      - generic [ref=e324]: TO
+                      - generic [ref=e325]:
+                        - generic [ref=e326]: TopStepTrader
+                        - generic [ref=e328]: Prop firm
+                    - generic [ref=e329]:
+                      - text: est. $2,800
+                      - generic [ref=e330]: /mes
+                  - generic [ref=e331]:
+                    - generic "Yulia" [ref=e332]: YU
+                    - button "5d · ver" [ref=e333]
+                - generic [ref=e335]:
+                  - checkbox "Seleccionar sponsor" [ref=e337] [cursor=pointer]
+                  - button "QU Quantower Software est. $1,200 /mes" [ref=e338]:
+                    - generic [ref=e339]:
+                      - generic [ref=e340]: QU
+                      - generic [ref=e341]:
+                        - generic [ref=e342]: Quantower
+                        - generic [ref=e344]: Software
+                    - generic [ref=e345]:
+                      - text: est. $1,200
+                      - generic [ref=e346]: /mes
+                  - generic [ref=e347]:
+                    - generic "Diego" [ref=e348]: DI
+                    - button "8d · ver" [ref=e349]
+            - generic [ref=e350]:
+              - generic [ref=e351]:
+                - heading "Proposal" [level=3] [ref=e354]
+                - generic [ref=e355]: "1"
+              - generic [ref=e358]:
+                - checkbox "Seleccionar sponsor" [ref=e360] [cursor=pointer]
+                - button "TR TradeProTrader Prop firm est. $1,800 /mes" [ref=e361]:
+                  - generic [ref=e362]:
+                    - generic [ref=e363]: TR
+                    - generic [ref=e364]:
+                      - generic [ref=e365]: TradeProTrader
+                      - generic [ref=e367]: Prop firm
+                  - generic [ref=e368]:
+                    - text: est. $1,800
+                    - generic [ref=e369]: /mes
+                - generic [ref=e370]:
+                  - generic "Diego" [ref=e371]: DI
+                  - button "6d · ver" [ref=e372]
+            - generic [ref=e373]:
+              - generic [ref=e374]:
+                - heading "Negotiation" [level=3] [ref=e377]
+                - generic [ref=e378]: "1"
+              - generic [ref=e381]:
+                - checkbox "Seleccionar sponsor" [ref=e383] [cursor=pointer]
+                - button "LT Lucid Trading Prop firm est. $3,500 /mes" [ref=e384]:
+                  - generic [ref=e385]:
+                    - generic [ref=e386]: LT
+                    - generic [ref=e387]:
+                      - generic [ref=e388]: Lucid Trading
+                      - generic [ref=e390]: Prop firm
+                  - generic [ref=e391]:
+                    - text: est. $3,500
+                    - generic [ref=e392]: /mes
+                - generic [ref=e393]:
+                  - generic "Yulia" [ref=e394]: YU
+                  - button "3d · ver" [ref=e395]
+            - generic [ref=e396]:
+              - generic [ref=e397]:
+                - heading "Signed" [level=3] [ref=e400]
+                - generic [ref=e401]: "1"
+              - generic [ref=e404]:
+                - checkbox "Seleccionar sponsor" [ref=e406] [cursor=pointer]
+                - button "TR TradingView Software $2,200 /mes" [ref=e407]:
+                  - generic [ref=e408]:
+                    - generic [ref=e409]: TR
+                    - generic [ref=e410]:
+                      - generic [ref=e411]: TradingView
+                      - generic [ref=e413]: Software
+                  - generic [ref=e414]:
+                    - text: $2,200
+                    - generic [ref=e415]: /mes
+                - generic [ref=e416]:
+                  - generic "Diego" [ref=e417]: DI
+                  - button "7d · ver" [ref=e418]
+            - generic [ref=e419]:
+              - generic [ref=e420]:
+                - heading "Active" [level=3] [ref=e423]
+                - generic [ref=e424]: "1"
+              - generic [ref=e427]:
+                - checkbox "Seleccionar sponsor" [ref=e429] [cursor=pointer]
+                - button "TR Tradeify Prop firm $1,500 /mes" [ref=e430]:
+                  - generic [ref=e431]:
+                    - generic [ref=e432]: TR
+                    - generic [ref=e433]:
+                      - generic [ref=e434]: Tradeify
+                      - generic [ref=e436]: Prop firm
+                  - generic [ref=e437]:
+                    - text: $1,500
+                    - generic [ref=e438]: /mes
+                - generic [ref=e439]:
+                  - generic "Diego" [ref=e440]: DI
+                  - button "18d · ver" [ref=e441]
+            - generic [ref=e442]:
+              - generic [ref=e443]:
+                - heading "Lost" [level=3] [ref=e446]
+                - generic [ref=e447]: "1"
+              - generic [ref=e450]:
+                - checkbox "Seleccionar sponsor" [ref=e452] [cursor=pointer]
+                - button "MR MyForexFunds Reborn Prop firm" [ref=e453]:
+                  - generic [ref=e454]:
+                    - generic [ref=e455]: MR
+                    - generic [ref=e456]:
+                      - generic [ref=e457]: MyForexFunds Reborn
+                      - generic [ref=e459]: Prop firm
+                - generic [ref=e460]:
+                  - generic "Yulia" [ref=e461]: YU
+                  - button "23d · ver" [ref=e462]
+          - status [ref=e463]
+        - generic [ref=e466]:
+          - generic [ref=e467]:
+            - generic [ref=e468]:
+              - generic [ref=e469]: Revenue projection
+              - heading "MRR proyectado · próximos 6 meses" [level=3] [ref=e470]
+              - paragraph [ref=e471]: Sponsors active + signed · hover sobre un mes para destacarlo
+            - generic [ref=e472]:
+              - generic [ref=e473]:
+                - generic [ref=e474]: Mes pico
+                - generic [ref=e475]: $3,700
+              - generic [ref=e476]:
+                - img [ref=e477]
+                - text: MRR
+          - generic [ref=e481]: May 26·$3,700·1 active/1 signed
+          - application [ref=e484]:
+            - generic [ref=e531]:
+              - generic [ref=e532]:
+                - generic [ref=e534]: May 26
+                - generic [ref=e536]: Jun 26
+                - generic [ref=e538]: Jul 26
+                - generic [ref=e540]: Aug 26
+                - generic [ref=e542]: Sep 26
+                - generic [ref=e544]: Oct 26
+              - generic [ref=e545]:
+                - generic [ref=e547]: $0k
+                - generic [ref=e549]: $2k
+                - generic [ref=e551]: $3k
+                - generic [ref=e553]: $4k
+              - generic [ref=e554]: Avg $3,700
+          - generic [ref=e555]:
+            - generic [ref=e556]: Active
+            - generic [ref=e558]: Signed
+            - generic [ref=e560]: Promedio $3,700
+            - generic [ref=e562]:
+              - text: Total 6m
+              - generic [ref=e563]: $22,200
+        - generic [ref=e120]:
+          - generic [ref=e121]: v0.7 · sync con Supabase
+          - generic [ref=e122]: Diego + Claude · @etradershub
+  - button "Abrir menu de creacion rapida" [ref=e125]:
+    - img [ref=e127]
+  - region
+  - alert [ref=e128]
+  - generic [ref=e564]: $0k
